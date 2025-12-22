@@ -1,0 +1,21 @@
+General
+Butterflies might be able to increase
+Double check each B. affinis by hand 
+Abundance won'tn work also because many spp have multiple photos of same individual 
+"NA/s sometime indicate true zeroes, figure out which ones they were and add zeroes. Or can indicate just a weird photo (esp if sandwiched between same date/tag photos), delete those ones "
+Many apis mellifera can be id'd to species
+Odonata probably should all be changed to unknown since they weren't in the program 
+perdita tends to be wrong 
+Xylocopa tends to be wrong
+prob 1 is a poor determinant of agreement
+Consequently combination is a poor determinant of agreement
+
+
+
+
+To program 
+cutoff points for photo quality 
+general rules for spp except affinis and butterflies 
+"det_confidence cutoff point for agree (or reduce) is 0.7 for most things, except for butterflies (0.5 cutoff and check for species) "
+All apis will be apis mellifera
+Bee spp reduce 

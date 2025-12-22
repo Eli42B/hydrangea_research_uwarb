@@ -1,0 +1,287 @@
+Date,Tag Number,NoVialSample,SumVisual,Cultivar,Species,AscensionNumber,Inflorescence Type,False Sepals,Flower Type,PaniclesPerTransect,TotalPaniclesA,AvgInflorescencesPerPanicle,transects_per_plant,TotalPaniclesB,TotalInflorescences_A,TotalInflorescences_B,TotalInflorescences_AB,Start Time,End Time,Rain,Wind,Cloud,Temp (F),Apis mellifera (honeybee),Bombus_affinis,Bombus_auricomus,Bombus_impatiens,Bombus_bimaculatus,Bombus_griseocollis,Bombus_vagans,Celastrina_ladon,Dolichovespula,Epargyreus.clarus,Libythean_ carinenta,Pieris_rapae,Polygonia_comma,Sphecius_speciosus,Sphex,Vanessa.atalanta,Vespidae,UnknownWasp,Xylocopa,NoSample,Notes
+7/3/2024,11F,0,0,InvincibelleÂ® Rub,Hydrangea arborescens,16026,Very dense,4,Mop,,82,119,2.143298939,0,9758,0,9758,0.667361111,0.672916667,0,2,10,85,,,,,,,,,,,,,,,,,,,,,7/3 to 7/17 are missing a lot of pannicle data because I forgot
+7/3/2024,12F,1,5,WHITE DOMEâ,Hydrangea arborescens,2068,Open,4,Lacy,,82,278.5,#VALUE!,0,22837,0,22837,0.642361111,0.647916667,0,2,10,85,,2,,,1,2,,,,,,,,,,,,,,,
+7/3/2024,2F,0,3,Silver Leaf,Hydrangea arborescens,Unknown,Open,4,Lacy,,52,390.5,3.64644432,0,20306,0,20306,0.654861111,0.660416667,0,2,10,85,,2,,,,1,,,,,,,,,,,,,,,
+7/8/2024,12A,1,0,Candy Apple,Hydrangea paniculata,20012,Dense,4,Mop-like panicle,,,#N/A,#N/A,#N/A,#N/A,#N/A,NA,0.609722222,0.114583333,0,1,25,80,,,,,,,,,,,,,,,,,,,,,
+7/8/2024,11A,0,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,,,NA,#VALUE!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7/8/2024,16C,0,0,Quick Fire,Hydrangea paniculata,14001,Open,4,Lacy panicle,,,25.9,8.20449972,,NA,NA,NA,0.661111111,0.666666667,0,1,10,80,,,,,,,,,,,,,,,,,,,,,
+7/8/2024,5B,0,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,,318,5.5,0.906832,0,1749,0,1749,0.138888889,0.144444444,0,1,25,80,,,,,,,,,,,,,,,,,,,,,
+7/8/2024,7E,1,0,Invincibelle Wee WhiteÂ,Hydrangea arborescens,17030,Dense,4,Mop,,22,93.9,39.25,0,2065.8,0,2065.8,0.651388889,0.656944444,0,1,20,80,,,,,,,,,,,,,,,,,,,,No sample!,No bugs and shaded
+7/10/2024,11A,0,1,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.526388889,0.529861111,0,1,40,73,,,,,,,,,,,,,,,,1,,,,,
+7/10/2024,11E,0,0,Seaside SerenadeÂ® Bar Harbo,Hydrangea arborescens,19008B,Dense,4,Mop,,,388.8,8.3053,0,0,0,NA,0.582638889,0.586111111,0,2,40,75,,,,,,,,,,,,,,,,,,,,,
+7/10/2024,1A,0,0,Strawberry Shake,Hydrangea paniculata,18031B,Very dense,4,Mop-like panicle,,,68.4,4.148843315,0,0,0,NA,0.497222222,0.500694444,0,1,10,72,,,,,,,,,,,,,,,,,,,,,
+7/10/2024,4A,0,1,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,,,31,9.0432,0,0,0,NA,0.508333333,0.511805556,0,1,10,72,,,,,,,,,,1,,,,,,,,,,,
+7/10/2024,5A,0,1,Quick Fire,Hydrangea paniculata,5079,Open,4,Lacy panicle,,,98.6,14.13,0,0,0,NA,0.4875,0.490972222,0,1,10,72,1,,,,,,,,,,,,,,,,,,,,
+7/10/2024,8A,0,0,Mega Pearl,Hydrangea paniculata,1128,Dense,4,Mop-like panicle,,,36.1,8.3053,0,0,0,NA,0.518055556,0.521527778,0,1,40,73,,,,,,,,,,,,,,,,,,,,,
+7/10/2024,9A,0,1,Fire & Ice,Hydrangea paniculata,12021,Open,4,Lacy panicle,,,97.8,6.28,0,0,0,NA,0.477777778,0.490972222,0,1,10,72,,,,,,,,,,,,,,,,1,,,,,
+7/13/2024,12F,0,0,WHITE DOMEâ,Hydrangea arborescens,2068,Open,4,Lacy,,,278.5,#VALUE!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,10C,0,0,Fire Light,Hydrangea paniculata,14026,Dense,4,Mop-like panicle,,,76.5,8.573195757,0,0,0,NA,0.435416667,0.438888889,0,2,0,71,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,10D,0,0,Daimond Rogue,Hydrangea paniculata,17047,Half-open,4,Mop-like panicle,,,109,9.334897459,0,0,0,NA,0.658333333,0.661805556,0,2,40,77,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,10F,1,0,IncrediballÂ® Blus,Hydrangea arborescens,16025,Dense,4,Mop,,,245,3.407399637,0,0,0,NA,0.625,0.628472222,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,11C,0,1,Little Quick Fire,Hydrangea paniculata,14010,Open,4,Lacy panicle,,,59.7,5.546646971,0,0,0,NA,0.423611111,0.427083333,0,2,0,71,,,,,,,,,1,,,,,,,,,,,,
+7/17/2024,11F,0,0,InvincibelleÂ® Rub,Hydrangea arborescens,16026,Very dense,4,Mop,,,119,2.143298939,0,0,0,NA,0.628472222,0.631944444,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,12C,1,0,Polar Ball,Hydrangea paniculata,13029,Very dense,4,Mop-like panicle,,,4.5,5.850517331,0,0,0,NA,0.420138889,0.423611111,0,2,0,71,,,,,,,,,,,,,,,,,,,,"""No bugs"" note likely means no sample!",
+7/17/2024,12D,1,0,Phantom,Hydrangea paniculata,1004,Dense,4,Mop-like panicle,,,98.3,21.00351928,0,0,0,NA,0.694444444,0.697916667,0,2,40,75,,,,,,,,,,,,,,,,,,,,,Brown butterfly (painted lady?)
+7/17/2024,12F,0,4,WHITE DOMEâ,Hydrangea arborescens,2068,Open,4,Lacy,,,278.5,#VALUE!,#VALUE!,0,#VALUE!,NA,0.496527778,0.5,0,1,20,73,,,,4,,,,,,,,,,,,,,,,,
+7/17/2024,13C,0,1,Fire Light,Hydrangea paniculata,18008B,Very dense,NA,Mop-like panicle,,,71.4,8.949995003,0,0,0,NA,0.396527778,0.4,0,2,0,71,1,,,,,,,,,,,,,,,,,,,,
+7/17/2024,14C,0,1,Fire Light,Hydrangea paniculata,18008A,Dense,4,Mop-like panicle,,,94.3,8.573195757,0,0,0,NA,0.40625,0.409722222,0,2,0,71,,,,,,,,,1,,,,,,,,,,,,
+7/17/2024,15D,1,0,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,,,88.6,4.412197627,0,0,0,NA,0.684722222,0.688194444,0,2,50,75,,,,,,,,,,,,,,,,,,,,,Sweatfly
+7/17/2024,16C,0,0,Quick Fire,Hydrangea paniculata,14001,Open,4,Lacy panicle,,,25.9,8.20449972,0,0,0,NA,0.468055556,0.471527778,0,2,5,73,,,,,,,,,,,,,,,,,,,,,Goldenrod soldier beetles
+7/17/2024,16C,0,0,Quick Fire,Hydrangea paniculata,14001,Open,4,Lacy panicle,,,25.9,8.20449972,0,0,0,NA,0.646527778,0.65,0,2,25,73,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,18D,0,0,Bobo,Hydrangea paniculata,12031B,Half-open,4,Mop-like panicle,,,72.1,6.162490901,0,0,0,NA,0.676388889,0.679861111,0,2,40,77,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,2C,0,1,Pinky Winky,Hydrangea paniculata,14022,Half-open,4,Mop-like panicle,,,47.1,5.546646971,0,0,0,NA,0.480555556,0.484027778,0,2,5,73,,,,1,,,,,,,,,,,,,,,,,
+7/17/2024,2F,0,3,Silver Leaf,Hydrangea arborescens,Unknown,Open,4,Lacy,,,390.5,3.64644432,0,0,0,NA,0.55625,0.559722222,0,2,25,75,,,,3,,,,,,,,,,,,,,,,,Syrphid fly escaped
+7/17/2024,3F,1,0,LIME RICKEYâ,Hydrangea arborescens,14020,Half-open,4,Mop,,,371.4,21.59100198,0,0,0,NA,0.568055556,0.571527778,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,4C,0,1,Little Lamb,Hydrangea paniculata,4054,Very dense,4,Mop-like panicle,,,50,9.727903125,0,0,0,NA,0.454166667,0.457638889,0,2,5,73,1,,,,,,,,,,,,,,,,,,,,
+7/17/2024,4F,0,0,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,,,563.4285714,9.334897459,0,0,0,NA,0.580555556,0.584027778,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,5F,0,0,BELLA ANNAâ,Hydrangea arborescens,10067,Half-open,4,Mop,,,88,3.407399637,0,0,0,NA,0.595833333,0.599305556,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,6F,1,0,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,,,684,8.20449972,0,0,0,NA,0.631944444,0.635416667,0,2,25,75,,,,,,,,,,,,,,,,,,,,,
+7/17/2024,8C,0,1,Strawberry Shake,Hydrangea paniculata,18031A,Very dense,4,Mop-like panicle,,,27.1,5.250879821,0,0,0,NA,0.445833333,0.45625,0,2,5,73,1,,,,,,,,,,,,,,,,,,,,Syrphid
+7/17/2024,8F,1,2,Pink Pincushion,Hydrangea arborescens,11029,Half-open,4,Lacy,3,,424.5,3.893592213,11.68077664,0,4958.489683,4958.489683,0.617361111,0.620833333,0,2,25,75,,,,2,,,,,,,,,,,,,,,,,
+7/17/2024,9F,0,1,INCREDIBALLâ,Hydrangea arborescens,9050,Dense,3,Mop,,,557.4,13.163664,0,0,0,NA,0.604861111,0.609027778,0,2,25,75,,,,,1,,,,,,,,,,,,,,,,
+7/18/2024,11A,1,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.5625,0.565972222,0,2,35,73,,,,,,,,,,,,,,,,,,,,No sample!,5 flies
+7/18/2024,11D,0,1,Kyushu,Hydrangea paniculata,93021,Open,NA,Lacy panicle,,,404.7,9.334897459,0,0,0,NA,0.514583333,0.518055556,0,2,65,70,1,,,,,,,,,,,,,,,,,,,,
+7/18/2024,19D,0,0,Puffer Fish,Hydrangea paniculata,2023-030,Half-open,4,Mop-like panicle,,,55.8,2.333724365,0,0,0,NA,0.542361111,0.545833333,0,2,65,70,,,,,,,,,,,,,,,,,,,,,2 Golden digger waps
+7/18/2024,20D,0,0,Early Evolution,Hydrangea paniculata,2023-026A,Open,4,Lacy panicle,,,NA,1.037210829,0,#VALUE!,#VALUE!,NA,0.525,0.528472222,0,2,65,70,,,,,,,,,,,,,,,,,,,,,
+7/18/2024,5B,0,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,,,5.5,0.906832,0,0,0,NA,0.542361111,0.545833333,0,2,35,73,,,,,,,,,,,,,,,,,,,,,
+7/18/2024,6D,0,2,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,,,42.8,11.8144796,0,0,0,NA,0.535416667,0.538888889,0,2,65,70,2,,,,,,,,,,,,,,,,,,,,
+7/20/2024,4A,0,0,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,,,31,9.0432,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7/22/2024,10E,0,1,INCREDIBALLâ,Hydrangea arborescens,9050,Dense,4,Mop,9.33,,1180.7,9.0432,84.373056,0,99619.26722,99619.26722,0.46875,0.472222222,0,1,5,78,,,,1,,,,,,,,,,,,,,,,,Vespidae
+7/22/2024,7A,1,0,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,11.6,,174.2,4.0192,46.62272,0,8121.677824,8121.677824,0.645833333,0.649305556,0,1,75,79,,,,,,,,,,,,,,,,,,,,,
+7/22/2024,9A,0,2,Fire & Ice,Hydrangea paniculata,12021,Open,4,Lacy panicle,12.3,,97.8,6.28,77.244,0,7554.4632,7554.4632,0.665277778,0.66875,0,1,75,79,2,,,,,,,,,,,,,,,,,,,,
+7/23/2024,1E and 2E,0,2,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,4.6,,663.9,12.3088,56.62048,0,37590.33667,37590.33667,0.572916667,0.576388889,0,1,100,77,,1,,1,,,,,,,,,,,,,,,,,
+7/23/2024,3E,0,0,Bounty,Hydrangea arborescens,12019,Half-open,4,Mop,5.6,,528.4,17.0973,95.74488,0,50591.59459,50591.59459,0.5625,0.565972222,0,1,100,77,,,,,,,,,,,,,,,,,,,,,
+7/23/2024,4E,0,0,Hayes Starburst,Hydrangea arborescens,7027,Very dense,8,Mop,5,,0,6.28,31.4,0,0,0,0.553472222,0.556944444,0,1,100,77,,,,,,,,,,,,,,,,,,,,,
+7/23/2024,5E,0,0,Annabelle,Hydrangea arborescens,65169,Dense,4,Mop,7,,478.5,36.1728,253.2096,0,121160.7936,121160.7936,0.582638889,0.586111111,0,1,100,77,,,,,,,,,,,,,,,,,,,,,
+7/23/2024,6E,0,0,Riven Lace,Hydrangea arborescens,8036,Half-open,4,Lacy,8.33,,97.5,12.3088,102.532304,0,9996.89964,9996.89964,0.480555556,0.484027778,0,1,100,74,,,,,,,,,,,,,,,,,,,,,
+7/23/2024,B8,0,0,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,14.6,,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,0.604166667,0.606944444,0,1,75,78,,,,,,,,,,,,,,,,,,,,,
+7/23/2024,E8,1,1,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,2.666666667,,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,0.490277778,0.49375,0,1,100,74,,,,1,,,,,,,,,,,,,,,,,
+7/25/2024,10A,1,1,Pinky Winky,Hydrangea paniculata,7045,Half-open,4,Lacy panicle,NA,,79,1.446912,#VALUE!,0,#VALUE!,NA,0.696527778,0.7,0,1,35,79,,,,,,,,,1,,,,,,,,,,,,
+7/25/2024,10B,0,4,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,5,,125.2,3.820752,19.10376,0,2391.790752,2391.790752,0.711805556,0.715277778,0,1,35,79,1,,,,,,,,,,,,,,,,,3,,,
+7/25/2024,11A,0,2,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,33,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.548611111,0.552083333,0,1,40,77,2,,,,,,,,,,,,,,,,,,,,
+7/25/2024,11B,1,0,Strawberry Sundae,Hydrangea paniculata,15012,Open,4,Mop-like panicle,3.666666667,,269.7,7.5988,27.86226667,0,7514.45332,7514.45332,0.430555556,0.434027778,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,11E,1,0,Seaside SerenadeÂ® Bar Harbo,Hydrangea arborescens,19008B,Dense,4,Mop,1,,388.8,8.3053,8.3053,0,3229.10064,3229.10064,0.540277778,0.54375,0,1,40,74,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,12A,0,1,Candy Apple,Hydrangea paniculata,20012,Dense,4,Mop-like panicle,11.3,,#N/A,#N/A,#N/A,#N/A,#N/A,NA,0.615277778,0.61875,0,2,35,78,,,,,,,,,,1,,,,,,,,,,,
+7/25/2024,12E,0,0,Invincibelle Mini Mauvetteâ,Hydrangea arborescens,17031,Dense,3,Mop,5,,111.7,1.0048,5.024,0,561.1808,561.1808,0.531944444,0.535416667,0,1,40,74,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,13B,0,0,Pinky Winky,Hydrangea paniculata,7045,Dense,5,Lacy panicle,3,,91.2,1.698112,5.094336,0,464.6034432,464.6034432,0.745833333,0.749305556,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,19B,0,0,Little Quick Fire,Hydrangea paniculata,14010,Open,NA,Lacy panicle,17.3,,69.4,4.0192,69.53216,0,4825.531904,4825.531904,0.704166667,0.707638889,0,2,40,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,1A,0,2,Strawberry Shake,Hydrangea paniculata,18031B,Very dense,4,Mop-like panicle,19.6,,68.4,4.148843315,81.31732898,0,5562.105302,5562.105302,0.626388889,0.629861111,0,1,35,79,1,,,,,,,1,,,,,,,,,,,,,
+7/25/2024,2A,1,1,Baby Lace,Hydrangea paniculata,16012,Open,4,Lacy panicle,,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,,,,,,,,,,,,,,,,1,,,,,,,,,,,
+7/25/2024,2B,1,0,Phantom,Hydrangea paniculata,1004,Half-open,4,Mop-like panicle,2.333333333,,174.4,44.66894292,104.2275335,0,18177.28184,18177.28184,0.427083333,0.430555556,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,3A,0,0,Sweet Summer,Hydrangea paniculata,12022,Dense,4,Mop-like panicle,9,,361,8.3053,74.7477,0,26983.9197,26983.9197,0.634722222,0.638194444,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,4A,0,,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,,,31,9.0432,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,5A,0,5,Quick Fire,Hydrangea paniculata,5079,Open,4,Lacy panicle,19.3,,98.6,14.13,272.709,0,26889.1074,26889.1074,0.650694444,0.649305556,0,1,35,78,,,,,,,,,2,,,,,3,,,,,,,
+7/25/2024,5B,0,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,15.6,,5.5,0.906832,14.1465792,0,77.8061856,77.8061856,0.729166667,0.732638889,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,6A,0,0,Honey Comb,Hydrangea paniculata,11031,Open,4,Lacy panicle,4,,189.5,15.0877,60.3508,0,11436.4766,11436.4766,0.570833333,0.574305556,0,1,40,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,6B,0,0,Mega Pearl,Hydrangea paniculata,1128,Half-open,4,Lacy panicle,6.666666667,,154.8,1.107792,7.38528,0,1143.241344,1143.241344,0.722222222,0.725694444,0,1,35,79,,,,,,,,,,,,,,,,,,,,,
+7/25/2024,8A,0,3,Mega Pearl,Hydrangea paniculata,1128,Dense,4,Mop-like panicle,9.6,,36.1,8.3053,79.73088,0,2878.284768,2878.284768,0.555555556,0.517361111,0,1,40,77,2,,,,,,,,1,,,,,,,,,,,,
+7/25/2024,9E,0,0,INCREDIBALLâ,Hydrangea arborescens,9090,Dense,4,Mop,0.333,,1248,20.3472,6.7756176,0,8455.970765,8455.970765,0.522916667,0.526388889,0,1,40,74,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,10C,1,3,Fire Light,Hydrangea paniculata,14026,Dense,4,Mop-like panicle,12,,76.5,8.573195757,102.8783491,0,7870.193705,7870.193705,0.757638889,0.761111111,0,1,0,81,1,,,,,,,,2,,,,,,,,,,,,
+7/26/2024,11C,0,2,Little Quick Fire,Hydrangea paniculata,14010,Open,4,Lacy panicle,13.66666667,,59.7,5.546646971,75.80417527,0,4525.509264,4525.509264,0.763194444,0.766666667,0,1,0,81,,,,,,,,,2,,,,,,,,,,,,
+7/26/2024,12C,0,1,Polar Ball,Hydrangea paniculata,13029,Very dense,4,Mop-like panicle,3.666666667,,4.5,5.850517331,21.45189688,0,96.53353596,96.53353596,0.768055556,0.771527778,0,1,0,81,,,,1,,,,,,,,,,,,,,,,,
+7/26/2024,13C,0,0,Fire Light,Hydrangea paniculata,18008B,Very dense,NA,Mop-like panicle,11.3,,71.4,8.949995003,101.1349435,0,7221.034968,7221.034968,0.475694444,0.479166667,0,1,0,75,,,,,,,,,,,,,,,,,,,,,1 Golden digger wasp
+7/26/2024,14C,0,0,Fire Light,Hydrangea paniculata,18008A,Dense,4,Mop-like panicle,12.3,,94.3,8.573195757,105.4503078,0,9943.964026,9943.964026,0.482638889,0.486111111,0,1,0,75,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,15B,1,0,Zinfin Doll,Hydrangea paniculata,15049,Half-open,4,Mop-like panicle,0.666666667,,107.9,1.507828,1.005218667,0,108.4630941,108.4630941,0.367361111,0.36875,0,1,0,69,,,,,,,,,,,,,,,,,,,,No sample!,No bugs
+7/26/2024,16B,0,2,Dolly,Hydrangea paniculata,1127,Dense,4,Lacy panicle,1.333333333,,126.2,2.989908,3.986544,0,503.1018528,503.1018528,0.385416667,0.388888889,0,1,0,69,,,,1,,,,,1,,,,,,,,,,,,
+7/26/2024,16C,0,3,Quick Fire,Hydrangea paniculata,14001,Open,4,Lacy panicle,Forgot to enter,,25.9,8.20449972,#VALUE!,0,#VALUE!,NA,0.704861111,0.708333333,0,1,0,81,,,,,,,,,3,,,,,,,,,,,,
+7/26/2024,19D,0,4,Puffer Fish,Hydrangea paniculata,2023-030,Half-open,4,Mop-like panicle,11,,55.8,2.333724365,25.67096801,0,1432.440015,1432.440015,0.713888889,0.717361111,0,2,0,81,3,,,,,,,,1,,,,,,,,,,,,
+7/26/2024,1C,0,0,Ruby,Hydrangea paniculata,98053,Half-open,NA,Mop-like panicle,10.3,,46.2,1.960976723,20.19806025,0,933.1503835,933.1503835,0.465277778,0.46875,0,1,30,75,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,22B,0,0,Limelight Prime,Hydrangea paniculata,21039,Half-open,4,Mop-like panicle,2.666666667,,17.7,1.960976723,5.229271262,0,92.55810134,92.55810134,0.440277778,0.44375,0,1,5,73,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,23B,0,0,Quick Fire Fabulous,Hydrangea paniculata,No tag,Dense,5,Mop-like panicle,8,,60.9,4.412197627,35.29758102,0,2149.622684,2149.622684,0.372222222,0.375694444,0,1,0,69,,,,,,,,,,,,,,,,,,,,,Lots of bracts
+7/26/2024,24B,0,0,Little Lime Punch,Hydrangea paniculata,21040,Half-open,4,Mop-like panicle,4.666666667,,194.2,3.64644432,17.01674016,0,3304.650939,3304.650939,0.423611111,0.427083333,0,1,0,69,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,25B,1,0,Early Evolution,Hydrangea paniculata,2023-026B,Dense,4,Lacy panicle,0.3,,NA,0,0,#VALUE!,#VALUE!,NA,0.373611111,0.384027778,0,1,0,69,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,26B,0,0,Berry White,Hydrangea paniculata,21026,Half-open,4,Mop-like panicle,2.333333333,,86.42857,5.850517331,13.65120711,0,1179.854309,1179.854309,0.455555556,0.459027778,0,1,5,73,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,27B,0,5,Candy Apple,Hydrangea paniculata,20012B,Half-open,4,Mop-like panicle,7,,15.1,1.037210829,7.260475802,0,109.6331846,109.6331846,0.414583333,0.418055556,0,1,0,69,3,,1,,,,,,1,,,,,,,,,,,,Weird bracts; tree
+7/26/2024,3D,0,0,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,2.333333333,,349.6,18.18765395,42.43785921,0,14836.27558,14836.27558,0.719444444,0.722916667,0,2,0,81,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,4C,0,4,Little Lamb,Hydrangea paniculata,4054,Very dense,4,Mop-like panicle,9.666666667,,50,9.727903125,94.03639687,0,4701.819844,4701.819844,0.743055556,0.746527778,0,1,0,81,1,,,,,,,,2,,,,,,1,,,,,,
+7/26/2024,4D,1,0,Great Star,Hydrangea paniculata,12020,Open,4,Lacy panicle,5.666666667,,167.9,16.08081945,91.12464356,0,15299.82765,15299.82765,0.727777778,0.73125,0,2,0,81,,,,,,,,,,,,,,,,,,,,,
+7/26/2024,4F,0,1,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,1,,563.4285714,9.334897459,9.334897459,0,5259.54794,5259.54794,0.778472222,0.781944444,0,1,0,80,,,,1,,,,,,,,,,,,,,,,,
+7/26/2024,5F,0,0,BELLA ANNAâ,Hydrangea arborescens,10067,Half-open,4,Mop,0.66,,88,3.407399637,2.24888376,0,197.9017709,197.9017709,0.784722222,0.788194444,0,1,0,80,,,,,,,,,,,,,,,,,,,,,Shaded
+7/26/2024,6D,0,4,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,14.6,,42.8,11.8144796,172.4914021,0,7382.63201,7382.63201,0.733333333,0.736805556,0,2,0,81,,,,,,,,,2,,,,,,,,,2,,,
+7/26/2024,6F,1,0,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,0,,684,8.20449972,0,0,0,0,0.788194444,0.791666667,0,1,0,80,,,,,,,,,,,,,,,,,,,,,No bugs and done blooming?
+7/26/2024,8C,1,0,Strawberry Shake,Hydrangea paniculata,18031A,Very dense,4,Mop-like panicle,8.666666667,,27.1,5.250879821,45.50762511,0,1233.256641,1233.256641,0.75,0.753472222,0,1,0,81,,,,,,,,,,,,,,,,,,,,No sample!,No bugs
+7/26/2024,9B,0,1,Silver Dollar,Hydrangea paniculata,1006,Dense,4,Mop-like panicle,5,,41.2,1.698112,8.49056,0,349.811072,349.811072,0.447916667,0.451388889,0,1,5,73,,,,1,,,,,,,,,,,,,,,,,
+7/28/2024,4A,1,8,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,8.6,,31,9.0432,77.77152,0,2410.91712,2410.91712,0.563888889,0.567361111,0,1,35,78,4,,,,,,,,2,1,,1,,,,,,,,,1 unknown skipper
+7/29/2024,10C,0,0,Fire Light,Hydrangea paniculata,14026,Dense,4,Mop-like panicle,5.666666667,,76.5,8.573195757,48.58144262,0,3716.480361,3716.480361,0.661805556,0.665277778,0,1,30,80,,,,,,,,,,,,,,,,,,,,,
+7/29/2024,11C,0,2,Little Quick Fire,Hydrangea paniculata,14010,Open,4,Lacy panicle,12.66666667,,59.7,5.546646971,70.2575283,0,4194.37444,4194.37444,0.670138889,0.673611111,0,1,30,80,,1,,,,,,,,1,,,,,,,,,,,
+7/29/2024,12C,0,0,Polar Ball,Hydrangea paniculata,13029,Very dense,4,Mop-like panicle,6,,4.5,5.850517331,35.10310399,0,157.9639679,157.9639679,0.678472222,0.681944444,0,1,30,80,,,,,,,,,,,,,,,,,,,,,
+7/29/2024,12E,1,0,Invincibelle Mini Mauvetteâ,Hydrangea arborescens,17031,Dense,3,Mop,,4,111.7,1.0048,0,446.8,0,446.8,0.720138889,0.723611111,0,1,25,81,,,,,,,,,,,,,,,,,,,,No sample!,No bugs
+7/29/2024,13C,0,2,Fire Light,Hydrangea paniculata,18008B,Very dense,NA,Mop-like panicle,9.333333333,,71.4,8.949995003,83.5332867,0,5964.27667,5964.27667,0.620138889,0.623611111,0,1,65,78,,,,,,,,,2,,,,,,,,,,,,
+7/29/2024,14C,0,3,Fire Light,Hydrangea paniculata,18008A,Dense,4,Mop-like panicle,17.33333333,,94.3,8.573195757,148.6020598,0,14013.17424,14013.17424,0.63125,0.634722222,0,1,65,78,,,,,,,,,3,,,,,,,,,,,,
+7/29/2024,1C,0,0,Ruby,Hydrangea paniculata,98053,Half-open,NA,Mop-like panicle,1.333333333,,46.2,1.960976723,2.614635631,0,120.7961661,120.7961661,0.607638889,0.611111111,1,1,65,78,,,,,,,,,,,,,,,,,,,,,"Very light sprinkle--sunny, but rained a bit"
+7/29/2024,1E and 2E,1,1,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,1,,663.9,12.3088,12.3088,0,8171.81232,8171.81232,0.744444444,0.747916667,0,2,25,81,,,,,,,,,1,,,,,,,,,,,,
+7/29/2024,2C,0,3,Pinky Winky,Hydrangea paniculata,14022,Half-open,4,Mop-like panicle,7,,47.1,5.546646971,38.8265288,0,1828.729506,1828.729506,0.700694444,0.704166667,0,1,30,80,2,,,1,,,,,,,,,,,,,,,,,
+7/29/2024,3E,0,2,Bounty,Hydrangea arborescens,12019,Half-open,4,Mop,0.666666667,,528.4,17.0973,11.3982,0,6022.80888,6022.80888,0.723611111,0.726388889,0,1,25,81,,,,2,,,,,,,,,,,,,,,,,
+7/29/2024,4C,0,3,Little Lamb,Hydrangea paniculata,4054,Very dense,4,Mop-like panicle,12,,50,9.727903125,116.7348375,0,5836.741875,5836.741875,0.689583333,0.693055556,0,1,30,80,2,,,,,,,,1,,,,,,,,,,,,
+7/29/2024,4E,0,0,Hayes Starburst,Hydrangea arborescens,7027,Very dense,8,Mop,4.333333333,,0,6.28,27.21333333,0,0,0,0.729861111,0.733333333,0,1,25,81,,,,,,,,,,,,,,,,,,,,,
+7/29/2024,5E,0,0,Annabelle,Hydrangea arborescens,65169,Dense,4,Mop,,3,478.5,36.1728,0,1435.5,0,1435.5,0.733333333,0.736805556,0,1,25,81,,,,,,,,,,,,,,,,,,,,,
+7/29/2024,8C,0,0,Strawberry Shake,Hydrangea paniculata,18031A,Very dense,4,Mop-like panicle,8.666666667,,27.1,5.250879821,45.50762511,0,1233.256641,1233.256641,0.644444444,0.647916667,0,1,30,80,,,,,,,,,,,,,,,,,,,,,2 Agapostemon
+7/29/2024,8E,1,1,Ryan Gainey,Hydrangea arborescens,9062,Dense,3,Mop,,2,4,10.6132,0,8,0,8,0.740277778,0.74375,0,2,25,81,,,,1,,,,,,,,,,,,,,,,,
+7/29/2024,9C,0,0,Pillow Talk,Hydrangea paniculata,14021,Very dense,4,Mop-like panicle,3.333333333,,120.2,6.48256768,21.60855893,0,2597.348784,2597.348784,0.652777778,0.65625,0,1,30,80,,,,,,,,,,,,,,,,,,,,,
+7/30/2024,10E,1,0,INCREDIBALLâ,Hydrangea arborescens,9050,Dense,4,Mop,,2,1180.7,9.0432,0,2361.4,0,2361.4,0.699305556,0.702777778,0,2,80,87,,,,,,,,,,,,,,,,,,,,No sample!,No bugs and almost done blooming
+7/30/2024,11E,0,0,Seaside SerenadeÂ® Bar Harbo,Hydrangea arborescens,19008B,Dense,4,Mop,0.666666667,,388.8,8.3053,5.536866667,0,2152.73376,2152.73376,0.703472222,0.706944444,0,2,80,87,,,,,,,,,,,,,,,,,,,,,
+7/30/2024,2A,0,0,Baby Lace,Hydrangea paniculata,16012,Open,4,Lacy panicle,2.666666667,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.738194444,0.741666667,0,2,80,87,,,,,,,,,,,,,,,,,,,,,
+7/30/2024,4A,1,2,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,11.33333333,,31,9.0432,102.4896,0,3177.1776,3177.1776,0.729166667,0.732638889,0,2,80,87,1,,,,,,,,1,,,,,,,,,,,,
+7/30/2024,6A,0,5,Honey Comb,Hydrangea paniculata,11031,Open,4,Lacy panicle,5.666666667,,189.5,15.0877,85.49696667,0,16201.67518,16201.67518,0.721527778,0.725,0,2,80,87,1,,,1,,,,,3,,,,,,,,,,,,
+7/30/2024,8A,0,4,Mega Pearl,Hydrangea paniculata,1128,Dense,4,Mop-like panicle,11.33333333,,36.1,8.3053,94.12673333,0,3397.975073,3397.975073,0.713194444,0.716666667,0,2,80,87,,1,,,,,,,1,,,,,2,,,,,,,
+7/31/2024,12A,0,0,Candy Apple,Hydrangea paniculata,20012,Dense,4,Mop-like panicle,8,,#N/A,#N/A,#N/A,#N/A,#N/A,NA,0.740277778,0.74375,0,2,10,91,,,,,,,,,,,,,,,,,,,,,
+7/31/2024,1A,1,0,Strawberry Shake,Hydrangea paniculata,18031B,Very dense,4,Mop-like panicle,4.666666667,,68.4,4.148843315,19.3612688,0,1324.310786,1324.310786,0.736111111,0.739583333,0,2,10,91,,,,,,,,,,,,,,,,,,,,No sample!,
+8/1/2024,10A,0,5,Pinky Winky,Hydrangea paniculata,7045,Half-open,4,Lacy panicle,18,,79,1.446912,26.044416,0,2057.508864,2057.508864,0.445833333,0.449305556,0,2,100,81,1,,,3,,,,,1,,,,,,,,,,,,
+8/1/2024,10B,0,2,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,7,,125.2,3.820752,26.745264,0,3348.507053,3348.507053,0.563194444,0.566666667,0,2,90,79,,,,,,,,,2,,,,,,,,,,,,
+8/1/2024,11B,0,2,Strawberry Sundae,Hydrangea paniculata,15012,Open,4,Mop-like panicle,5.333333333,,269.7,7.5988,40.52693333,0,10930.11392,10930.11392,0.570833333,0.574305556,0,2,75,79,1,,,,,,,,1,,,,,,,,,,,,
+8/1/2024,12B,1,0,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,4,Mop-like panicle,0,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.578472222,0.581944444,0,2,75,79,,,,,,,,,,,,,,,,,,,,,"Lots of bracts/false sepals, zero panicles listed deliberately"
+8/1/2024,13B,0,3,Pinky Winky,Hydrangea paniculata,7045,Dense,5,Lacy panicle,8.333333333,,91.2,1.698112,14.15093333,0,1290.56512,1290.56512,0.583333333,0.586805556,0,2,75,79,1,,,,,,,,2,,,,,,,,,,,,
+8/1/2024,15B,0,1,Zinfin Doll,Hydrangea paniculata,15049,Half-open,4,Mop-like panicle,8,,107.9,1.507828,12.062624,0,1301.55713,1301.55713,0.590277778,0.59375,0,2,75,79,,,,1,,,,,,,,,,,,,,,,,Lots of bracts
+8/1/2024,16B,0,2,Dolly,Hydrangea paniculata,1127,Dense,4,Lacy panicle,7.666666667,,126.2,2.989908,22.922628,0,2892.835654,2892.835654,0.616666667,0.620138889,0,2,60,84,1,,,,,,,,1,,,,,,,,,,,,
+8/1/2024,17B,1,0,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,8,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.605555556,0.609027778,0,1,30,84,,,,,,,,,,,,,,,,,,,,No sample!,Lots of bracts and no bugs
+8/1/2024,19B,0,1,Little Quick Fire,Hydrangea paniculata,14010,Open,NA,Lacy panicle,8.666666667,,69.4,4.0192,34.83306667,0,2417.414827,2417.414827,0.470833333,0.474305556,0,2,90,81,,,,1,,,,,,,,,,,,,,,,,
+8/1/2024,20B,1,0,Bobo,Hydrangea paniculata,12031,Half-open,4,Mop-like panicle,,1,132,0.5652,0,132,0,132,0.465972222,0.469444444,0,2,90,81,,,,,,,,,,,,,,,,,,,,No sample!,No bugs
+8/1/2024,21B,0,5,Great Star,Hydrangea paniculata,12020,Very dense,4,Lacy panicle,8.333333333,,150.7,13.62959855,113.5799879,0,17116.50418,17116.50418,0.456944444,0.460416667,0,2,90,81,2,,,3,,,,,,,,,,,,,,,,,
+8/1/2024,22B,1,0,Limelight Prime,Hydrangea paniculata,21039,Half-open,4,Mop-like panicle,11.66666667,,17.7,1.960976723,22.87806177,0,404.9416933,404.9416933,0.404861111,0.408333333,0,2,70,75,,,,,,,,,,,,,,,,,,,,,Only bracts and no flowers open
+8/1/2024,23B,0,0,Quick Fire Fabulous,Hydrangea paniculata,No tag,Dense,5,Mop-like panicle,7,,60.9,4.412197627,30.88538339,0,1880.919848,1880.919848,0.643055556,0.646527778,0,1,60,81,,,,,,,,,,,,,,,,,,,,,
+8/1/2024,24B,0,1,Little Lime Punch,Hydrangea paniculata,21040,Half-open,4,Mop-like panicle,,24,194.2,3.64644432,0,4660.8,0,4660.8,0.599305556,0.602083333,0,1,30,84,1,,,,,,,,,,,,,,,,,,,,
+8/1/2024,25B,1,1,Early Evolution,Hydrangea paniculata,2023-026B,Dense,4,Lacy panicle,,1,NA,0,0,#VALUE!,#VALUE!,NA,0.611805556,0.615277778,0,1,40,84,,,,,,,,,1,,,,,,,,,,,No sample!,
+8/1/2024,26B,0,0,Berry White,Hydrangea paniculata,21026,Half-open,4,Mop-like panicle,2.666666667,,86.42857,5.850517331,15.60137955,0,1348.404925,1348.404925,0.625694444,0.629166667,0,1,50,84,,,,,,,,,,,,,,,,,,,,,
+8/1/2024,2B,0,0,Phantom,Hydrangea paniculata,1004,Half-open,4,Mop-like panicle,4.666666667,,174.4,44.66894292,208.455067,0,36354.56368,36354.56368,0.510416667,0.511805556,0,2,35,81,,,,,,,,,,,,,,,,,,,,,Ended sampling early because vacuum battery died
+8/1/2024,3A,0,0,Sweet Summer,Hydrangea paniculata,12022,Dense,4,Mop-like panicle,17,,361,8.3053,141.1901,0,50969.6261,50969.6261,0.390972222,0.394444444,0,2,100,76,,,,,,,,,,,,,,,,,,,,,
+8/1/2024,3B,0,0,Little Lime,Hydrangea paniculata,10040,Very dense,4,Mop-like panicle,,1,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.502777778,0.50625,0,2,35,81,,,,,,,,,,,,,,,,,,,,,Many bracts and few flowers
+8/1/2024,5A,0,5,Quick Fire,Hydrangea paniculata,5079,Open,4,Lacy panicle,20.33333333,,98.6,14.13,287.31,0,28328.766,28328.766,0.4,0.403472222,0,2,100,76,,1,,1,,,,,1,,,,,2,,,,,,,
+8/1/2024,5B,0,0,Dharuma,Hydrangea paniculata,5026,Open,4,Lacy panicle,0,,5.5,0.906832,0,0,0,0,0.495833333,0.499305556,0,2,35,81,,,,,,,,,,,,,,,,,,,,,Not blooming--only buds and bracts
+8/1/2024,6B,0,4,Mega Pearl,Hydrangea paniculata,1128,Half-open,4,Lacy panicle,21,,154.8,1.107792,23.263632,0,3601.210234,3601.210234,0.4875,0.490972222,0,2,35,81,2,,,2,,,,,,,,,,,,,,,,,
+8/1/2024,6D,0,0,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,,,42.8,11.8144796,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8/1/2024,7A,0,7,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,18,,174.2,4.0192,72.3456,0,12602.60352,12602.60352,0.409722222,0.413194444,0,2,100,76,2,1,,3,,,,,1,,,,,,,,,,,,
+8/1/2024,8B,0,1,Quick Fire,Hydrangea paniculata,5079,Open,4,Lacy panicle,7.333333333,,138.7,2.2608,16.5792,0,2299.53504,2299.53504,0.479166667,0.482638889,0,2,100,81,,,,1,,,,,,,,,,,,,,,,,feels about to rain
+8/1/2024,9A,0,3,Fire & Ice,Hydrangea paniculata,12021,Open,4,Lacy panicle,12.33333333,,97.8,6.28,77.45333333,0,7574.936,7574.936,0.419444444,0.422916667,0,2,100,76,1,1,,1,,,,,,,,,,,,,,,,,
+8/1/2024,9B,0,0,Silver Dollar,Hydrangea paniculata,1006,Dense,4,Mop-like panicle,6.666666667,,41.2,1.698112,11.32074667,0,466.4147627,466.4147627,0.633333333,0.636805556,0,2,70,81,,,,,,,,,,,,,,,,,,,,,
+8/2/2024,16C,0,8,Quick Fire,Hydrangea paniculata,14001,Open,4,Lacy panicle,6.333333333,,25.9,8.20449972,51.96183156,0,1345.811437,1345.811437,0.452777778,0.45625,0,2,40,79,1,1,,,,,,,3,,,,,1,1,,,1,,,
+8/2/2024,19D,0,1,Puffer Fish,Hydrangea paniculata,2023-030,Half-open,4,Mop-like panicle,15,,55.8,2.333724365,35.00586547,0,1953.327293,1953.327293,0.463194444,0.466666667,0,2,35,79,1,,,,,,,,,,,,,,,,,,,,
+8/2/2024,22B,0,0,Limelight Prime,Hydrangea paniculata,21039,Half-open,4,Mop-like panicle,,,17.7,1.960976723,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8/2/2024,2F,1,1,Silver Leaf,Hydrangea arborescens,Unknown,Open,4,Lacy,,1,390.5,3.64644432,0,390.5,0,390.5,0.4125,0.415972222,0,2,70,75,,,,1,,,,,,,,,,,,,,,,,Mostly done blooming--only 2 blooms left
+8/2/2024,3D,0,1,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,12,,349.6,18.18765395,218.2518474,0,76300.84584,76300.84584,0.472222222,0.475694444,0,2,35,79,,,,,,,,,1,,,,,,,,,,,,
+8/2/2024,3F,1,0,LIME RICKEYâ,Hydrangea arborescens,14020,Half-open,4,Mop,,1,371.4,21.59100198,0,371.4,0,371.4,0.415972222,0.419444444,0,2,70,75,,,,,,,,,,,,,,,,,,,,,Almost all done blooming
+8/2/2024,4F,1,2,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,,2,563.4285714,9.334897459,0,1126.857143,0,1126.857143,0.420833333,0.424305556,0,2,70,75,,,,2,,,,,,,,,,,,,,,,,
+8/2/2024,5D,0,6,Brussels Lace,Hydrangea paniculata,96102,Open,4,Lacy panicle,9,,492.1,6.810747669,61.29672902,0,30164.12035,30164.12035,0.480555556,0.484027778,0,2,35,79,2,,,1,,,,,3,,,,,,,,,,,,
+8/2/2024,6D,1,3,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,23,,42.8,11.8144796,271.7330307,0,11630.17372,11630.17372,0.488888889,0.492361111,0,2,35,79,1,,,,,,,,1,,,,,,,,1,,,,
+8/2/2024,6F,0,1,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,,2,684,8.20449972,0,1368,0,1368,0.430555556,0.434027778,0,2,70,75,,,,1,,,,,,,,,,,,,,,,,Mostly done blooming--only 2 blooms left
+8/2/2024,9F,1,0,INCREDIBALLâ,Hydrangea arborescens,9050,Dense,3,Mop,,2,557.4,13.163664,0,1114.8,0,1114.8,0.442361111,0.445833333,0,2,70,75,,,,,,,,,,,,,,,,,,,,No sample!,No bugs and mostly done blooming
+8/8/2024,10C,0,2,Fire Light,Hydrangea paniculata,14026,Dense,4,Mop-like panicle,2,,76.5,8.573195757,17.14639151,0,1311.698951,1311.698951,0.609722222,0.613194444,0,1,100,73,1,,,,,,,,1,,,,,,,,,,,,
+8/8/2024,10D,0,3,Daimond Rogue,Hydrangea paniculata,17047,Half-open,4,Mop-like panicle,4.666666667,,109,9.334897459,43.56285481,0,4748.351174,4748.351174,0.439583333,0.443055556,0,0,90,72,3,,,,,,,,,,,,,,,,,,,,
+8/8/2024,11C,0,2,Little Quick Fire,Hydrangea paniculata,14010,Open,4,Lacy panicle,1,,59.7,5.546646971,5.546646971,0,331.1348242,331.1348242,0.603472222,0.606944444,0,1,100,73,1,,,1,,,,,,,,,,,,,,,,,
+8/8/2024,11D,0,11,Kyushu,Hydrangea paniculata,93021,Open,NA,Lacy panicle,12.66666667,,404.7,9.334897459,118.2420345,0,47852.55136,47852.55136,0.450694444,0.454166667,0,2,100,72,4,,,5,,,,,1,,,,,,1,,,,,,
+8/8/2024,11E,1,0,Seaside SerenadeÂ® Bar Harbo,Hydrangea arborescens,19008B,Dense,4,Mop,,1,388.8,8.3053,0,388.8,0,388.8,0.44375,0.447222222,0,2,100,60,,,,,,,,,,,,,,,,,,,,,No bugs and nearly done blooming 8/8/24
+8/8/2024,12C,0,0,Polar Ball,Hydrangea paniculata,13029,Very dense,4,Mop-like panicle,1,,4.5,5.850517331,5.850517331,0,26.32732799,26.32732799,0.545138889,0.631944444,0,1,90,73,,,,,,,,,,,,,,,,,,,,,
+8/8/2024,12D,0,9,Phantom,Hydrangea paniculata,1004,Dense,4,Mop-like panicle,9,,98.3,21.00351928,189.0316735,0,18581.81351,18581.81351,0.4625,0.465972222,0,1,100,72,4,,,1,,,,,4,,,,,,,,,,,,
+8/8/2024,13C,0,2,Fire Light,Hydrangea paniculata,18008B,Very dense,NA,Mop-like panicle,3.333333333,,71.4,8.949995003,29.83331668,0,2130.098811,2130.098811,0.595833333,0.599305556,0,1,100,74,1,,,,,,,,1,,,,,,,,,,,,
+8/8/2024,13D,0,10,Ruby,Hydrangea paniculata,98053,Half-open,4,Mop-like panicle,5.333333333,,232.8,13.163664,70.20620797,0,16344.00522,16344.00522,0.471527778,0.475,0,2,100,72,8,,,1,,,,,1,,,,,,,,,,,,
+8/8/2024,14C,0,3,Fire Light,Hydrangea paniculata,18008A,Dense,4,Mop-like panicle,4.666666667,,94.3,8.573195757,40.00824687,0,3772.777679,3772.777679,0.589583333,0.593055556,0,1,100,73,2,,,1,,,,,,,,,,,,,,,,,
+8/8/2024,15D,0,4,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,7,,88.6,4.412197627,30.88538339,0,2736.444968,2736.444968,0.488888889,0.492361111,0,1,100,73,3,,,1,,,,,,,,,,,,,,,,,
+8/8/2024,16D,0,11,Green Spire,Hydrangea paniculata,95054,Open,4,Lacy panicle,5.666666667,,109.8,16.59537326,94.04044848,0,10325.64124,10325.64124,0.547222222,0.550694444,0,2,100,73,3,,,5,,,,,2,,,,1,,,,,,,,
+8/8/2024,17D,0,3,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,6.666666667,,91.7,8.20449972,54.6966648,0,5015.684162,5015.684162,0.55625,0.559722222,0,1,100,73,2,,,,,,,,,,,,1,,,,,,,,
+8/8/2024,18D,0,3,Bobo,Hydrangea paniculata,12031B,Half-open,4,Mop-like panicle,11.33333333,,72.1,6.162490901,69.84156354,0,5035.576731,5035.576731,0.563888889,0.567361111,0,2,100,73,,,,,,,,,2,,,,1,,,,,,,,1 unknown moth
+8/8/2024,2D,0,1,Little Lime,Hydrangea paniculata,10040,Very dense,4,Mop-like panicle,,6,29.33333,0.583431091,0,175.99998,0,175.99998,0.580555556,0.584027778,0,2,100,73,,,,,,,,,1,,,,,,,,,,,,
+8/8/2024,1D,0,1,Floribunda,Hydrangea paniculata,87273-0,Open,4,Lacy panicle,3.666666667,,243,3.176458163,11.64701327,0,2830.224223,2830.224223,0.336111111,0.339583333,0,1,15,66,,,,,,,,,1,,,,,,,,,,,,
+8/8/2024,21D,0,3,Candy Apple,Hydrangea paniculata,20012A,Very dense,5,Mop-like panicle,8,,76.9,2.532253,20.258024,0,1557.842046,1557.842046,0.565277778,0.485416667,0,2,100,74,1,,,,,,,,2,,,,,,,,,,,,Some flowers with double bracts
+8/8/2024,2C,0,6,Pinky Winky,Hydrangea paniculata,14022,Half-open,4,Mop-like panicle,10,,47.1,5.546646971,55.46646971,0,2612.470723,2612.470723,0.653472222,0.656944444,0,2,95,77,4,,,1,,,,,,,,,,1,,,,,,,
+8/8/2024,19D,1,1,Puffer Fish,Hydrangea paniculata,2023-030,Half-open,4,Mop-like panicle,9,,55.8,2.333724365,21.00351928,0,1171.996376,1171.996376,0.349305556,0.352777778,0,1,85,67,,,,,,,,,1,,,,,,,,,,,No sample!,
+8/8/2024,3D,0,2,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,3,,349.6,18.18765395,54.56296184,0,19075.21146,19075.21146,0.356944444,0.360416667,0,1,85,67,,,,,,,,,1,,,,,,,,,1,,,
+8/8/2024,3E,1,0,Bounty,Hydrangea arborescens,12019,Half-open,4,Mop,,2,528.4,17.0973,0,1056.8,0,1056.8,0.694444444,0.697916667,0,2,85,75,,,,,,,,,,,,,,,,,,,,No sample!,No bugs
+8/8/2024,4C,0,1,Little Lamb,Hydrangea paniculata,4054,Very dense,4,Mop-like panicle,7.333333333,,50,9.727903125,71.33795625,0,3566.897812,3566.897812,0.681944444,0.685416667,0,2,95,76,1,,,,,,,,,,,,,,,,,,,,
+8/8/2024,4D,0,3,Great Star,Hydrangea paniculata,12020,Open,4,Lacy panicle,0.666666667,,167.9,16.08081945,10.7205463,0,1799.979724,1799.979724,0.368055556,0.371527778,0,1,90,67,1,,,1,,,,,1,,,,,,,,,,,,
+8/8/2024,4F,1,3,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,0.666666667,,563.4285714,9.334897459,6.223264973,0,3506.365293,3506.365293,0.661805556,0.665277778,0,2,100,76,,,,3,,,,,,,,,,,,,,,,No sample!,
+8/8/2024,5D,0,5,Brussels Lace,Hydrangea paniculata,96102,Open,4,Lacy panicle,8,,492.1,6.810747669,54.48598135,0,26812.55142,26812.55142,0.374305556,0.377777778,0,1,95,68,2,,,,,,,,3,,,,,,,,,,,,
+8/8/2024,6D,0,2,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,6.333333333,,42.8,11.8144796,74.82503745,0,3202.511603,3202.511603,0.378472222,0.381944444,0,2,85,70,,,,1,,,,,1,,,,,,,,,,,,Many blooms past
+8/8/2024,7D,0,23,Pink Diamond,Hydrangea paniculata,97033,Open,4,Lacy panicle,14.66666667,,160.7,14.58577728,213.9247334,0,34377.70466,34377.70466,0.416666667,0.420138889,0,1,95,70,8,,,7,,,,,6,,,,,,1,,,,1,,1 rusty patched bumble bee seen outside of sampling time (10:45am)
+8/8/2024,8C,0,0,Strawberry Shake,Hydrangea paniculata,18031A,Very dense,4,Mop-like panicle,3.333333333,,27.1,5.250879821,17.50293274,0,474.3294771,474.3294771,0.669444444,0.672916667,0,2,90,76,,,,,,,,,,,,,,,,,,,,,extra sepals
+8/8/2024,8D,0,3,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,0.666666667,,104.4,14.58577728,9.72385152,0,1015.170099,1015.170099,0.426388889,0.429861111,0,1,80,72,2,,,,,,,,1,,,,,,,,,,,,
+8/8/2024,9C,1,1,Pillow Talk,Hydrangea paniculata,14021,Very dense,4,Mop-like panicle,3.333333333,,120.2,6.48256768,21.60855893,0,2597.348784,2597.348784,0.676388889,0.679861111,0,2,90,76,,,,,,,,,,1,,,,,,,,,,No sample!,
+8/9/2024,10A,0,8,Pinky Winky,Hydrangea paniculata,7045,Half-open,4,Lacy panicle,12.66666667,,79,1.446912,18.327552,0,1447.876608,1447.876608,0.379861111,0.383333333,0,0,80,61,4,,,,,,,,2,,,,,,2,,,,,,
+8/9/2024,1A,0,0,Strawberry Shake,Hydrangea paniculata,18031B,Very dense,4,Mop-like panicle,,21,68.4,4.148843315,0,1436.4,0,1436.4,0.405555556,0.409027778,0,2,100,60,,,,,,,,,,,,,,,,,,,,,"Not many open flowers and colder day so fewer bugs, especially fewer small bugs"
+8/9/2024,22B,0,0,Limelight Prime,Hydrangea paniculata,21039,Half-open,4,Mop-like panicle,4,,17.7,1.960976723,7.843906893,0,138.837152,138.837152,0.480555556,0.484027778,0,2,100,61,,,,,,,,,,,,,,,,,,,,,
+8/9/2024,23B,1,2,Quick Fire Fabulous,Hydrangea paniculata,No tag,Dense,5,Mop-like panicle,,14,60.9,4.412197627,0,852.6,0,852.6,0.489583333,0.493055556,0,2,100,61,,,,1,,,,,1,,,,,,,,,,,No sample!,
+8/9/2024,2A,1,1,Baby Lace,Hydrangea paniculata,16012,Open,4,Lacy panicle,9,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.413888889,0.417361111,0,2,100,60,,,,,,,,,1,,,,,,,,,,,,
+8/9/2024,2B,0,7,Phantom,Hydrangea paniculata,1004,Half-open,4,Mop-like panicle,7,,174.4,44.66894292,312.6826004,0,54531.84552,54531.84552,0.470138889,0.473611111,0,1,100,61,1,,,4,,,,,2,,,,,,,,,,,,
+8/9/2024,3A,0,3,Sweet Summer,Hydrangea paniculata,12022,Dense,4,Mop-like panicle,12.33333333,,361,8.3053,102.4320333,0,36977.96403,36977.96403,0.395138889,0.398611111,0,2,90,60,,,,3,,,,,,,,,,,,,,,,,
+8/9/2024,3B,0,0,Little Lime,Hydrangea paniculata,10040,Very dense,4,Mop-like panicle,,41,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.461111111,0.464583333,0,1,100,61,,,,,,,,,,,,,,,,,,,,,Not many open flowers
+8/9/2024,4A,1,2,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,2.333333333,,31,9.0432,21.1008,0,654.1248,654.1248,0.421527778,0.425,0,2,100,60,,,,2,,,,,,,,,,,,,,,,,
+8/9/2024,6A,1,8,Honey Comb,Hydrangea paniculata,11031,Open,4,Lacy panicle,8,,189.5,15.0877,120.7016,0,22872.9532,22872.9532,0.427083333,0.430555556,0,2,100,60,1,,,6,,,,,1,,,,,,,,,,,,
+8/9/2024,6B,0,5,Mega Pearl,Hydrangea paniculata,1128,Half-open,4,Lacy panicle,10.66666667,,154.8,1.107792,11.816448,0,1829.18615,1829.18615,0.451388889,0.454861111,0,2,100,61,1,,,3,,,,,1,,,,,,,,,,,,
+8/9/2024,7A,1,5,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,12.66666667,,174.2,4.0192,50.90986667,0,8868.498773,8868.498773,0.388888889,0.392361111,0,2,80,61,1,,,4,,,,,,,,,,,,,,,,,
+8/9/2024,8A,0,5,Mega Pearl,Hydrangea paniculata,1128,Dense,4,Mop-like panicle,8.333333333,,36.1,8.3053,69.21083333,0,2498.511083,2498.511083,0.433333333,0.436805556,0,2,100,60,,,,4,,,,,1,,,,,,,,,,,,
+8/9/2024,9B,0,2,Silver Dollar,Hydrangea paniculata,1006,Dense,4,Mop-like panicle,8,,41.2,1.698112,13.584896,0,559.6977152,559.6977152,0.495833333,0.499305556,0,3,100,61,1,,,,,,,,1,,,,,,,,,,,,
+8/13/2024,19D,0,1,Puffer Fish,Hydrangea paniculata,2023-030,Half-open,4,Mop-like panicle,6,,55.8,2.333724365,14.00234619,0,781.3309173,781.3309173,0.568055556,0.571527778,0,2,15,83,,,,,,,,,1,,,,,,,,,,,,
+8/13/2024,1D,0,7,Floribunda,Hydrangea paniculata,87273-0,Open,4,Lacy panicle,1.666666667,,243,3.176458163,5.294096939,0,1286.465556,1286.465556,0.561805556,0.565277778,0,1,15,83,5,,,,,,,,1,,,,,,1,,,,,,
+8/13/2024,2D,0,1,Little Lime,Hydrangea paniculata,10040,Very dense,4,Mop-like panicle,,12,29.33333,0.583431091,0,351.99996,0,351.99996,0.574305556,0.577777778,0,1,15,83,1,,,,,,,,,,,,,,,,,,,,
+8/13/2024,3D,0,7,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,12.66666667,,349.6,18.18765395,230.37695,0,80539.78172,80539.78172,0.581944444,0.585416667,0,1,25,82,4,,,,,,,,2,,,,,,1,,,,,,
+8/13/2024,4D,0,5,Great Star,Hydrangea paniculata,12020,Open,4,Lacy panicle,1.666666667,,167.9,16.08081945,26.80136575,0,4499.94931,4499.94931,0.592361111,0.595833333,0,1,30,82,4,,,,,,,,1,,,,,,,,,,,,
+8/14/2024,10D,1,3,Daimond Rogue,Hydrangea paniculata,17047,Half-open,4,Mop-like panicle,4.666666667,,109,9.334897459,43.56285481,0,4748.351174,4748.351174,0.413194444,0.416666667,0,1,15,74,1,,,,,,,,2,,,,,,,,,,,No sample!,
+8/14/2024,10F,1,0,IncrediballÂ® Blus,Hydrangea arborescens,16025,Dense,4,Mop,,1,245,3.407399637,0,245,0,245,,,0,2,50,82,,,,,,,,,,,,,,,,,,,,No sample!,No pollinators seen
+8/14/2024,11D,0,13,Kyushu,Hydrangea paniculata,93021,Open,NA,Lacy panicle,13.33333333,,404.7,9.334897459,124.4652995,0,50371.10669,50371.10669,0.425,0.428472222,0,1,20,76,8,,,2,,,,,2,,,,,,1,,,,,,Also 1 moth/butterfly
+8/14/2024,11F,1,0,InvincibelleÂ® Rub,Hydrangea arborescens,16026,Very dense,4,Mop,,1,119,2.143298939,0,119,0,119,,,0,2,50,82,,,,,,,,,,,,,,,,,,,,No sample!,Saw some flies but failed to catch
+8/14/2024,12D,0,11,Phantom,Hydrangea paniculata,1004,Dense,4,Mop-like panicle,24,,98.3,21.00351928,504.0844628,0,49551.50269,49551.50269,0.433333333,0.436805556,0,1,25,76,5,,,4,,,,,2,,,,,,,,,,,,
+8/14/2024,12F,1,0,WHITE DOMEâ,Hydrangea arborescens,2068,Open,4,Lacy,0,,278.5,#VALUE!,#VALUE!,0,#VALUE!,0,,,0,2,40,82,,,,,,,,,,,,,,,,,,,,No sample!,Past bloom but still noticed a couple flies on levaes/fruit
+8/14/2024,13D,1,14,Ruby,Hydrangea paniculata,98053,Half-open,4,Mop-like panicle,,34,232.8,13.163664,0,7915.2,0,7915.2,0.440972222,0.444444444,0,1,30,76,8,,,4,,,,,2,,,,,,,,,,,,
+8/14/2024,15D,0,6,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,7,,88.6,4.412197627,30.88538339,0,2736.444968,2736.444968,0.458333333,0.461805556,0,2,40,78,3,,,2,,,,,,,,,,,1,,,,,,
+8/14/2024,16D,0,17,Green Spire,Hydrangea paniculata,95054,Open,4,Lacy panicle,4.166666667,,109.8,16.59537326,69.14738859,0,7592.383267,7592.383267,0.468055556,0.471527778,0,2,55,78,8,,,6,,,,,2,,,,,,1,,,,,,Also 1 butterfly/moth (same color as 11D)
+8/14/2024,17D,0,7,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,6,,91.7,8.20449972,49.22699832,0,4514.115746,4514.115746,0.476388889,0.479861111,0,1,30,78,3,,,2,,,,,1,,,,,,1,,,,,,
+8/14/2024,18D,0,5,Bobo,Hydrangea paniculata,12031B,Half-open,4,Mop-like panicle,14.33333333,,72.1,6.162490901,88.32903624,0,6368.523513,6368.523513,0.485416667,0.488888889,0,2,30,78,2,,,,,,,,2,,,,,,1,,,,,,
+8/14/2024,20D,1,0,Early Evolution,Hydrangea paniculata,2023-026A,Open,4,Lacy panicle,0,,NA,1.037210829,0,#VALUE!,#VALUE!,0,0.381944444,0.385416667,0,0,5,72,,,,,,,,,,,,,,,,,,,,No sample!,"No pollinators seen, past bloom"
+8/14/2024,21D,0,3,Candy Apple,Hydrangea paniculata,20012A,Very dense,5,Mop-like panicle,13.66666667,,76.9,2.532253,34.60745767,0,2661.313495,2661.313495,0.448611111,0.452083333,0,1,40,77,2,,,1,,,,,,,,,,,,,,,,,
+8/14/2024,2F,1,0,Silver Leaf,Hydrangea arborescens,Unknown,Open,4,Lacy,,1,390.5,3.64644432,0,390.5,0,390.5,0.545833333,0.549305556,0,2,80,82,,,,,,,,,,,,,,,,,,,,No sample!,No pollinators seen
+8/14/2024,3F,1,0,LIME RICKEYâ,Hydrangea arborescens,14020,Half-open,4,Mop,0,,371.4,21.59100198,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,No sample!,Past bloom but still noticed a couple flies on levaes/fruit
+8/14/2024,4F,0,8,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,5,,563.4285714,9.334897459,46.6744873,0,26297.7397,26297.7397,0.534027778,0.5375,0,1,50,80,,,,8,,,,,,,,,,,,,,,,,
+8/14/2024,5D,1,8,Brussels Lace,Hydrangea paniculata,96102,Open,4,Lacy panicle,25.33333333,,492.1,6.810747669,172.5389409,0,84906.41284,84906.41284,0.345833333,0.349305556,0,0,5,68,3,,,2,,,,,2,,,,,,1,,,,,,
+8/14/2024,5F,1,0,BELLA ANNAâ,Hydrangea arborescens,10067,Half-open,4,Mop,0,,88,3.407399637,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,No sample!,No data taken since past bloom but still noticed a couple flies on levaes/fruit
+8/14/2024,6D,1,1,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,14,,42.8,11.8144796,165.4027144,0,7079.236174,7079.236174,0.354861111,0.358333333,0,0,5,68,,,,1,,,,,,,,,,,,,,,,,
+8/14/2024,6F,0,1,InvincibelleÂ® Spirit I,Hydrangea arborescens,16027,Dense,4,Mop,,3,684,8.20449972,0,2052,0,2052,0.561111111,0.564583333,0,23,65,82,,,,1,,,,,,,,,,,,,,,,,
+8/14/2024,7D,0,10,Pink Diamond,Hydrangea paniculata,97033,Open,4,Lacy panicle,16,,160.7,14.58577728,233.3724365,0,37502.95054,37502.95054,0.363888889,0.367361111,0,0,5,68,3,,,4,,,,,2,,,,,,1,,,,,,
+8/14/2024,7F,1,0,Silver Leaf,Hydrangea arborescens,3094,Open,4,Lacy,0,,460,7.147030867,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,No sample!,No data taken since past bloom but still noticed a couple flies on levaes/fruit
+8/14/2024,8D,0,8,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,12,,104.4,14.58577728,175.0293274,0,18273.06178,18273.06178,0.374305556,0.377777778,0,1,5,72,3,,,3,,,,,2,,,,,,,,,,,,
+8/14/2024,8F,1,0,Pink Pincushion,Hydrangea arborescens,11029,Half-open,4,Lacy,0,,424.5,3.893592213,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,No sample!,No data taken since past bloom but still noticed a couple flies on levaes/fruit
+8/14/2024,9F,1,0,INCREDIBALLâ,Hydrangea arborescens,9050,Dense,3,Mop,0,,557.4,13.163664,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,No sample!,No data taken since past bloom but still noticed a couple flies on levaes/fruit
+8/20/2024,1A,1,5,Strawberry Shake,Hydrangea paniculata,18031B,Very dense,4,Mop-like panicle,2.333333333,,68.4,4.148843315,9.680634402,0,662.1553931,662.1553931,0.544444444,0.547916667,0,2,20,69,,,,5,,,,,,,,,,,,,,,,,
+8/20/2024,1D,0,3,Floribunda,Hydrangea paniculata,87273-0,Open,4,Lacy panicle,,34,243,3.176458163,0,8262,0,8262,0.559722222,0.563194444,0,1,15,70,2,,,,,,,,1,,,,,,,,,,,,
+8/20/2024,2D,0,0,Little Lime,Hydrangea paniculata,10040,Very dense,4,Mop-like panicle,,6,29.33333,0.583431091,0,175.99998,0,175.99998,0.569444444,0.572916667,0,1,15,70,,,,,,,,,,,,,,,,,,,,,5 petal common
+8/20/2024,3D,0,12,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,12.33333333,,349.6,18.18765395,224.3143987,0,78420.31378,78420.31378,0.577777778,0.58125,0,1,15,70,5,,,1,,,,,3,1,1,,,,,,,1,,,
+8/20/2024,4D,0,8,Great Star,Hydrangea paniculata,12020,Open,4,Lacy panicle,3,,167.9,16.08081945,48.24245835,0,8099.908758,8099.908758,0.5875,0.590972222,0,1,10,71,2,,,2,,,,,2,,,,,,2,,,,,,2 unknown skippers
+8/20/2024,4F,0,0,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,,,563.4285714,9.334897459,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8/20/2024,5D,0,5,Brussels Lace,Hydrangea paniculata,96102,Open,4,Lacy panicle,13.66666667,,492.1,6.810747669,93.08021814,0,45804.77535,45804.77535,0.596527778,0.6,0,1,15,71,2,,,1,,,,,2,,,,,,,,,,,,"Only tops of panicles blooming, very small"
+8/20/2024,6D,0,5,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,7.333333333,,42.8,11.8144796,86.63951704,0,3708.171329,3708.171329,0.605555556,0.609027778,0,2,15,71,2,,,1,,,,,2,,,,,,,,,,,,2 hummingbirds outside survey
+8/20/2024,7D,0,13,Pink Diamond,Hydrangea paniculata,97033,Open,4,Lacy panicle,7,,160.7,14.58577728,102.100441,0,16407.54086,16407.54086,0.613194444,0.616666667,0,2,15,71,4,,,2,,,,,5,,,,,,1,,,1,,,
+8/21/2024,11D,0,7,Kyushu,Hydrangea paniculata,93021,Open,NA,Lacy panicle,29,,404.7,9.334897459,270.7120263,0,109557.1571,109557.1571,0.389583333,0.393055556,0,1,10,62,2,,,4,,,,,1,,,,,,,,,,,,
+8/21/2024,12D,1,7,Phantom,Hydrangea paniculata,1004,Dense,4,Mop-like panicle,2.666666667,,98.3,21.00351928,56.00938476,0,5505.722521,5505.722521,0.396527778,0.4,0,0,5,62,2,,,,,,,,4,,,,,,1,,,,,No sample!,
+8/21/2024,13C,0,2,Fire Light,Hydrangea paniculata,18008B,Very dense,NA,Mop-like panicle,,,71.4,8.949995003,0,NA,NA,NA,0.470138889,0.473611111,0,1,3,68,,,,1,,,,,,,,,,,1,,,,,,
+8/21/2024,13D,0,13,Ruby,Hydrangea paniculata,98053,Half-open,4,Mop-like panicle,14.33333333,,232.8,13.163664,188.6791839,0,43924.51402,43924.51402,0.400694444,0.404166667,0,1,5,62,7,,,4,,,,,2,,,,,,,,,,,,
+8/21/2024,14C,1,0,Fire Light,Hydrangea paniculata,18008A,Dense,4,Mop-like panicle,,9,94.3,8.573195757,0,848.7,0,848.7,0.477083333,0.480555556,0,1,3,68,,,,,,,,,,,,,,,,,,,,,
+8/21/2024,15D,0,3,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,,15,88.6,4.412197627,0,1329,0,1329,0.413888889,0.417361111,0,0,2,62,,,,1,,,,,2,,,,,,,,,,,,
+8/21/2024,16D,1,28,Green Spire,Hydrangea paniculata,95054,Open,4,Lacy panicle,13.33333333,,109.8,16.59537326,221.2716435,0,24295.62645,24295.62645,0.422916667,0.426388889,0,1,5,62,16,,,10,,,,,2,,,,,,,,,,,,
+8/21/2024,17D,0,2,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,8,,91.7,8.20449972,65.63599776,0,6018.820995,6018.820995,0.433333333,0.436805556,0,1,2,65,2,,,,,,,,,,,,,,,,,,,,
+8/21/2024,18D,0,3,Bobo,Hydrangea paniculata,12031B,Half-open,4,Mop-like panicle,5,,72.1,6.162490901,30.8124545,0,2221.57797,2221.57797,0.438888889,0.442361111,0,0,1,65,2,,,,,,,,1,,,,,,,,,,,,
+8/21/2024,21B,0,4,Great Star,Hydrangea paniculata,12020,Very dense,4,Lacy panicle,,9,150.7,13.62959855,0,1356.3,0,1356.3,0.489583333,0.493055556,0,2,0,68,,,,3,,,1,,,,,,,,,,,,,,
+8/21/2024,21D,1,1,Candy Apple,Hydrangea paniculata,20012A,Very dense,5,Mop-like panicle,,8,76.9,2.532253,0,615.2,0,615.2,0.409722222,0.413194444,0,0,0,62,,,,,,,,,1,,,,,,,,,,,No sample!,
+8/21/2024,2A,1,10,Baby Lace,Hydrangea paniculata,16012,Open,4,Lacy panicle,11.33333333,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.64375,0.647222222,0,1,0,74,8,,,,,,,,1,,,,,,,,,1,,No sample!,
+8/21/2024,3A,0,3,Sweet Summer,Hydrangea paniculata,12022,Dense,4,Mop-like panicle,8.333333333,,361,8.3053,69.21083333,0,24985.11083,24985.11083,0.676388889,0.679861111,0,2,1,74,2,,,,,,,,,,,,,,1,,,,,No sample!,
+8/21/2024,4A,1,6,White Diamonds,Hydrangea paniculata,11045,Half-open,4,Mop-like panicle,,7,31,9.0432,0,217,0,217,0.648611111,0.652083333,0,1,0,74,4,,,1,,,,,1,,,,,,,,,,,,
+8/21/2024,6A,0,24,Honey Comb,Hydrangea paniculata,11031,Open,4,Lacy panicle,3.666666667,,189.5,15.0877,55.32156667,0,10483.43688,10483.43688,0.656944444,0.660416667,0,1,0,74,11,,,9,,,,,2,,,,,,2,,,,,,1 unknown skipper
+8/21/2024,8A,0,11,Mega Pearl,Hydrangea paniculata,1128,Dense,4,Mop-like panicle,5.333333333,,36.1,8.3053,44.29493333,0,1599.047093,1599.047093,0.663888889,0.667361111,0,2,0,74,5,,,4,,,,,2,,,,,,,,,,,,
+8/21/2024,8D,0,12,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,16.33333333,,104.4,14.58577728,238.2343622,0,24871.66742,24871.66742,0.384027778,0.3875,0,1,10,62,6,1,,,,,,,5,,,,,,,,,,,,
+8/29/2024,11B,1,4,Strawberry Sundae,Hydrangea paniculata,15012,Open,4,Mop-like panicle,7,,269.7,7.5988,53.1916,0,14345.77452,14345.77452,0.630555556,0.634027778,0,3,80,78,2,,,1,,,,,1,,,,,,,,,,,,
+8/29/2024,12B,1,3,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,4,Mop-like panicle,8.333333333,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.638888889,0.642361111,0,3,80,78,,,,3,,,,,,,,,,,,,,,,,
+8/29/2024,15B,1,0,Zinfin Doll,Hydrangea paniculata,15049,Half-open,4,Mop-like panicle,2.666666667,,107.9,1.507828,4.020874667,0,433.8523765,433.8523765,0.615972222,0.619444444,0,3,100,78,,,,,,,,,,,,,,,,,,,,,
+8/29/2024,16B,1,3,Dolly,Hydrangea paniculata,1127,Dense,4,Lacy panicle,1.333333333,,126.2,2.989908,3.986544,0,503.1018528,503.1018528,0.652083333,0.655555556,0,3,100,78,,,,2,,,,,1,,,,,,,,,,,,
+8/29/2024,17B,1,7,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,16.66666667,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.623611111,0.627083333,0,3,25,78,,,,4,,,,,2,,,,,,,,,1,,,
+8/29/2024,18B,1,15,Big Ben,Hydrangea paniculata,1126,Dense,4,Lacy panicle,11.33333333,,NA,#VALUE!,#VALUE!,#VALUE!,#VALUE!,NA,0.659722222,0.663194444,0,3,100,78,4,,,9,,,,,,,,,,,2,,,,,,
+8/29/2024,1D,1,3,Floribunda,Hydrangea paniculata,87273-0,Open,4,Lacy panicle,3.333333333,,243,3.176458163,10.58819388,0,2572.931112,2572.931112,0.475694444,0.479166667,0,2,100,75,1,,,1,,,,,1,,,,,,,,,,,,
+8/29/2024,3D,1,7,Vanilla Strawberry,Hydrangea paniculata,10063,Dense,5,Mop-like panicle,5.333333333,,349.6,18.18765395,97.00082105,0,33911.48704,33911.48704,0.484027778,0.4875,0,2,100,75,1,,,4,,,,,1,1,,,,,,,,,,,
+8/27/2024,4D,1,4,Great Star,Hydrangea paniculata,12020,Open,4,Lacy panicle,3,,167.9,16.08081945,48.24245835,0,8099.908758,8099.908758,0.730555556,0.734027778,0,0,50,88,2,,,,,,,,2,,,,,,,,,,,,
+8/29/2024,5D,1,5,Brussels Lace,Hydrangea paniculata,96102,Open,4,Lacy panicle,4.333333333,,492.1,6.810747669,29.5132399,0,14523.46535,14523.46535,0.492361111,0.495833333,0,1,100,75,1,1,,1,,,,,2,,,,,,,,,,,,
+8/29/2024,6D,1,5,Strawberry Sundae,Hydrangea paniculata,15055,Dense,4,Mop-like panicle,3,,42.8,11.8144796,35.44343879,0,1516.97918,1516.97918,0.502083333,0.505555556,0,1,100,76,1,,,2,,,,,1,,,,,,,,,1,,,
+8/29/2024,7D,1,6,Pink Diamond,Hydrangea paniculata,97033,Open,4,Lacy panicle,3.333333333,,160.7,14.58577728,48.6192576,0,7813.114696,7813.114696,0.509722222,0.513194444,0,1,100,76,,1,,4,,,,,,,,,,,1,,,,,,1 hummingbird outside of survey window
+8/27/2024,8D,1,3,Limelight,Hydrangea paniculata,1072,Very dense,4,Mop-like panicle,15,,104.4,14.58577728,218.7866592,0,22841.32722,22841.32722,0.736805556,0.740277778,0,0,50,88,,,,2,,,,,1,,,,,,,,,,,,
+8/29/2024,11D,1,3,Kyushu,Hydrangea paniculata,93021,Open,NA,Lacy panicle,5,,404.7,9.334897459,46.6744873,0,18889.16501,18889.16501,0.519444444,0.522916667,0,2,100,76,2,,,1,,,,,,,,,,,,,,,,,
+8/29/2024,12D,1,4,Phantom,Hydrangea paniculata,1004,Dense,4,Mop-like panicle,3.333333333,,98.3,21.00351928,70.01173094,0,6882.153152,6882.153152,0.524305556,0.527777778,0,1,100,76,2,1,,1,,,,,,,,,,,,,,,,,
+8/27/2024,13D,1,4,Ruby,Hydrangea paniculata,98053,Half-open,4,Mop-like panicle,8,,232.8,13.163664,105.309312,0,24516.00782,24516.00782,0.744444444,0.747916667,0,0,25,88,1,,,2,,,,,1,,,,,,,,,,,,
+8/29/2024,15D,1,0,Tickled Pink,Hydrangea paniculata,11044,Half-open,4,Lacy panicle,,8,88.6,4.412197627,0,708.8,0,708.8,0.5375,0.540972222,0,2,85,76,,,,,,,,,,,,,,,,,,,,,
+8/29/2024,16D,1,19,Green Spire,Hydrangea paniculata,95054,Open,4,Lacy panicle,11.66666667,,109.8,16.59537326,193.612688,0,21258.67315,21258.67315,0.547222222,0.550694444,0,2,100,76,3,1,,10,,,,,4,,,,,,,,,,1,,
+8/29/2024,17D,1,0,Pink Lady,Hydrangea paniculata,1005,Dense,4,Mop-like panicle,3.666666667,,91.7,8.20449972,30.08316564,0,2758.626289,2758.626289,0.603472222,0.606944444,0,2,100,78,,,,,,,,,,,,,,,,,,,,,
+8/29/2024,21D,1,1,Candy Apple,Hydrangea paniculata,20012A,Very dense,5,Mop-like panicle,,5,76.9,2.532253,0,384.5,0,384.5,0.53125,0.534722222,0,0,100,76,,,,1,,,,,,,,,,,,,,,,,
+8/27/2024,4F,1,6,Haas Halo,Hydrangea arborescens,18022,Open,3,Lacy,,7,563.4285714,9.334897459,0,3944,0,3944,0.436805556,0.440277778,0,1,100,86,,,,6,,,,,,,,,,,,,,,,,Heat advisory going on
