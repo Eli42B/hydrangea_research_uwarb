@@ -1,0 +1,86 @@
+,Trademark.Cultivar,Month,species1,days,Color,EYB_Inflorescence.Type,Flower Type
+1,Baby Lace,August,Apis_mellifera,4,White,Open,Lacy panicle
+2,Baby Lace,September,Apis_mellifera,8,White,Open,Lacy panicle
+3,Baby Lace,October,Bombus_impatiens,1,White,Open,Lacy panicle
+4,Brussels Lace,August,Apis_mellifera,11,White,Open,Lacy panicle
+5,Brussels Lace,September,Apis_mellifera,6,White,Open,Lacy panicle
+6,Brussels Lace,October,Lepidoptera,2,White,Open,Lacy panicle
+7,Dharuma,July,Diptera,11,White,Open,Lacy panicle
+8,Dharuma,August,Apis_mellifera,1,White,Open,Lacy panicle
+9,Fire & Ice,July,Wasp,6,Pink-white,Open,Lacy panicle
+10,Fire & Ice,August,Apis_mellifera,2,Pink-white,Open,Lacy panicle
+11,Floribunda,August,Apis_mellifera,8,White,Open,Lacy panicle
+12,Floribunda,September,Syrphidae,8,White,Open,Lacy panicle
+13,Floribunda,October,Apis_mellifera,3,White,Open,Lacy panicle
+14,Great Star,October,Syrphidae,5,White,Open,Lacy panicle
+15,Green Spire,August,Apis_mellifera,10,Green-white,Open,Lacy panicle
+16,Green Spire,September,Apis_mellifera,10,Green-white,Open,Lacy panicle
+17,Green Spire,October,Wasp,3,Green-white,Open,Lacy panicle
+18,Honey Comb,August,Apis_mellifera,12,White,Open,Lacy panicle
+19,Honey Comb,September,Bombus_impatiens,3,White,Open,Lacy panicle
+20,Honey Comb,October,Bombus_impatiens,1,White,Open,Lacy panicle
+21,Kyushu,August,Apis_mellifera,5,White,Open,Lacy panicle
+22,Kyushu,September,Apis_mellifera,9,White,Open,Lacy panicle
+23,Kyushu,October,Apis_mellifera,5,White,Open,Lacy panicle
+24,Little Quick Fire,July,Diptera,2,Pink,Open,Lacy panicle
+25,Little Quick Fire,August,Apis_mellifera,5,Pink,Open,Lacy panicle
+26,Little Quick Fire,September,Syrphidae,3,Pink,Open,Lacy panicle
+27,Little Quick Fire,October,Syrphidae,2,Pink,Open,Lacy panicle
+28,Pink Diamond,August,Apis_mellifera,12,Pink,Open,Lacy panicle
+29,Pink Diamond,September,Apis_mellifera,4,Pink,Open,Lacy panicle
+30,Quick Fire,July,Coleoptera,11,Pink,Open,Lacy panicle
+31,Quick Fire,August,Wasp,11,Pink,Open,Lacy panicle
+32,Quick Fire,September,Apis_mellifera,7,Pink,Open,Lacy panicle
+33,Quick Fire,October,Syrphidae,4,Pink,Open,Lacy panicle
+34,Strawberry Sundae,August,Lepidoptera,1,Pink-white,Open,Mop-like panicle
+35,Daimond Rogue,July,Coleoptera,4,Pink-white,Half-open,Mop-like panicle
+36,Daimond Rogue,August,Apis_mellifera,2,Pink-white,Half-open,Mop-like panicle
+37,Daimond Rogue,October,Apis_mellifera,1,Pink-white,Half-open,Mop-like panicle
+38,Mega Pearl,September,Apis_mellifera,3,Pink-white,Half-open,Mop-like panicle
+39,Phantom,August,Apis_mellifera,6,White,Half-open,Mop-like panicle
+40,Pinky Winky,August,Apis_mellifera,11,Pink-white,Half-open,Lacy panicle
+41,Pinky Winky,September,Apis_mellifera,11,Pink-white,Half-open,Lacy panicle
+42,Pinky Winky,October,Syrphidae,3,Pink-white,Half-open,Lacy panicle
+43,Ruby,August,Bombus_impatiens,4,Pink,Half-open,Mop-like panicle
+44,Ruby,September,Apis_mellifera,5,Pink,Half-open,Mop-like panicle
+45,Ruby,October,Apis_mellifera,2,Pink,Half-open,Mop-like panicle
+46,Tickled Pink,August,Apis_mellifera,3,Pink-white,Half-open,Lacy panicle
+47,Tickled Pink,September,Diptera,1,Pink-white,Half-open,Lacy panicle
+48,White Diamonds,July,Apis_mellifera,2,White,Half-open,Mop-like panicle
+49,White Diamonds,August,Apis_mellifera,1,White,Half-open,Mop-like panicle
+50,White Diamonds,September,Apis_mellifera,1,White,Half-open,Mop-like panicle
+51,Big Ben,August,Apis_mellifera,1,White,Dense,Lacy panicle
+52,Big Ben,September,Apis_mellifera,12,White,Dense,Lacy panicle
+53,Big Ben,October,Apis_mellifera,9,White,Dense,Lacy panicle
+54,Dolly,July,Lepidoptera,1,White,Dense,Lacy panicle
+55,Dolly,August,Apis_mellifera,3,White,Dense,Lacy panicle
+56,Dolly,September,Apis_mellifera,3,White,Dense,Lacy panicle
+57,Fire Light,August,Coleoptera,1,Pink,Dense,Mop-like panicle
+58,Fire Light,September,Apis_mellifera,2,Pink,Dense,Mop-like panicle
+59,Fire Light,October,Agapostemon,1,Pink,Dense,Mop-like panicle
+60,Mega Mindy,August,Apis_mellifera,5,Pink,Dense,Lacy panicle
+61,Mega Mindy,September,Bombus_impatiens,1,Pink,Dense,Lacy panicle
+62,Mega Pearl,August,Apis_mellifera,10,Pink-white,Dense,Mop-like panicle
+63,Mega Pearl,October,Apis_mellifera,1,Pink-white,Dense,Mop-like panicle
+64,Phantom,September,Bombus_impatiens,2,White,Dense,Mop-like panicle
+65,Pink Lady,August,Wasp,1,Pink-white,Dense,Mop-like panicle
+66,Silver Dollar,August,Bombus_impatiens,2,White,Dense,Mop-like panicle
+67,Strawberry Sundae,July,Wasp,1,Pink-white,Dense,Mop-like panicle
+68,Sweet Summer,August,Apis_mellifera,5,White,Dense,Mop-like panicle
+69,Sweet Summer,September,Apis_mellifera,2,White,Dense,Mop-like panicle
+70,Sweet Summer,October,Bombus_impatiens,1,White,Dense,Mop-like panicle
+71,Vanilla Strawberry,August,Bombus_impatiens,4,Pink-white,Dense,Mop-like panicle
+72,Vanilla Strawberry,September,Andrena_milwaukeensis,1,Pink-white,Dense,Mop-like panicle
+73,Great Star,August,Wasp,6,White,Very dense,Lacy panicle
+74,Great Star,September,Apis_mellifera,9,White,Very dense,Lacy panicle
+75,Limelight,August,Bombus_impatiens,4,Green-white,Very dense,Mop-like panicle
+76,Limelight,September,Bombus_bimaculatus,1,Green-white,Very dense,Mop-like panicle
+77,Little Lamb,August,Bombus_impatiens,4,White,Very dense,Mop-like panicle
+78,Little Lamb,September,Wasp,1,White,Very dense,Mop-like panicle
+79,Little Lamb,October,Bombus_citrinus,1,White,Very dense,Mop-like panicle
+80,Little Lime,August,Lepidoptera,1,Green-white,Very dense,Mop-like panicle
+81,Pillow Talk,August,Diptera,1,Pink-white,Very dense,Mop-like panicle
+82,Pillow Talk,October,Coleoptera,1,Pink-white,Very dense,Mop-like panicle
+83,Polar Ball,August,Apis_mellifera,4,White,Very dense,Mop-like panicle
+84,Polar Ball,September,Apis_mellifera,3,White,Very dense,Mop-like panicle
+85,Strawberry Shake,July,Diptera,1,Pink-white,Very dense,Mop-like panicle
