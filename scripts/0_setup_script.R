@@ -20,7 +20,7 @@ library(lubridate)    # for managing dates
 library(iNEXT)        # for spec accumulations 
 library(tidytext)     # not sure I think visualization for text 
 
-# script 1.1_ Analysis abundance anova glm interactions.R 
+# script 1.1_ Analysis abundance anova glm interactions.R to 1.3 
 
 library(jtools)       # for making regression analyses easier
 library(broom)        # for converting df to tibbles 
@@ -68,7 +68,15 @@ specaccum_vials_filepath = file.path(input_filepath, "spec_accum_vials.csv")
 
 glm_abundance_filepath = file.path(input_filepath, "dmergeFINAL.csv")
 
+# script 1.2_ Analysis richness anova glm 
+# -----------------------------------------------------------------
 
+glm_richness_filepath = file.path(input_filepath, "dmergeFINALRichness.csv")
+
+# script 1.3_ Analysis diversity anova glm 
+# -----------------------------------------------------------------
+
+glm_diversity_filepath = file.path(input_filepath, "dmergeFINAL.csv")
 
 # Script 9 supplementary pca analysis 
 #-------------------------------------------------------------------

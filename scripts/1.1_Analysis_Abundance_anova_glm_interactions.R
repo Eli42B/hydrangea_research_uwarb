@@ -238,6 +238,19 @@ model = glm.nb(total_insects ~ total_inflorescences_ab*flower_type + wind + clou
 
 summary(model)
 
+# Preparing the final model for output in the paper 
+-------------------------------------------------------
+summary_model = summary(model)             # save summary
+coef_table = summary_model$coefficients    # extract coefficients
+
+estimates = coef_table[,"Estimate"]        # get the estimates 
+exp_est = exp(estimates)              # take the exp(estimates)
+
+ci_log <- confint(model)               # est. confidence intervals
+ci_irr <- exp(ci_log)                  # extract esp(conf int)
+ci_irr
+
+
 #########################################################
 # Assumption checking 
 #########################################################
@@ -270,3 +283,14 @@ pairs(emm, adjust = "tukey")
 # *** Not significant *** 
 # Lacy H. arborescens vs. Mop H. arborescens 
 # Lacy H. arborescens vs. Mop H. paniculata 
+
+# Preparing the post-hoc test for the paper 
+-------------------------------------------------------
+
+# getting the exp(est) 
+pairs_resp <- pairs(emm, type = "response")
+pairs_resp 
+
+# getting the confidence intervals 
+ci_resp <- confint(pairs_resp)
+ci_resp

@@ -1,29 +1,30 @@
 # ###############################################################################
-# # Analysis for Insect Diversity Linearity, Interactions, GLM, ANOVA 
+# # Analysis for Insect Diversity  Linearity, Interactions, GLM, ANOVA 
 # ###############################################################################
 
-#-------------------------------------------------------------------------------
 
-########################################33
-#SETUP 
-##########################################
-getwd()
-setwd("~/School/2024 Semester 1/Jude Ogden/Hydrangea_code/data in use")
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-#Load data
+###############################################33
+# Data setup 
+###############################################
 
-dmerge = read.csv("dmergeFINAL.csv")
+#Loading libaries
+library(jtools)       # for making regression analyses easier
+library(broom)        # for converting df to tibbles 
+library(ggstance)     # so we can coord_flip() 
+library(interactions) # for interactions 
+library(car)          # for calculating VIF 
+library(emmeans)      # for post-hoc analysis of NB models 
 
-#load libraries
+#organizing data 
+dmerge = read.csv(glm_diversity_filepath, header = TRUE) 
 
-#install.packages(tidyverse)
-#install.packages(vegan)
-library(tidyverse)
-library(tidytext)
-library(lubridate)
-library(ggplot2)
-library(vegan)
+dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB)
+dmerge$TotalInflorescences_AB = log(dmerge$TotalInflorescences_AB + 1) 
+#take natural log for inflorescnces, since our previous scatterplots showed that it is a logarithmic relationship, plus 1 so we don't get infinite values  
+
+############################################
+# Creating the Diversity Index 
+############################################
 
 #Create the diversity index 
 #We're going to use Shannon diversity index because we aren't particularly concerned about a handful of rare species, we just want an overall picture of diversity 
@@ -34,119 +35,149 @@ library(vegan)
 
 #Visualized data with boxplots and scatterplots 
 
-dmerge = read.csv("dmergeFINAL.csv")
-dmerge$shannon = diversity(dmerge[,29:93], index = "shannon", MARGIN = 1, base = exp(1))
-dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB) #make sure that total inflorescences is seen as a number 
-dmerge$TotalInflorescences_AB = log(dmerge$TotalInflorescences_AB + 1) #take natural log + 1
-#dmerge = dmerge[-143,] #there's a single day where shannon diversity index calculated as NA, not sure why, let's just remove it 
+dmerge$shannon = diversity(dmerge[,29:96], index = "shannon", MARGIN = 1, base = exp(1))
+
+dmerge = dmerge[-178,] #there's a single day where shannon diversity index calculated as NA, not sure why, let's just remove it 
 dmerge$shannon
 
-#Loading libaries for interactions 
-#install.packages("jtools")
-library(jtools)
-#install.packages("broom")
-library(broom)
-#install.packages("ggstance")
-library(ggstance)
-#install.packages("interactions")
-library(interactions)
+##################################################
+# Clean the names 
+##################################################
 
-#citation('interactions')
+dmerge$Rain = as.factor(dmerge$Rain)
+dmerge$Wind = as.numeric(dmerge$Wind)
+dmerge$Cloud = as.numeric(dmerge$Cloud)
+dmerge$TempF = as.numeric(dmerge$TempF)
+dmerge$Month = as.factor(dmerge$Month)
+dmerge$Cultivar = as.factor(dmerge$Cultivar)
+dmerge$Species = as.factor(dmerge$Species)
+dmerge$Flower.Type = as.factor(dmerge$Flower.Type)
+dmerge$Flower.shape = as.factor(dmerge$Flower.shape)
 
-#############################
-#Checking model assumptions
-#############################
+clean_dmerge = dmerge %>% 
+  dplyr::select(Cultivar, Species, Date, Tag.Number, TotalInflorescences_AB, Flower.Type, Flower.shape, Inflorescence.Type, False.Sepals, Wind, Cloud, TempF, Month, shannon) %>% 
+  na.omit() %>% 
+  clean_names() 
+# note: dplyr::select is needed because MASS package also has a select command and will confuse R since we are loading MASS too 
 
-#checking assumptions -- is insect diversity distributed normally? 
 
-hist(dmerge$shannon) #actually pretty much yes besides a lot of zeroes 
-qqnorm(dmerge$shannon) #that ain't good 
-#for poisson, variance = mean. Check assumptions.  
-var(dmerge$shannon)/mean(dmerge$shannon)  #Ratio of variance (0.512) is less than 1, so we are underdispersed. Kind of unusual for Poisson. Leaning more towards a normal distribution or a quasipoisson model instead. 
+######################################################
+# What model is appropriate? 
+######################################################
 
-#I'm not sure what to do about this. It actually looks normally distributed besides the zeroes. I don't think Poisson would be appropriate because this is not count data? And the zeroes aren't being created by a separate process, so we shouldn't do a zero inflated model. 
+#Checking Assumptions of linearity 
+#is insect abundance distributed normally? 
 
-#For lack of a better fit, I'm leaning towards a normal GLM (Gaussian) 
+hist(clean_dmerge$shannon, breaks = 15) #oh no 
+qqnorm(clean_dmerge$shannon)
+var(clean_dmerge$shannon)
+mean(clean_dmerge$shannon)
+var(clean_dmerge$shannon)/mean(clean_dmerge$shannon)
 
-#-------------------------------------------------------------------------------
+#it's not zero inflated, these are true zeroes (when shannon diversity = 0, because we only saw one species, very common at a flower) 
+# It's approximately normal, besides the pile up of zeroes at the left hand side 
+# We can just use Gaussian 
 
-####################################### 
-# INTERACTIONS BETWEEN FACTORS 
-####################################### 
+#####################################
+#DATA VISUALIZATION AND INTERACTIONS 
+#####################################
 
-#Are flower shape and inflorescence count interacting? 
-model = glm(shannon ~ Flower.shape*TotalInflorescences_AB, data = dmerge, family = gaussian(link = "identity"))
-summary(model) #nope 
+# We just did this for the predictor values for the 1.1_ Analysis of abundance, so no need to do this again 
 
-#Is species and number of inflorescences interacting? 
-model = glm(shannon ~ TotalInflorescences_AB*Species, data = dmerge, family = gaussian(link = "identity"))
-summary(model) #NO 
+#############################################################
+# GENREAL LINEAR MODELS 
+# (Gaussian)
+#############################################################
 
-#---------------------- Graphing and modeling interactions 
+#Just included all variables without cultivar 
 
-#first model with species and interaction 
-model1 = glm(shannon ~ TotalInflorescences_AB*Species + TempF+ Month, data = dmerge, family = gaussian(link = "identity"))
-summary(model1) #inflorescences are significant, month is right on the edge (p = 0.053), species is significant (8.81E-5 Let's keep these though; it matches what we saw in the  plots and what they look like by themselves. 
-p = interact_plot(model1, pred = Species, modx = TotalInflorescences_AB, 
-                  legend.main = "Inflorescence Count per Plant",
-                  modx.labels = c("-1 Standard Deviation", "Mean", "+1 Standard Deviation")) #cat plot is for categorical variables. Since inflorescences is a continuous variable, use interact_plot. Cat plot gives error bars; this gives standard deviations. 
-p + 
-  labs(title = "Hydrangea paniculata outperformed \n Hydrangea arborescens",
-       x = "Species", 
-       y = "Average Insect Diversity Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant")
-# species is not actually interacting with inflorescence count 
-
-#second model with flower shape and interaction
-model2 = glm(shannon ~ TotalInflorescences_AB*Flower.shape + TempF+ Month, data = dmerge, family = gaussian(link = "identity"))
-summary(model2) 
-p = interact_plot(model2, pred = Flower.shape, modx = TotalInflorescences_AB,
-                  legend.main = "Inflorescence Count per Plant",
-                  modx.labels = c("-1 Standard Deviation", "Mean", "+1 Standard Deviation"))
-p + 
-  labs(title = "In general, lacy panicles shapes are the best \n and mop shapes are the worst for pollinators",
-       x = "Hydrangea Shapes", 
-       y = "Avg Insects diversity Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant")
-#no significant interactions 
-
-#-------------------------------------------------------------------------------
-
-##############################
-# FINAL MODELS 
-##############################
-
-#These are the best ones 
-
-#Full model (not including cultivar, including Flower shape and species) 
-model = glm(shannon ~ TotalInflorescences_AB + Flower.shape + Species + Wind + Rain + Cloud + TempF + Month, data = dmerge, family = gaussian(link = "identity"))
+model = glm(shannon ~ total_inflorescences_ab*flower_type + inflorescence_type + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge, family = gaussian)  
 summary(model)
 
-#Full model (including cultivar) 
-model = glm(shannon ~ TotalInflorescences_AB + Cultivar + Wind + Rain + Cloud + TempF + Month, data = dmerge, family = gaussian(link = "identity"))
+# Only total inflorescences were relevant 
+# false sepals don't make sense biologically with our data, let's remove  
+
+model = glm(shannon ~ total_inflorescences_ab*flower_type + inflorescence_type + wind + cloud + temp_f + month, data = clean_dmerge, family = gaussian)  
 summary(model)
 
-#-----------------------ANOVA of flower species and shape (nested) 
-#An ANOVA is not necessary for two-factor analysis 
+# model with all variables including cultivar
 
-fit = aov(shannon~ Flower.Type, data = dmerge)
-summary(fit) #both are highly significant 
+model = glm(shannon ~ total_inflorescences_ab*flower_type + inflorescence_type + wind + cloud + temp_f + month + cultivar, data = clean_dmerge, family = gaussian)  
+summary(model)
+rm(model) # cleaning environment
 
-#Do we meet requirements for normality? 
+# Unsurprisingly it's just garbage, way too many cultivars to extract meaningful results 
+# we could include cultivar as a random effect but that's getting really complex and we do talk about cultivar later by graphing a pca plot
+# Let's keep things simple and defensible and omit cultivar and be transparent about it 
 
-##normality of residuls
-stdRes <-rstandard(fit)
-#qqplot
-qqnorm(stdRes,ylab="Standardized Residuals", xlab="Theoretical Quantiles")
-qqline(stdRes, col=2,lwd=2) #not amazing but accceptable
-hist(stdRes) #OK, bit tailed 
+# Final model 
+# (everything from full model minus the factors that did not make sense biologically and the cultivars) 
 
-#post-hoc test
-TukeyHSD(fit)
-#paniculata is better; lacy is better 
+model = glm(shannon ~ total_inflorescences_ab*flower_type + wind + cloud + temp_f + month, data = clean_dmerge, family = gaussian)  
+summary(model)
+
+# confidence intervals for appendix 
+
+confint(model)
+
+#########################################################
+# Assumption checking 
+#########################################################
+
+plot(model)  
+
+# something weird's going on with residuals vs fitted but it's OK, especially past 0. the main issue is below  zero, which can't happen anyway for shannon.
+
+#####################################################
+# Post hoc tests 
+#####################################################
+
+# ----- emmeans ---------# 
+
+# Can't do tukey post-hoc directly for  poisson / quasipoisson 
+
+emm <- emmeans(model, "flower_type")
+# Get estimated marginal means from emmeans package 
+
+pairs(emm, adjust = "tukey")
+# Pairwise comparisons with Tukey adjustment
+
+# Significant
+# Lacy H. arborescens < Lacy H. paniculata ** 
+# Lacy H. arborescens <  Mop H. paniculata * 
+# Lacy H. paniculata > Mop H. arborescens *** 
+# Mop H. arborescens < Mop H. paniculata *** 
+
+# Not significant 
+# Lacy H. arborescens vs. Mop H. arborescesns 
+# Lacy H. paniculata vs. Mop H. paniculata
+
+pairs_resp <- pairs(emm, type = "response")
+pairs_resp 
+
+# getting the confidence intervals 
+ci_resp <- confint(pairs_resp)
+ci_resp 
 
 
-#ANOVA for cultivar 
-fit = aov(TotalInsects ~ Cultivar, data = dmerge) 
-summary(fit)
-TukeyHSD(fit)
+# ---------- Post Hoc Tukey ---------- # 
+
+# We can actually do a proper Tukey post-hoc test too 
+
+model = aov(shannon ~ total_inflorescences_ab * flower_type + wind + cloud + temp_f + month, data = clean_dmerge)
+
+TukeyHSD(model, "flower_type")  # Specify the factor you want comparisons for
+
+# I'ts a bit mad about the continuous factors but it ignores them which we want for the  post hoc test 
+
+
+# Significant 
+# Lacy H. paniculata > Lacy H. arborescens ** 
+# Mop H. paniculata > Lacy H. arborescens * 
+# Mop H. arborescens < Lacy H. paniculata ***
+# Mop H. paniculata > Mop H. arborescens *** 
+
+# Non-significant 
+# Mop H. arborescens vs. Lacy H. arborescens
+# Mop H. paniculata vs. Lacy H. paniculata 
+
