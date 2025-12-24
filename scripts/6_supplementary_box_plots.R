@@ -1,17 +1,12 @@
 ############## Generating Supplementary Boxplots  ################
-
-#Setup
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-
-#-----------------------------load libraries
-
-library(ggplot2)
+#########################################################
+# Boxplots for supplementary figure appendix 
+#########################################################
 
 #-------------------------------Load data
 
-DAgg3 = read.csv("DAgg3.csv")
-dmerge = read.csv("dmergeFINAL.csv")
+DAgg3 = read.csv(dAgg3_filepath)
+dmerge = read.csv(dmergeFINAL_filepath)
 dmerge = dmerge[dmerge$Inflorescence.Type != "#N/A",] #remove N/As 
 
 

@@ -1,25 +1,16 @@
 ############## Supplementary interaction graphs  ################
 
-#Setup
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-
 #-----------------------------load libraries
 
 #Loading libaries
-#install.packages("jtools")
 library(jtools)
-#install.packages("broom")
 library(broom)
-#install.packages("ggstance")
 library(ggstance)
-#install.packages("interactions")
 library(interactions)
-#citation('interactions')
 
 #-------------------------------Load data
 
-dmerge = read.csv("dmergeFINAL.csv") #reset the data, we were dividing by plant number for the plots, but for this analysis we don't need to and more data is better. Also, the non-integer numbers will throw off the poisson model because it is count based. 
+dmerge = read.csv(dmergeFINAL_filepath) #reset the data, we were dividing by plant number for the plots, but for this analysis we don't need to and more data is better. Also, the non-integer numbers will throw off the poisson model because it is count based. 
 dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB)  #setting up data correctly 
 dmerge$TotalInflorescences_AB = log(dmerge$TotalInflorescences_AB + 1) #take natural log for inflorescnces, since our previous scatterplots showed that it is a logarithmic relationship + 1 to fix the zero values and the infinite valuesl that result from zeroes. 
 

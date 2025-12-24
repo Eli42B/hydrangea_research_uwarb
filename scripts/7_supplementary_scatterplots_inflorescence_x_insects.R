@@ -1,9 +1,5 @@
 ############## Supplementary scatterplots insects vs inflorescences  ################
 
-#Setup
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-
 #-----------------------------load libraries
 
 #install.packages(tidyverse)
@@ -11,13 +7,11 @@ library(tidyverse)
 library(tidytext)
 library(lubridate)
 library(ggplot2)
-#install.packages("iNEXT")
 library(iNEXT)
-#citation("iNEXT")
 
 #-------------------------------Load data
 
-dmerge = read.csv("dmergeFINAL.csv") 
+dmerge = read.csv(dmergeFINAL_filepath) 
 
 #Converting data to correct types and taking nat log 
 dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB) #resetting our data 
@@ -27,6 +21,8 @@ dmerge$TotalInflorescences_AB[which(is.nan(dmerge$TotalInflorescences_AB))] = NA
 dmerge = dmerge[dmerge$TotalInflorescences_AB != "NA",]
 
 #------------------------------Graphs 
+
+dev.off()
 
 #Natural log transform for inflorescences looks pretty good too 
 plot(dmerge$TotalInsects ~ dmerge$TotalInflorescences_AB, xlab = "Natural Log Inflorescence Count",ylab = "Insects Per Day", main = "Plants with More Inflorescences Attracted More Insects Per Day")

@@ -1,4 +1,4 @@
-############## Generating graphs for species accumulation curve ################
+############## Generating rarefaction graphs for species accumulation curve ################
 
 #-----------------------------load libraries
 

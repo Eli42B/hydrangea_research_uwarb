@@ -1,14 +1,8 @@
 ############## Stacked Barcharts ############################
 
-#Setup
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-
 #-----------------------------load libraries
 
 library(ggplot2)
-#install.packages(tidyverse)
-#install.packages(vegan)
 library(tidyverse)
 library(tidytext)
 library(lubridate)
@@ -16,10 +10,10 @@ library(vegan)
 
 #-------------------------------Load data
 
-DAgg3 = read.csv("DAgg3.csv") #Data for species abundance 
-dAgg4 = read.csv("DAgg4.csv") #Data for species richness 
-dmerge = read.csv("dmergeFINAL.csv") #Data for shannon diversity 
-dSA = read.csv("SA_cultivar.csv") #Surface area by cultivar
+DAgg3 = read.csv(dAgg3_filepath) #Data for species abundance 
+dAgg4 = read.csv(dAgg4_filepath) #Data for species richness 
+dmerge = read.csv(dmergeFINAL_filepath) #Data for shannon diversity 
+dSA = read.csv(dSA_filepath) #Surface area by cultivar
 
 #Create the diversity index 
 #We're going to use Shannon diversity index because we aren't particularly concerned about a handful of rare species, we just want an overall picture of diversity 
@@ -30,28 +24,27 @@ dSA = read.csv("SA_cultivar.csv") #Surface area by cultivar
 
 #Setting up dataframe for shannon index  
 
-dmerge$shannon = diversity(dmerge[,30:93], index = "shannon", MARGIN = 1, base = exp(1)) #Calculate Shannon index 
+dmerge$shannon = diversity(dmerge[,29:96], index = "shannon", MARGIN = 1, base = exp(1)) #Calculate Shannon index 
 #convert date into a date format 
 dmerge$Date = as.Date(dmerge$Date,origin = "1900-01-01")
 #Create a new merged dataframe by cultivar. Don't divide by plant; that doesn't matter in this case because we're looking at an average measure of diversity per day.  
 dmerge7 = dmerge %>% 
-  group_by(Cultivar, Species, Flower.Type)%>% 
-  summarise(shannon = mean(shannon, na.rm = TRUE)) %>% 
-  select(Cultivar, Species, Flower.Type, shannon)
+  group_by(Cultivar, Species, Flower.Type) %>% 
+  summarise(shannon = mean(shannon, na.rm = TRUE)) 
 
 dSA = dSA %>% 
   rename(Cultivar = Trademark.Cultivar,
          SA = Surface.area..m.2.)
-  
+
 dSAbug = DAgg3 %>% 
   left_join(dSA, by = "Cultivar") %>% 
-  select(Cultivar, BugType, RelativeAbundance, SA) %>% 
   drop_na(SA) %>% 
   mutate(abundance_per_SA = RelativeAbundance / SA)
 
 #------------------------------Graphs 
 
-par(mfrow(2,2))
+par(mfrow = c(2, 2))  # so they canbe graphed side by side 
+
 
 #Insect Abundance x Bug Type 
 

@@ -4,9 +4,7 @@
 #Setup
 #################################
 
-rm(list = ls(all = TRUE)) #blanks out your values 
-dev.off()
-d = read.csv("BeeMachineAI_Photos_3.csv") # cleaned for the graphs 
+d = read.csv(beemachine_photos_filepath)
 
 #################################
 #dplyr
