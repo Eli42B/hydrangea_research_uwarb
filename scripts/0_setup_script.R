@@ -50,6 +50,11 @@ library("corrplot")  # for graphing correlations in pca
 library(missMDA)     # for missing values in PCA analysis 
 library(readr)       # for data reading 
 
+# 10 _ piecharts 
+
+library(janitor)     # snake case clean names
+library(tidyverse)   # dplyr and ggplot2 
+
 ####################################################################
 # Relative pathing  
 ####################################################################
@@ -122,6 +127,11 @@ timeline_all_filepath = file.path(input_filepath, "Timeline_All.csv")
 #-------------------------------------------------------------------
 
 pca_filepath = file.path(input_filepath, "Ranking_cultivars.csv")
+
+# Script 10 piechart
+#-------------------------------------------------------------------
+
+barchart_piechart_filepath = file.path(input_filepath, "pie_chart_df.csv") 
 
 
 
