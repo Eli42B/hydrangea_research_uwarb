@@ -17,6 +17,8 @@ library(tidyverse)
 
 #-------------------------------Load data
 
+# --- dmerge data for abundance # -----
+
 dmerge = read.csv(dmergeFINAL_filepath) #reset the data, we were dividing by plant number for the plots, but for this analysis we don't need to and more data is better. Also, the non-integer numbers will throw off the poisson model because it is count based. 
 dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB)  #setting up data correctly 
 
@@ -31,6 +33,12 @@ dmerge$Cultivar = as.factor(dmerge$Cultivar)
 dmerge$Species = as.factor(dmerge$Species)
 dmerge$Flower.Type = as.factor(dmerge$Flower.Type)
 dmerge$Color = as.factor(dmerge$Color)
+
+# removing silver leaf 
+dmerge = dmerge %>% 
+  filter(Cultivar != "Silver Leaf")
+
+# --- dmerge data for richness # -----
 
 dmergeRichness = read.csv(glm_richness_filepath) # also getting it for richness 
 dmerge$TotalInflorescences_AB = as.numeric(dmerge$TotalInflorescences_AB)  #setting up data correctly 
@@ -50,12 +58,15 @@ dmergeRichness$Color = as.factor(dmergeRichness$Color)
 # calculating shannon diversity 
 dmerge$shannon = diversity(dmerge[,29:96], index = "shannon", MARGIN = 1, base = exp(1))
 
-dmerge = dmerge[-178,] #there's a single day where shannon diversity index calculated as NA, not sure why, let's just remove it 
+#dmerge = dmerge[-178,] #there's a single day where shannon diversity index calculated as NA, not sure why, let's just remove it 
 dmerge$shannon
 
-#------------------------------Graph for insect abundance 
+# removing silver leaf 
+dmergeRichness = dmergeRichness %>% 
+  filter(Cultivar != "Silver Leaf")
 
-par(mfrow = c(2, 2))
+
+#------------------------------Graph for insect abundance 
 
 model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
 p = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)

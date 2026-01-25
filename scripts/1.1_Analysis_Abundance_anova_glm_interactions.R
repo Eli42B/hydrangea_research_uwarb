@@ -78,6 +78,11 @@ clean_dmerge = dmerge %>%
   clean_names() 
 # note: dplyr::select is needed because MASS package also has a select command and will confuse R since we are loading MASS too 
 
+# removing silver leaf 
+clean_dmerge = clean_dmerge %>% 
+  filter(cultivar != "Silver Leaf") 
+  
+
 #####################################
 #DATA VISUALIZATION
 #####################################
@@ -135,14 +140,14 @@ summary(model)
 
 rm(model)
 
-# huh, ok now the interaction is significant 
+# doesn't look like it 
 
 # -------- Spp of hydrangea x inflorescnces  -------------# 
 
 # Is hydrangea spp and inflorescence count interacting? 
 model = glm.nb(total_insects ~ species*total_inflorescences_ab, data = clean_dmerge)
 summary(model) 
-# yep, they're interacting  
+# nope not interacting  
 
 # -------- Flower shape x inflorescnces  -------------# 
 
@@ -213,17 +218,17 @@ rm(model) # cleaning our environment
 # (Negative Binomial)
 #############################################################
 
-#Just included all variables without cultivar 
+#Just included all variables without cultivar
+# We don't have a flower type x inflorescence interaction (as seen in exploratory graphs earlier) so don't model that  
 
-model = glm.nb(total_insects ~ total_inflorescences_ab*flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge) 
+model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge) 
 summary(model)
 
-# Only total inflorescences, flower type, and their interaction were relevant
 # Pink, pink-white, and white were relevant, but there's overlap so they don't mean anything biologically 
 
 # model with all variables including cultivar
 
-model = glm.nb(total_insects ~ total_inflorescences_ab*flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month + cultivar, data = clean_dmerge) 
+model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month + cultivar, data = clean_dmerge) 
 summary(model)
 rm(model) # cleaning environment
 
@@ -234,12 +239,12 @@ rm(model) # cleaning environment
 # Final model 
 # (everything from full model minus the factors that did not make sense biologically and the cultivars) 
 
-model = glm.nb(total_insects ~ total_inflorescences_ab*flower_type + wind + cloud + temp_f + month, data = clean_dmerge) 
+model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + wind + cloud + temp_f + month, data = clean_dmerge) 
 
 summary(model)
 
 # Preparing the final model for output in the paper 
--------------------------------------------------------
+# -------------------------------------------------------
 summary_model = summary(model)             # save summary
 coef_table = summary_model$coefficients    # extract coefficients
 
@@ -285,7 +290,7 @@ pairs(emm, adjust = "tukey")
 # Lacy H. arborescens vs. Mop H. paniculata 
 
 # Preparing the post-hoc test for the paper 
--------------------------------------------------------
+# -------------------------------------------------------
 
 # getting the exp(est) 
 pairs_resp <- pairs(emm, type = "response")
