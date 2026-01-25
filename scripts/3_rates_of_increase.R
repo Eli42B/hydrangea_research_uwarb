@@ -54,6 +54,9 @@ dmerge = dmerge[-178,] #there's a single day where shannon diversity index calcu
 dmerge$shannon
 
 #------------------------------Graph for insect abundance 
+
+par(mfrow = c(2, 2))
+
 model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
 p = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
 p + 

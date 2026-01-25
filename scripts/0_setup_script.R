@@ -133,10 +133,3 @@ pca_filepath = file.path(input_filepath, "Ranking_cultivars.csv")
 
 barchart_piechart_filepath = file.path(input_filepath, "pie_chart_df.csv") 
 
-
-
-
-
-
-
-
