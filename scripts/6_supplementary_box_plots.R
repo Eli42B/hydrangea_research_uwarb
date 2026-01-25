@@ -64,8 +64,8 @@ p = ggplot(data = dmerge,
                alpha = 0.7, 
                color = "lightgray") + 
   theme_minimal() + 
-  labs(x = "Hydrangea Flower Type", 
-       y = "Daily Abundance of Insect Visitors per plant",
+  labs(x = "", 
+       y = "Daily Abundance of Insect Visitors Per Plant",
        title = "Hydrangea Flower Type Impact on Pollinators")
 p
 p + theme(legend.position = "none") #remove the legend 
