@@ -18,7 +18,7 @@ library(scales)       # adds the 'percent' command
 
 #d2024 = read.csv(piechart_filepath1, header = TRUE) 
 #d2019 = read.csv(piechart_filepath2, header = TRUE) 
-d = read.csv(piechart_filepath, header = TRUE)
+d = read.csv(barchart_piechart_filepath, header = TRUE)
 
 #d2024 <- d2024 %>% 
 #  clean_names()

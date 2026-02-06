@@ -15,6 +15,12 @@ dAgg4 = read.csv(dAgg4_filepath) #Data for species richness
 dmerge = read.csv(dmergeFINAL_filepath) #Data for shannon diversity 
 dSA = read.csv(dSA_filepath) #Surface area by cultivar
 
+# removing silver leaf 
+DAgg3 = DAgg3 %>% 
+  filter(Cultivar != "Silver Leaf") 
+dAgg4 = dAgg4 %>% 
+  filter(Cultivar != "Silver Leaf") 
+
 #Create the diversity index 
 #We're going to use Shannon diversity index because we aren't particularly concerned about a handful of rare species, we just want an overall picture of diversity 
 #Shannon diversity index is based on number of species and evenness. It's a measure of the diversity of species in a community. 
@@ -54,6 +60,14 @@ vials_p1 = ggplot(data = DAgg3,
   coord_flip() + 
   theme_minimal(base_size = 14)
 vials_p1 + scale_fill_discrete(name = "Legend", labels = c("Beetle","Butterfly","Fly","Bee or Wasp","True Bug")) + ggtitle("Insect Visitor Abundance by Taxa") + ylab("Total Insect Visitors") + xlab("Hydrangea Cultivar")
+
+vials_p1b = ggplot(data = DAgg3,
+                  aes(x = reorder(Flower.Type.2, RelativeAbundance), y = RelativeAbundance, fill = BugType)) + 
+  geom_bar(stat = "identity") + 
+  coord_flip() + 
+  theme_minimal(base_size = 14)
+vials_p1b + scale_fill_discrete(name = "Legend", labels = c("Beetle","Butterfly","Fly","Bee or Wasp","True Bug")) + ggtitle("Insect Visitor Abundance by Taxa") + ylab("Total Insect Visitors") + xlab("Hydrangea Cultivar")
+
 
 #Insect Abundance x Surface Area x Bug Type
 

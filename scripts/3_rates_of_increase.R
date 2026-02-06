@@ -14,6 +14,8 @@ library(ggstance)
 library(interactions)
 #citation('interactions')
 library(tidyverse)
+library(cowplot)            # for graphing ggplots side by side 
+ 
 
 #-------------------------------Load data
 
@@ -69,24 +71,88 @@ dmergeRichness = dmergeRichness %>%
 #------------------------------Graph for insect abundance 
 
 model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
-p = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
-p + 
-  labs(title = "Insect Abundance Increased as Fertile Flowers Increased, \nBut at Different Rates",
-  subtitle = "Plotted by Flower Type",
+p_abundance = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
+p_abundance = p_abundance + 
+  labs(
        x = "log(Number of Fertile Flowers + 1)", 
        y = "Average Insects Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant")
+       fill = "Total Inflorescences per Plant") 
+
+# ------------------------------- Attempting using copilot to make graph prettier 
+
+type_cols <- c(
+  "mop"              = "#08306B",
+  "lacy"             = "#9CCBFF",
+  "mop-like panicle" = "#8B0000",
+  "lacy panicle"     = "#F4A3A3"
+)
+
+type_ltys <- c(
+  "mop"              = "solid",
+  "lacy"             = "dotted",
+  "mop-like panicle" = "solid",
+  "lacy panicle"     = "dotted"
+)
+
+
+model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
+p_abundance = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
+
+p_abundance = p_abundance + 
+  labs(
+    x = "log(Number of Fertile Flowers + 1)", 
+    y = "Average Insects Per Plant Per Day", 
+    fill = "Total Inflorescences per Plant") 
+p_abundance <- p_abundance +
+  # ✅ If you want bold zero-lines inside the panel:
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.9) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 0.9) +
+  
+  # ✅ Apply your line styling
+  scale_color_manual(values = type_cols) +
+  scale_linetype_manual(values = type_ltys) +
+  
+  # ✅ Make text bigger + make plot feel “anchored”
+  theme_bw(base_size = 16) +
+  theme(
+    plot.title   = element_text(size = 18, face = "bold"),
+    axis.title   = element_text(size = 16),
+    axis.text    = element_text(size = 14),
+    
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_text(size = 14),
+    legend.text  = element_text(size = 13),
+    
+    # “Not floating” look:
+    axis.line = element_line(color = "black", linewidth = 1),
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1),
+    panel.grid.minor = element_blank()
+  ) +
+  guides(
+    color = guide_legend(nrow = 1, byrow = TRUE),
+    linetype = guide_legend(nrow = 1, byrow = TRUE)
+  )
+
+p_abundance
 
 #------------------------------Graph for insect richness 
 
 model2 = glm(InsectRichness ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmergeRichness, family = quasipoisson(link = "log"))
-p = interact_plot(model2, pred = TotalInflorescences_AB, modx = Flower.Type)
-p + 
+p_richness = interact_plot(model2, pred = TotalInflorescences_AB, modx = Flower.Type)
+p_richness = p_richness + 
   labs(title = "Insect Richness Increased as Fertile Flowers Increased, \nBut at Different Rates",
        subtitle = "Plotted by Flower Type",
        x = "log(Number of Fertile Flowers + 1)", 
        y = "Average Number of Unique Taxa Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant")
+       fill = "Total Inflorescences per Plant") 
+# plotting side by side 
+
+
+library(cowplot)
+plot_grid(p_abundance, p_richness, nrow = 1, ncol = 2, labels = "AUTO")
+
+# mfrow won't work because it's base R and we are using ggplot2 
 
 #------------------------------Graph for insect diversity  
 

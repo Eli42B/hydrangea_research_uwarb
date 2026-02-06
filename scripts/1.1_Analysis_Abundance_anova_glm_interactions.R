@@ -24,6 +24,10 @@ dmerge$TotalInflorescences_AB = log(dmerge$TotalInflorescences_AB + 1)
 
 #take natural log for inflorescnces, since our previous scatterplots showed that it is a logarithmic relationship, plus 1 so we don't get infinite values  
 
+# removing silver leaf 
+dmerge = dmerge %>% 
+  filter(Cultivar != "Silver Leaf") 
+
 
 #citation('interactions')
 #-------------------------------------------------------------------------------
@@ -53,6 +57,8 @@ hist(dmerge$TotalInsects, breaks = 15)
 var(dmerge$TotalInsects) #var = 40.24
 mean(dmerge$TotalInsects) #mean = 6.16
 var(dmerge$TotalInsects)/mean(dmerge$TotalInsects) #Ratio of variance (6.55) is way larger than 2, so we are overdispersed, very overdispersed. We will go with Negative Binomial instead. I considered quasipoisson but the overdispersion is too much. One could also consider zero-inflated negative binomial but we don't have a clear biological reason for 'non visited flowers' that would cause extra zeroes. so we will keep with NB. 
+
+rm(dmerge) # remove dmerge from environment 
 
 #####################################################
 # Preparing the Negative Binomial model 
@@ -102,14 +108,10 @@ plot(dmerge$Species, dmerge$TotalInflorescences_AB,
 # so looks like cleaning hte data isn't costing us much
 # looks like h. paniculata have a bit more inflorescences but it's not a particularly clear relatinship 
 
+#########################################
+# Checking VIF
+#########################################
 
-#-------------------------------------------------------------------
-
-####################################### 
-# INTERACTIONS BETWEEN FACTORS 
-####################################### 
-
-# -------- flower spp + shape x inflorescnces  -------------# 
 
 # Let's go back to the basics and start with VIF 
 
@@ -127,34 +129,39 @@ vif(mod_test_vif_nodate)
 # cleaning our environment a bit 
 rm(mod_test_vif)
 rm(mod_test_vif_nodate)
-rm(model) # cleaning environment a bit 
 
-# Now let's try it by comparing models 
+
+#-------------------------------------------------------------------
+
+####################################### 
+# INTERACTIONS BETWEEN FACTORS 
+####################################### 
+
+# -------- flower type x inflorescnces  -------------# 
 
 model = glm.nb(total_insects ~ flower_type + total_inflorescences_ab, data = clean_dmerge)
 summary(model)
 
 model = glm.nb(total_insects ~ flower_type*total_inflorescences_ab, data = clean_dmerge)
-
 summary(model) 
+# the interaction is not significant 
 
 rm(model)
 
-# doesn't look like it 
+# -------- hydrangea spp  x inflorescnces  -------------#
 
-# -------- Spp of hydrangea x inflorescnces  -------------# 
-
-# Is hydrangea spp and inflorescence count interacting? 
+ 
 model = glm.nb(total_insects ~ species*total_inflorescences_ab, data = clean_dmerge)
 summary(model) 
 # nope not interacting  
 
+
 # -------- Flower shape x inflorescnces  -------------# 
 
-# Is hydrangea flower shape (regardless of spp) and inflorescence count interacting? 
 model = glm.nb(total_insects ~ flower_shape*total_inflorescences_ab, data = clean_dmerge)
 summary(model) 
 # Nope, flower shape doesn't matter, huh 
+
 rm(model) # removing the model from the enviroinment 
 
 ###########################################################
@@ -224,19 +231,22 @@ rm(model) # cleaning our environment
 model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge) 
 summary(model)
 
-# Pink, pink-white, and white were relevant, but there's overlap so they don't mean anything biologically 
+# Pink, pink-white, and white were relevant, but there's overlap so they don't mean anything biologically. Inflorescence type open was also relevant, but I wasn't able to tag new cultivars by this category. 
 
 # model with all variables including cultivar
 
 model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + inflorescence_type + color + false_sepals + wind + cloud + temp_f + month + cultivar, data = clean_dmerge) 
 summary(model)
-rm(model) # cleaning environment
 
 # Unsurprisingly it's just garbage, way too many cultivars to extract meaningful results 
 # we could include cultivar as a random effect but that's getting really complex and we do talk about cultivar later by graphing a pca plot
 # Let's keep things simple and defensible and omit cultivar and be transparent about it 
 
-# Final model 
+rm(model) # cleaning environment
+
+
+# ---------  Final model ------------# 
+
 # (everything from full model minus the factors that did not make sense biologically and the cultivars) 
 
 model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + wind + cloud + temp_f + month, data = clean_dmerge) 
@@ -246,15 +256,33 @@ summary(model)
 # Preparing the final model for output in the paper 
 # -------------------------------------------------------
 summary_model = summary(model)             # save summary
-coef_table = summary_model$coefficients    # extract coefficients
+summary_model 
+# The Estimates can be called log(Estimate) since we're on a log scale, first column of our final table in the appendix 
+# we will also take hte p values for this 
 
-estimates = coef_table[,"Estimate"]        # get the estimates 
-exp_est = exp(estimates)              # take the exp(estimates)
+coef_table = summary_model$coefficients   
+# extract coefficients
+
+estimates = coef_table[,"Estimate"]       
+# get the estimates
+# the raw, log estimates 
+# These represent the additive change in the log of the expected outcome for a one‑unit increase in the predictor, holding other variables constant.
+
+exp_est = exp(estimates)  
+exp_est
+# take the exp(estimates)
+# exp(estimates) =  log–incidence rate ratios (log‑IRRs)
+# an IRR of 2 means that the insect abundance doubles for a one-unit increase in predictor value
+
+summary(model)$coefficients[, "Std. Error"]
+# SE(log) 
+# how variable would our coefficients be if we repeatedly sampled? 
 
 ci_log <- confint(model)               # est. confidence intervals
 ci_irr <- exp(ci_log)                  # extract esp(conf int)
 ci_irr
-
+# 95% CI (IRR): confidence intervals
+# If we repeatedly re‑fit this model to new samples drawn in the same way, 95% of the resulting confidence intervals would contain the true underlying IRR.
 
 #########################################################
 # Assumption checking 
@@ -273,6 +301,7 @@ plot(model)
 
 # Can't do tukey post-hoc directly for  negative binomial 
 
+# 
 emm <- emmeans(model, "flower_type")
 # Get estimated marginal means from emmeans package 
 

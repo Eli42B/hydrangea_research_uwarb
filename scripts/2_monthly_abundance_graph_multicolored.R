@@ -56,3 +56,4 @@ p + ggtitle("Cultivar Popularity by Month") + ylab("Number of Weeks with Insects
 
 #Alternate title
 p + ggtitle("Researchers Observed Insects More \n Frequently, On More Hydrangeas, \n in Later Months") + ylab("Number of Weeks with Insects Reported") + xlab("Month")
+

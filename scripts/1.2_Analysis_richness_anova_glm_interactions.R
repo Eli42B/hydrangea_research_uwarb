@@ -33,11 +33,16 @@ dmerge$Species = as.factor(dmerge$Species)
 dmerge$Flower.Type = as.factor(dmerge$Flower.Type)
 dmerge$Flower.shape = as.factor(dmerge$Flower.shape)
 
+# removing silver leaf 
+dmerge = dmerge %>% 
+  filter(Cultivar != "Silver Leaf") 
+
 clean_dmerge = dmerge %>% 
   dplyr::select(Cultivar, Species, Date, Tag.Number, InsectRichness, TotalInflorescences_AB, Flower.Type, Flower.shape, Inflorescence.Type, False.Sepals, Wind, Cloud, TempF, Month) %>% 
   na.omit() %>% 
   clean_names() 
-# note: dplyr::select is needed because MASS package also has a select command and will confuse R since we are loading MASS too 
+# note: dplyr::select is needed because MASS package also has a select command and will confuse R since we are loading MASS too
+
 
 ######################################################
 # What model is appropriate? 
@@ -59,12 +64,35 @@ var(dmerge$InsectRichness)/mean(dmerge$InsectRichness)
 #Let's do quasi-poisson since it's a bit larger but not huge  
 
 
-#####################################
-#DATA VISUALIZATION AND INTERACTIONS 
-#####################################
+####################################### 
+# INTERACTIONS BETWEEN FACTORS 
+####################################### 
 
-# We just did this for the predictor values for the 1.1_ Analysis of abundance, so no need to do this again 
+# -------- flower type x inflorescnces  -------------# 
 
+model = glm.nb(insect_richness ~ flower_type + total_inflorescences_ab, data = clean_dmerge)
+summary(model)
+
+model = glm.nb(insect_richness ~ flower_type*total_inflorescences_ab, data = clean_dmerge)
+summary(model) 
+# the interaction is not significant 
+
+rm(model)
+
+# -------- hydrangea spp  x inflorescnces  -------------#
+
+model = glm.nb(insect_richness ~ species*total_inflorescences_ab, data = clean_dmerge)
+summary(model) 
+# nope not interacting, though it's close to significant
+
+
+# -------- Flower shape x inflorescnces  -------------# 
+
+model = glm.nb(insect_richness ~ flower_shape*total_inflorescences_ab, data = clean_dmerge)
+summary(model) 
+# Nope, flower shape doesn't matter, huh 
+
+rm(model) # removing the model from the enviroinment 
 
 #############################################################
 # GENREAL LINEAR MODELS 
@@ -73,18 +101,14 @@ var(dmerge$InsectRichness)/mean(dmerge$InsectRichness)
 
 #Just included all variables without cultivar 
 
-model = glm(insect_richness ~ total_inflorescences_ab*flower_type + inflorescence_type + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge, family = quasipoisson(link = "log"))  
+model = glm(insect_richness ~ total_inflorescences_ab + flower_type + inflorescence_type + false_sepals + wind + cloud + temp_f + month, data = clean_dmerge, family = quasipoisson(link = "log"))  
 summary(model)
 
-# Only total inflorescences, flower type, and their interaction were relevant
-# false sepals don't make sense biologically with our data, let's remove  
+# false sepals and color don't make sense biologically with our data, let's remove  
 
-model = glm(insect_richness ~ total_inflorescences_ab*flower_type + inflorescence_type + wind + cloud + temp_f + month, data = clean_dmerge, family = quasipoisson(link = "log"))  
-summary(model)
+# model with all relevant variables including cultivar
 
-# model with all variables including cultivar
-
-model = glm(insect_richness ~ total_inflorescences_ab*flower_type + inflorescence_type + wind + cloud + temp_f + month + cultivar, data = clean_dmerge, family = quasipoisson(link = "log"))  
+model = glm(insect_richness ~ total_inflorescences_ab + flower_type + inflorescence_type + wind + cloud + temp_f + month + cultivar, data = clean_dmerge, family = quasipoisson(link = "log"))  
 summary(model)
 rm(model) # cleaning environment
 
@@ -95,23 +119,27 @@ rm(model) # cleaning environment
 # Final model 
 # (everything from full model minus the factors that did not make sense biologically and the cultivars) 
 
-model = glm(insect_richness ~ total_inflorescences_ab*flower_type + wind + cloud + temp_f + month, data = clean_dmerge, family = quasipoisson(link = "log"))  
+model = glm(insect_richness ~ total_inflorescences_ab + flower_type + wind + cloud + temp_f + month, data = clean_dmerge, family = quasipoisson(link = "log"))  
 summary(model)
 
 
 # Preparing the final model for output in the paper 
--------------------------------------------------------
+# -------------------------------------------------------
 
 summary_model = summary(model)             # save summary
 coef_table = summary_model$coefficients    # extract coefficients
 
 estimates = coef_table[,"Estimate"]        # get the estimates 
-exp_est = exp(estimates)              # take the exp(estimates)
+exp_est = exp(estimates)              # take the exp(estimates) aka IRR 
 exp_est 
+
+summary(model)$coefficients[, "Std. Error"]
+# SE(log) 
+# how variable would our coefficients be if we repeatedly sampled? 
 
 ci_log <- confint(model)               # est. confidence intervals
 ci_irr <- exp(ci_log)                  # extract esp(conf int)
-ci_irr
+ci_irr                                # CIs for IRR 
 
 #########################################################
 # Assumption checking 
@@ -142,7 +170,7 @@ pairs(emm, adjust = "tukey")
 # Lacy H. arborescens vs. Mop H. paniculata 
 
 # Preparing the post-hoc test for the paper 
--------------------------------------------------------
+# -------------------------------------------------------
 # getting the exp(est) 
 
 pairs_resp <- pairs(emm, type = "response")

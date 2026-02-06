@@ -29,6 +29,9 @@ library(interactions) # for interactions
 library(car)          # for calculating VIF 
 library(MASS)         # for negative binomial models 
 library(emmeans)      # for post-hoc analysis of NB models 
+library(cowplot)      # for graphing ggplots side by side 
+library(ggpattern)    # add patterns to a barchart 
+
 
 # script 1.4 _ PCA Analysis (we will rename this as supplementary later)
 
@@ -53,7 +56,8 @@ library(readr)       # for data reading
 # 10 _ piecharts 
 
 library(janitor)     # snake case clean names
-library(tidyverse)   # dplyr and ggplot2 
+library(tidyverse)   # dplyr and ggplot2
+
 
 ####################################################################
 # Relative pathing  
