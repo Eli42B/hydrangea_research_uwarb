@@ -71,88 +71,128 @@ dmergeRichness = dmergeRichness %>%
 #------------------------------Graph for insect abundance 
 
 model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
-p_abundance = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
-p_abundance = p_abundance + 
-  labs(
-       x = "log(Number of Fertile Flowers + 1)", 
-       y = "Average Insects Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant") 
+p_abundance = interact_plot(
+  model1, 
+  pred = TotalInflorescences_AB, 
+  modx = Flower.Type, 
+  interval = TRUE,      # draw confidence interval 
+  int.width = 0.95,     # 95% confidence interval 
+  vary.lty = TRUE)      # so the dots and dashes stay 
 
 # ------------------------------- Attempting using copilot to make graph prettier 
 
 type_cols <- c(
-  "mop"              = "#08306B",
-  "lacy"             = "#9CCBFF",
-  "mop-like panicle" = "#8B0000",
-  "lacy panicle"     = "#F4A3A3"
+  "Mop"              = "#08306B",
+  "Lacy"             = "#08306B",
+  "Mop-like panicle" = "#8B0000",
+  "Lacy panicle"     = "#8B0000"
 )
 
 type_ltys <- c(
-  "mop"              = "solid",
-  "lacy"             = "dotted",
-  "mop-like panicle" = "solid",
-  "lacy panicle"     = "dotted"
+  "Mop"              = "solid",
+  "Lacy"             = "dotted",
+  "Mop-like panicle" = "solid",
+  "Lacy panicle"     = "dotted"
 )
 
-
-model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
-p_abundance = interact_plot(model1, pred = TotalInflorescences_AB, modx = Flower.Type)
-
 p_abundance = p_abundance + 
+  
+  # adding labels to x and y axes 
   labs(
     x = "log(Number of Fertile Flowers + 1)", 
     y = "Average Insects Per Plant Per Day", 
-    fill = "Total Inflorescences per Plant") 
-p_abundance <- p_abundance +
-  # ✅ If you want bold zero-lines inside the panel:
-  geom_hline(yintercept = 0, color = "black", linewidth = 0.9) +
-  geom_vline(xintercept = 0, color = "black", linewidth = 0.9) +
+    fill = "Total Inflorescences per Plant") + 
   
-  # ✅ Apply your line styling
-  scale_color_manual(values = type_cols) +
-  scale_linetype_manual(values = type_ltys) +
-  
-  # ✅ Make text bigger + make plot feel “anchored”
-  theme_bw(base_size = 16) +
+  # making text bigger 
   theme(
-    plot.title   = element_text(size = 18, face = "bold"),
-    axis.title   = element_text(size = 16),
-    axis.text    = element_text(size = 14),
-    
-    legend.position = "bottom",
-    legend.direction = "horizontal",
+    axis.title = element_text(size = 16),
+    axis.text  = element_text(size = 13),
     legend.title = element_text(size = 14),
-    legend.text  = element_text(size = 13),
-    
-    # “Not floating” look:
-    axis.line = element_line(color = "black", linewidth = 1),
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1),
-    panel.grid.minor = element_blank()
-  ) +
-  guides(
-    color = guide_legend(nrow = 1, byrow = TRUE),
-    linetype = guide_legend(nrow = 1, byrow = TRUE)
-  )
+    legend.text  = element_text(size = 12),
+    plot.title   = element_text(size = 16, face = "bold"), 
+    panel.border = element_blank(), 
+    # removing the weird black box around the chart 
+    legend.position = "bottom"
+  ) + 
 
+  # adding x and y black axis lines 
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.1) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 0.1) + 
+  
+  # applying line styling 
+  # everything breaks here, we get a bunch of warning messages 
+  scale_color_manual(values = type_cols) +
+  scale_linetype_manual(values = type_ltys) + 
+  
+  # making the CIs grey and subtle 
+  scale_fill_manual(values = rep("grey70", 4), guide = "none") + 
+  guides(fill = "none") 
+  
 p_abundance
 
 #------------------------------Graph for insect richness 
 
 model2 = glm(InsectRichness ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmergeRichness, family = quasipoisson(link = "log"))
-p_richness = interact_plot(model2, pred = TotalInflorescences_AB, modx = Flower.Type)
+
+p_richness = interact_plot(
+  model2, 
+  pred = TotalInflorescences_AB, 
+  modx = Flower.Type, 
+  interval = TRUE,      # draw confidence interval 
+  int.width = 0.95,     # 95% confidence interval 
+  vary.lty = TRUE)      # so the dots and dashes stay 
+
+
+type_cols <- c(
+  "Mop"              = "#08306B",
+  "Lacy"             = "#08306B",
+  "Mop-like panicle" = "#8B0000",
+  "Lacy panicle"     = "#8B0000"
+)
+
+type_ltys <- c(
+  "Mop"              = "solid",
+  "Lacy"             = "dotted",
+  "Mop-like panicle" = "solid",
+  "Lacy panicle"     = "dotted"
+)
+
 p_richness = p_richness + 
-  labs(title = "Insect Richness Increased as Fertile Flowers Increased, \nBut at Different Rates",
-       subtitle = "Plotted by Flower Type",
-       x = "log(Number of Fertile Flowers + 1)", 
-       y = "Average Number of Unique Taxa Per Plant Per Day", 
-       fill = "Total Inflorescences per Plant") 
-# plotting side by side 
+  
+  # adding labels to x and y axes 
+  labs(
+    x = "log(Number of Fertile Flowers + 1)", 
+    y = "Average # of Unique Taxa Per Plant Per Day", 
+    fill = "Total Inflorescences per Plant") + 
+  
+  # making text bigger 
+  theme(
+    axis.title = element_text(size = 16),
+    axis.text  = element_text(size = 13),
+    legend.title = element_text(size = 14),
+    legend.text  = element_text(size = 12),
+    plot.title   = element_text(size = 16, face = "bold"), 
+    panel.border = element_blank() # removing the weird black box around the chart 
+  ) + 
+  
+  # adding x and y black axis lines 
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.1) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 0.1) + 
+  
+  # applying line styling 
+  scale_color_manual(values = type_cols) +
+  scale_linetype_manual(values = type_ltys) + 
+  
+  # making the CIs grey and subtle 
+  scale_fill_manual(values = rep("grey70", 4), guide = "none") + 
+  guides(fill = "none") 
+
+p_richness
 
 
-library(cowplot)
-plot_grid(p_abundance, p_richness, nrow = 1, ncol = 2, labels = "AUTO")
-
-# mfrow won't work because it's base R and we are using ggplot2 
+###############################################################################
+# Not using this but saving just in case 
+###############################################################################
 
 #------------------------------Graph for insect diversity  
 

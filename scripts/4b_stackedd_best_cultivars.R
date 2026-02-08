@@ -99,7 +99,7 @@ plot_grid(p_abundance, p_richness, nrow = 2, ncol = 1, labels = "AUTO")
 # Asking copilot to make the plots more readable and change colors a bit 
 ############################################################################
 
-library(tidyverse)
+# -------------------- Insect Abundance ------------------------------
 
 #  enforce factor levels so the legend order is consistent
 d_abundance <- d_abundance %>%
@@ -162,4 +162,83 @@ p_abundance <- ggplot(
 
 p_abundance
 
+# -------------------- Insect richness ------------------------------
 
+#Insect Richness x Species + Flower Type
+
+p_richness = ggplot(data = d_richness,
+                    aes(x = reorder(cultivar, avg_richness), y = avg_richness, fill = flower_type)) + 
+  geom_bar(stat = "identity") + 
+  coord_flip() + 
+  theme_minimal(base_size = 14)
+p_richness = p_richness + 
+  scale_fill_discrete(name = "Legend") + 
+  ggtitle("Insect Richness Per Day by Cultivar") + 
+  ylab("Avg. # of Unique Insects / Day") + 
+  xlab("Hydrangea Cultivar") + 
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.y = element_text(size = 9))
+
+
+#  enforce factor levels so the legend order is consistent
+
+d_richness <- d_richness %>%
+  mutate(
+    flower_type = factor(
+      flower_type,
+      levels = c("Mop", "Lacy", "Mop-like panicle", "Lacy panicle")
+    )
+  )
+
+# Manual colors 
+flower_cols <- c(
+  "Mop"          = "#08306B",  # dark blue
+  "Lacy"         = "#9CCBFF",  # light blue
+  "Mop-like panicle"  = "#8B0000",  # dark red
+  "Lacy panicle" = "#F4A3A3"   # light red
+)
+
+p_richness <- ggplot(
+  data = d_richness,
+  aes(
+    x = reorder(cultivar, avg_richness),
+    y = avg_richness,
+    fill = flower_type
+  )
+) +
+  geom_col(
+    width = 0.55,              # thinner bars 
+    color = "grey20",          # outline them 
+    linewidth = 0.2
+  ) +
+  coord_flip() +
+  scale_fill_manual(values = flower_cols, drop = FALSE) + # colors 
+  
+  # padding 
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+  
+  # x and y labels 
+  labs(
+    x = "Cultivar Name",
+    y = "Average Daily Insect Richness",
+    fill = "Flower type"
+  ) +
+  
+  theme_minimal(base_size = 14) +
+  
+  # legend on bottom, bigger text 
+  theme(
+    axis.text.y = element_text(size = 13),  # cultivar names (after flip)
+    axis.text.x = element_text(size = 12),
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_blank(),         # remove title 
+    legend.text = element_text(size = 12),
+    panel.grid.major.y = element_blank(),
+    plot.margin = margin(10, 15, 10, 15)
+  ) +
+  
+  guides(fill = guide_legend(nrow = 1, byrow = TRUE))
+
+p_richness
