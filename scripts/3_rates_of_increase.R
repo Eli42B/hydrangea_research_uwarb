@@ -125,10 +125,23 @@ p_abundance = p_abundance +
   scale_linetype_manual(values = type_ltys) + 
   
   # making the CIs grey and subtle 
-  scale_fill_manual(values = rep("grey70", 4), guide = "none") + 
+  scale_fill_manual(values = c("#08306B", "#8B0000","#08306B", "#8B0000"), guide = "none") + 
   guides(fill = "none") 
   
 p_abundance
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = interaction_abundance_filepath, 
+  plot = p_abundance, 
+  dpi = 600, # 300 to 600 best 
+  width = 8, 
+  height = 6, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
 
 #------------------------------Graph for insect richness 
 
@@ -172,7 +185,9 @@ p_richness = p_richness +
     legend.title = element_text(size = 14),
     legend.text  = element_text(size = 12),
     plot.title   = element_text(size = 16, face = "bold"), 
-    panel.border = element_blank() # removing the weird black box around the chart 
+    panel.border = element_blank(), 
+    # removing the weird black box around the chart 
+    legend.position = "bottom"
   ) + 
   
   # adding x and y black axis lines 
@@ -184,10 +199,22 @@ p_richness = p_richness +
   scale_linetype_manual(values = type_ltys) + 
   
   # making the CIs grey and subtle 
-  scale_fill_manual(values = rep("grey70", 4), guide = "none") + 
+  scale_fill_manual(values = c("#08306B", "#8B0000","#08306B", "#8B0000"), guide = "none") + 
   guides(fill = "none") 
 
 p_richness
+
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = interaction_richness_filepath, 
+  plot = p_richness, 
+  dpi = 600, # 300 to 600 best 
+  width = 8, 
+  height = 6, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
 
 
 ###############################################################################

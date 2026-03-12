@@ -92,7 +92,7 @@ p_abundance = p_abundance +
 
 # graph them side by side 
 
-plot_grid(p_abundance, p_richness, nrow = 2, ncol = 1, labels = "AUTO")
+plot_grid(p_abundance, p_richness, nrow = 1, ncol = 2, labels = "AUTO")
 
 
 ############################################################################
@@ -144,12 +144,12 @@ p_abundance <- ggplot(
     fill = "Flower type"
   ) +
   
-  theme_minimal(base_size = 14) +
+  theme_minimal(base_size = 12) +
   
   # legend on bottom, bigger text 
   theme(
-    axis.text.y = element_text(size = 13),  # cultivar names (after flip)
-    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 11),  # cultivar names (after flip)
+    axis.text.x = element_text(size = 11),
     legend.position = "bottom",
     legend.direction = "horizontal",
     legend.title = element_blank(),         # remove title 
@@ -161,6 +161,18 @@ p_abundance <- ggplot(
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
 
 p_abundance
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = stacked_abundance_cultivars_filepath, 
+  plot = p_abundance, 
+  dpi = 600, # 300 to 600 best 
+  width = 6.5, 
+  height = 9, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
 
 # -------------------- Insect richness ------------------------------
 
@@ -242,3 +254,14 @@ p_richness <- ggplot(
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
 
 p_richness
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = stacked_abundance_cultivars_filepath, 
+  plot = p_abundance, 
+  dpi = 600, # 300 to 600 best 
+  width = 6.5, 
+  height = 9, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)

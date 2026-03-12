@@ -137,3 +137,14 @@ pca_filepath = file.path(input_filepath, "Ranking_cultivars.csv")
 
 barchart_piechart_filepath = file.path(input_filepath, "pie_chart_df.csv") 
 
+# Outputs of graphs 
+# -------------------------------------------------------
+
+interaction_abundance_filepath = file.path(output_filepath, "interaction_abundance_graph.png") 
+
+interaction_richness_filepath = file.path(output_filepath, "interaction_richness_graph.png") 
+
+stacked_abundance_cultivars_filepath = file.path(output_filepath, "stacked_abundance_cultivars_graph.png") 
+
+stacked_richness_cultivars_filepath = file.path(output_filepath, "stacked_richness_cultivars_graph.png") 
+
