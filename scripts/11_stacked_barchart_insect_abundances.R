@@ -144,7 +144,8 @@ p <- ggplot(d, aes(x = order, y = photo_or_abundance, fill = family)) +
     axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
     axis.text.y = element_text(size = 12),
     strip.text = element_text(size = 14, face = "bold"),           # facet year labels
-    legend.position = "bottom",                                    # legend underneath
+    legend.position = "bottom",  
+    # legend underneath
     legend.direction = "horizontal",
     legend.title = element_text(size = 13),
     legend.text = element_text(size = 11),
@@ -161,60 +162,404 @@ p <- ggplot(d, aes(x = order, y = photo_or_abundance, fill = family)) +
 p
 
 
-####################################################################
-# Failed graphs (not as pretty, not included in man)
-####################################################################
+# plot without legend 
 
-
-#  bargraph 1: All years, orders, families 
-
-# sort 
-
-d <- d %>%
-  mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
-
-p <- ggplot(data = d, aes(x = order, y = photo_or_abundance, fill = family)) +
-  geom_bar(position = "stack", stat = "identity") +
-  scale_fill_viridis_d(option = "D", end = 0.95) + 
-  ggtitle("Orders and families") +
-  ylab("Insect Families") +
-  xlab("Order")
+p <- ggplot(d, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_col(position = "stack", color = "grey20", linewidth = 0.2) +  # thin outlines help in grayscale
+  facet_wrap(~ year, ncol = 1) +
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.3,
+    size = 4,                # BIGGER label text
+    fontface = "bold",
+    inherit.aes = FALSE
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
+  scale_fill_manual(values = gray_pal) +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "none",  
+    # legend gone
+  )
 
 p
 
 
-#  bargraph 2:  orders, families divided by year 
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = insect_piechart_but_not, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 6.5, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
 
 
-# sort 
+########################################################
+# Graphing by Order individually  
+########################################################
+
+# Hymenoptera 
+#---------------------------------------------------------------------------
 
 d <- d %>%
   mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
 
-p <- ggplot(data = d, aes(x = order, y = photo_or_abundance, fill = family)) +
-  geom_bar(position = "stack", stat = "identity") +
-  facet_wrap(~year, ncol = 1) +      # panel per year 
-  scale_fill_viridis_d(option = "D", end = 0.95) + 
+d_hymenoptera = d[d$order == "Hymenoptera",]  # only hymenoptera
+d_hymenoptera = d_hymenoptera[order(-d_hymenoptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_hymenoptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
-  xlab("Order")
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "none",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
 p
 
+# Save the plot manually (must do this or will save at lower dpi) 
 
-#  bargraph 4:  orders, families as a percentage 
+ggsave(
+  filename = hymenoptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
 
 
-# sort 
+# Diptera 
+#-----------------------------------------------------------------------
+
 
 d <- d %>%
   mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
 
-p <- ggplot(data = d, aes(x = order, y = photo_or_abundance, fill = family)) +
-  geom_bar(position = "fill", stat = "identity") +
-  facet_wrap(~year, ncol = 2) +      # panel per year
-  scale_fill_viridis_d(option = "D", end = 0.95) + 
+d_diptera = d[d$order == "Diptera",]  # only Diptera
+d_diptera = d_diptera[order(-d_diptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
   ggtitle("Orders and families") +
-  ylab("Insect Families  \n(As a Percentage)") +
-  xlab("Order")
+  ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "right",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
 p
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = diptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
+
+# Diptera 
+#-----------------------------------------------------------------------
+
+
+d <- d %>%
+  mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
+
+d_diptera = d[d$order == "Diptera",]  # only Diptera
+d_diptera = d_diptera[order(-d_diptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
+  ggtitle("Orders and families") +
+  ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "right",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
+p
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = diptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
+# Coleoptera 
+#-----------------------------------------------------------------------
+
+
+d <- d %>%
+  mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
+
+d_coleoptera = d[d$order == "Coleoptera",]  # only Coleoptera
+d_coleoptera = d_coleoptera[order(-d_coleoptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_coleoptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
+  ggtitle("Orders and families") +
+  ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "right",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
+p
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = coleoptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
+# Lepidoptera 
+#-----------------------------------------------------------------------
+
+
+d <- d %>%
+  mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
+
+d_lepidoptera = d[d$order == "Lepidoptera",]  # only Lepidoptera
+d_lepidoptera = d_lepidoptera[order(-d_lepidoptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_lepidoptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
+  ggtitle("Orders and families") +
+  ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "right",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
+p
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = lepidoptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
+# /Hemiptera 
+#-----------------------------------------------------------------------
+
+
+d <- d %>%
+  mutate(order = fct_reorder(order, photo_or_abundance, .fun = sum, .desc = TRUE))
+
+d_hemiptera = d[d$order == "Hemiptera",]  # only Hemiptera
+d_hemiptera = d_hemiptera[order(-d_hemiptera$photo_or_abundance), ] # arrange by descending order 
+
+# Plot: stacked bars + facet by year + percent labels on top of each bar
+p <- ggplot(d_hemiptera, aes(x = order, y = photo_or_abundance, fill = family)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year, nrow = 2) +
+  # Put labels at the bar tops (use the summarised data)
+  geom_text(
+    data = labels,
+    aes(x = order, y = total, label = label_txt),
+    vjust = -0.2,           # nudge above the bar
+    size = 3,
+    inherit.aes = FALSE
+  ) +
+  # Give a bit of headroom so labels aren't clipped
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_color_viridis() + 
+  ggtitle("Orders and families") +
+  ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
+  xlab("Order") +
+  labs(
+    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    x = "Order",
+    fill = "Family"
+  ) +
+  theme_minimal(base_size = 14) +  # BIGGER overall text
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text.x = element_text(size = 12, angle = 45, hjust = 1),  # readable x labels
+    axis.text.y = element_text(size = 12),
+    strip.text = element_text(size = 14, face = "bold"),           # facet year labels
+    legend.position = "right",  
+    # legend at bottom, can also do 'right' or 'none'
+  )
+
+p
+
+# Save the plot manually (must do this or will save at lower dpi) 
+
+ggsave(
+  filename = hemiptera_chart, 
+  plot = p, 
+  dpi = 600, # 300 to 600 best 
+  width = 7, 
+  height = 6.5, 
+  units = "in" # Specify units (inches, cm, mm, or px)
+)
+
+
+
+
 

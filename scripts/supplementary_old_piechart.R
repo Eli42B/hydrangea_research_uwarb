@@ -67,3 +67,4 @@ ggplot(d2019, aes(x = "", y = n, fill = family)) +
     size = 3.6,
     na.rm = TRUE              # silently drop NAs
   ) 
+
