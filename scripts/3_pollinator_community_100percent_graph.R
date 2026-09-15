@@ -71,7 +71,6 @@ d_plant_level = d_guilds %>%
 # Aggregating by different plant categories 
 # --------------------------------------------------------------------------------------
 
-
 #  aggrregating by cultivar 
 d_plant_level = d_guilds %>% 
   group_by(
@@ -301,4 +300,47 @@ ggplot() +
         legend.key.size = unit(.25, "cm")) 
 
 
+########################################################################
+# Running PERNOVA analysis 
+########################################################################
 
+# what is our dataframe? 
+d_guilds2 = d_guilds %>% 
+  dplyr::select(
+    X, Date, Cultivar, Species, Flower.shape, small_dark_bees:unknown_hymenoptera)
+
+# Cleaning things 
+d_guilds2[is.na(d_guilds2)] = 0 # turn NA values into zeroes 
+
+#diagnostics  
+sum(rowSums(d_guilds2[,6:16]) == 0)    # looking for rows where everything equals zero, if we have > 0, we have a problem row 
+sum(is.na(d_guilds2[,6:16]))            # hunting NA values 
+
+# removing rows where everything equals zero 
+keep <- rowSums(d_guilds2[,6:16]) > 0
+d_guilds2 <- d_guilds2[keep, ]
+
+#diagnostics (checking if it worked)  
+sum(rowSums(d_guilds2[,6:16]) == 0)    # looking for rows where everything equals zero, if we have > 0, we have a problem row 
+sum(is.na(d_guilds2[,6:16]))            # hunting NA values 
+
+# Community matrix
+head(d_guilds2)
+
+# Bray-Curtis distances
+bc <- vegdist(d_guilds2[,6:16], method = "bray")
+
+# NMDS
+set.seed(42) 
+nmds = metaMDS(d_guilds2[,6:16], 
+               distance = "bray", 
+               k = 2, 
+               trymax = 500) 
+# PERMANOVA 
+adonis2(bc ~ Species + Flower.shape,
+        data = d_guilds2,
+        by = "terms")
+
+adonis2(bc ~ Cultivar,
+        data = d_guilds2,
+        by = "terms")
