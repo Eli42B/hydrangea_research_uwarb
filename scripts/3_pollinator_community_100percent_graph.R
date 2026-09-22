@@ -88,6 +88,23 @@ d_plant_level = d_guilds %>%
     .groups = "drop")
 # gives insect abundance per day on average by cultivar 
 
+d_plant_level_small = d_guilds %>% 
+  group_by(
+    Species, 
+    Flower.shape,
+  ) %>% 
+  summarise(
+    across(
+      c(small_dark_bees, green_sweatbees, large_dark_bees, honeybee, bumble_bees, flies, true_bugs, butterflies, wasps, beetles, unknown_hymenoptera), 
+      ~ mean(.x, na.rm = TRUE)), 
+    n_days = n(), 
+    .groups = "drop") %>% 
+  mutate(
+    total_bugs = rowSums(across(small_dark_bees:unknown_hymenoptera))
+  )
+# gives insect abundance per day on average by plant species and shape. 
+# Helpful for determining the relative percentage by category fo rthe results. 
+
 # convert the d_plant_level to longform 
 
 d_shape_long = d_plant_level %>% 
@@ -210,96 +227,6 @@ nmds = metaMDS(d_community,
 print(nmds)
 # Stress was 0.124 which is better than 0.18 
 
-# Fancy nmds plot 
-# --------------------------------------------------------------
-
-# plotting ordination by habitat type 
-
-# get habitat type  
-flower_type <- d_guilds %>% 
-  distinct(X, Flower.Type) 
-
-# Extract NMDS scores for sites 
-nmds_FlowerTypeScores <-
-  # get nmds scores 
-  as.data.frame(scores(nmds)$sites) %>%
-  # change rownames (site) to a column 
-  rownames_to_column(var = "Site") %>% 
-  # join our habitat type (grouping variable) to each site 
-  left_join(flower_type)
-# Extract NMDS scores for Flower Type  
-nmds_SpeciesScores <- 
-  as.data.frame(scores(nmds, "Flower Type"))
-
-# create a column of species, from the rownames of species.scores
-nmds_SpeciesScores$species <- rownames(nmds_SpeciesScores) 
-
-ggplot() + 
-  
-  # add site scores
-  geom_point(data = nmds_SiteScores, 
-             aes(x=NMDS1, y=NMDS2, colour = Habitat), 
-             size = 2) + 
-  
-  # add species scores 
-  geom_text(data = nmds_SpeciesScores, 
-            aes(x=NMDS1, y=NMDS2, label = species)) +
-  
-  theme_classic()
-
-# Plotting with convex hulls  
-
-# get centroid of each hull 
-Habitat_Centroid <- 
-  nmds_SiteScores %>% 
-  group_by(Habitat) %>% 
-  summarise(axis1 = mean(NMDS1),
-            axis2 = mean(NMDS2)) %>% 
-  ungroup()
-
-# extract convex hull
-habitat.hull <- 
-  nmds_SiteScores %>% 
-  group_by(Habitat) %>%
-  slice(chull(NMDS1, NMDS2))
-
-nmds_stress <- nmds$stress
-
-# use ggplot to plot 
-ggplot() + 
-  
-  # add site scores
-  geom_point(data = nmds_SiteScores, 
-             aes(x=NMDS1, y=NMDS2, colour = Habitat), size = 2) + 
-  
-  # add species scores 
-  geom_text(data = nmds_SpeciesScores, 
-            aes(x=NMDS1, y=NMDS2, label = species)) +
-  
-  # add centroid 
-  geom_point(data = Habitat_Centroid, 
-             aes(x = axis1, y = axis2, color = Habitat), 
-             size = 5, shape = 17) +
-  
-  # add convex hull
-  geom_polygon(data = habitat.hull, 
-               aes(x = NMDS1, y = NMDS2, fill = Habitat, group = Habitat), 
-               alpha = 0.30) +
-  
-  # add stress value
-  annotate("text", x = 0.75, y = 0.65, 
-           label = paste("2d stress =", round(nmds_stress, 3))) +
-  # edit theme
-  labs(x = "NMDS1", y = "NMDS2") + 
-  theme(axis.text = element_blank(), axis.ticks = element_blank(),
-        panel.background = element_rect(fill = "white"),
-        panel.border = element_rect(color = "black", 
-                                    fill = NA, linewidth = .5),
-        axis.line = element_line(color = "black"),
-        plot.title = element_text(hjust = 0.5),
-        legend.key.size = unit(.25, "cm")) 
-
-
 ########################################################################
 # Running PERNOVA analysis 
 ########################################################################
@@ -335,7 +262,7 @@ set.seed(42)
 nmds = metaMDS(d_guilds2[,6:16], 
                distance = "bray", 
                k = 2, 
-               trymax = 500) 
+               trymax = 100) 
 # PERMANOVA 
 adonis2(bc ~ Species + Flower.shape,
         data = d_guilds2,
