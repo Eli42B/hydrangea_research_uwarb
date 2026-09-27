@@ -328,3 +328,4 @@ pairs_resp
 # getting the confidence intervals 
 ci_resp <- confint(pairs_resp)
 ci_resp
+

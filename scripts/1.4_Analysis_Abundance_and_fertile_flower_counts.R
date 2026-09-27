@@ -39,3 +39,4 @@ dmerge_cultivar <- dmerge %>%
   )
 
 plot(dmerge_cultivar$MeanInsects ~ dmerge_cultivar$MeanInflorescences)
+

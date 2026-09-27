@@ -133,7 +133,7 @@ p <- ggplot(d, aes(x = order, y = photo_or_abundance, fill = family)) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
   scale_fill_manual(values = gray_pal) +
   labs(
-    y = "Insect Families Abundance \n(# photos in 2019–2022, # captured in 2024)",
+    y = "Insect families abundance \n(# photos in 2019–2022, # captured in 2024)",
     x = "Order",
     fill = "Family"
   ) +
@@ -234,7 +234,7 @@ p <- ggplot(d_hymenoptera, aes(x = order, y = photo_or_abundance, fill = family)
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
@@ -292,7 +292,7 @@ p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
@@ -351,7 +351,7 @@ p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
@@ -409,7 +409,7 @@ p <- ggplot(d_coleoptera, aes(x = order, y = photo_or_abundance, fill = family))
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.20))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
@@ -467,7 +467,7 @@ p <- ggplot(d_lepidoptera, aes(x = order, y = photo_or_abundance, fill = family)
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.20))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +
@@ -502,7 +502,7 @@ ggsave(
 )
 
 
-# /Hemiptera 
+# Hemiptera 
 #-----------------------------------------------------------------------
 
 
@@ -525,7 +525,7 @@ p <- ggplot(d_hemiptera, aes(x = order, y = photo_or_abundance, fill = family)) 
     inherit.aes = FALSE
   ) +
   # Give a bit of headroom so labels aren't clipped
-  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.20))) +
   scale_color_viridis() + 
   ggtitle("Orders and families") +
   ylab("Insect Families Abundance \n(# photos in 2019-2022, # captured in 2024)") +

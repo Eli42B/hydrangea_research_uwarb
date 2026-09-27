@@ -135,12 +135,16 @@ p_abundance <- ggplot(
   scale_fill_manual(values = flower_cols, drop = FALSE) + # colors 
   
   # padding 
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+  scale_y_continuous(
+    limits = c(0, 25),
+    expand = expansion(mult = c(0, 0))
+  ) + 
+  
   
   # x and y labels 
   labs(
-    x = "Cultivar Name",
-    y = "Average Daily Insect Abundance",
+    x = "Cultivar name",
+    y = "Average daily insect abundance",
     fill = "Flower type"
   ) +
   
@@ -226,9 +230,12 @@ p_richness <- ggplot(
   ) +
   coord_flip() +
   scale_fill_manual(values = flower_cols, drop = FALSE) + # colors 
-  
+
   # padding 
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+  scale_y_continuous(
+    limits = c(0, 8),
+    expand = expansion(mult = c(0, 0))
+  ) + 
   
   # x and y labels 
   labs(
@@ -265,3 +272,4 @@ ggsave(
   height = 9, 
   units = "in" # Specify units (inches, cm, mm, or px)
 )
+

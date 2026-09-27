@@ -55,7 +55,7 @@ dmergeRichness$Month = as.factor(dmergeRichness$Month)
 dmergeRichness$Cultivar = as.factor(dmergeRichness$Cultivar)
 dmergeRichness$Species = as.factor(dmergeRichness$Species)
 dmergeRichness$Flower.Type = as.factor(dmergeRichness$Flower.Type)
-dmergeRichness$Color = as.factor(dmergeRichness$Color)
+#dmergeRichness$Color = as.factor(dmergeRichness$Color)
 
 # calculating shannon diversity 
 dmerge$shannon = diversity(dmerge[,29:96], index = "shannon", MARGIN = 1, base = exp(1))
@@ -67,8 +67,31 @@ dmerge$shannon
 dmergeRichness = dmergeRichness %>% 
   filter(Cultivar != "Silver Leaf")
 
+############################################################
+# Insect Abundance Graphs 
+############################################################
 
-#------------------------------Graph for insect abundance 
+
+# Insect Abundance Raw Graph 
+#-------------------------------------------------------------
+
+plot(jitter(dmerge$TotalInsects) ~ jitter(dmerge$TotalInflorescences_AB))
+# total infloresences per 61 sq cm quadrat 
+# initial plot for visualization in base R 
+
+ggplot(
+  dmerge, 
+  aes(y = TotalInsects, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
+  geom_point() + 
+  scale_shape_manual(values = c(1,16)) +  
+  scale_color_manual(values = c('#08306B','#8B0000')) + 
+  labs(x = "Inflorescences (fertile flower count) \n per 61 sq. cm of plant surface",
+       y = "Total insects per plant per survey", 
+       shape = "Flower shape") 
+
+
+# Insect Abundance Modeled Plot / Confidence Intervals Graph 
+#-------------------------------------------------------------
 
 model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
 p_abundance = interact_plot(
@@ -77,9 +100,8 @@ p_abundance = interact_plot(
   modx = Flower.Type, 
   interval = TRUE,      # draw confidence interval 
   int.width = 0.95,     # 95% confidence interval 
-  vary.lty = TRUE)      # so the dots and dashes stay 
-
-# ------------------------------- Attempting using copilot to make graph prettier 
+  vary.lty = TRUE) +      # so the dots and dashes stay 
+  scale_y_continuous(limits = c(0, 80)) # Manually selecting the y limit 
 
 type_cols <- c(
   "Mop"              = "#08306B",
@@ -130,20 +152,89 @@ p_abundance = p_abundance +
   
 p_abundance
 
-# Save the plot manually (must do this or will save at lower dpi) 
+# Graphing it without the confidence intervals 
+# -------------------------------------------------
 
-ggsave(
-  filename = interaction_abundance_filepath, 
-  plot = p_abundance, 
-  dpi = 600, # 300 to 600 best 
-  width = 8, 
-  height = 6, 
-  units = "in" # Specify units (inches, cm, mm, or px)
+model1 = glm.nb(TotalInsects ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmerge)
+p_abundance = interact_plot(
+  model1, 
+  pred = TotalInflorescences_AB, 
+  modx = Flower.Type, 
+  interval = FALSE,      # draw confidence interval 
+  int.width = 0.95,      # 95% confidence interval 
+  vary.lty = TRUE) +     # so the dots and dashes stay 
+  scale_y_continuous(limits = c(0, 40)) # Manually selecting the y limit 
+
+
+type_cols <- c(
+  "Mop"              = "#08306B",
+  "Lacy"             = "#08306B",
+  "Mop-like panicle" = "#8B0000",
+  "Lacy panicle"     = "#8B0000"
 )
 
+type_ltys <- c(
+  "Mop"              = "solid",
+  "Lacy"             = "dotted",
+  "Mop-like panicle" = "solid",
+  "Lacy panicle"     = "dotted"
+)
 
+p_abundance = p_abundance + 
+  
+  # adding labels to x and y axes 
+  labs(
+    x = "log(Number of Fertile Flowers + 1)", 
+    y = "Average Insects Per Plant Per Day", 
+    fill = "Total Inflorescences per Plant") + 
+  
+  # making text bigger 
+  theme(
+    axis.title = element_text(size = 16),
+    axis.text  = element_text(size = 13),
+    legend.title = element_text(size = 14),
+    legend.text  = element_text(size = 12),
+    plot.title   = element_text(size = 16, face = "bold"), 
+    panel.border = element_blank(), 
+    # removing the weird black box around the chart 
+    legend.position = "bottom"
+  ) + 
+  
+  # adding x and y black axis lines 
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.1) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 0.1) + 
+  
+  # applying line styling 
+  # everything breaks here, we get a bunch of warning messages 
+  scale_color_manual(values = type_cols) +
+  scale_linetype_manual(values = type_ltys) 
 
-#------------------------------Graph for insect richness 
+p_abundance
+
+############################################################
+# Insect Richness Graphs 
+############################################################
+
+# Insect Richness Raw Graph 
+#-------------------------------------------------------------
+
+plot(jitter(dmerge_richness$InsectRichness) ~ jitter(dmerge_richness$TotalInflorescences_AB))
+# total infloresences per 61 sq cm quadrat 
+# initial plot for visualization in base R 
+
+ggplot(
+  dmergeRichness, 
+  aes(y = InsectRichness, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
+  geom_point() + 
+  scale_shape_manual(values = c(1,16)) + 
+  scale_color_manual(values = c('#08306B','#8B0000')) + 
+  labs(x = "Fertile flower count \n per 61 sq. cm of plant surface",
+       y = "Insect richness per plant per survey", 
+       shape = "Flower shape") + 
+  scale_y_continuous(limits = c(0, 15)) # Manually selecting the y limit 
+
+# Insect Richness Modeled Plot / Confidence Intervals Graph 
+#-------------------------------------------------------------
 
 model2 = glm(InsectRichness ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmergeRichness, family = quasipoisson(link = "log"))
 
@@ -153,7 +244,8 @@ p_richness = interact_plot(
   modx = Flower.Type, 
   interval = TRUE,      # draw confidence interval 
   int.width = 0.95,     # 95% confidence interval 
-  vary.lty = TRUE)      # so the dots and dashes stay 
+  vary.lty = TRUE)   + # so the dots and dashes stay 
+  scale_y_continuous(limits = c(0, 50)) # Manually selecting the y limit 
 
 
 type_cols <- c(
@@ -204,17 +296,64 @@ p_richness = p_richness +
 
 p_richness
 
+# Graphing it without the confidence intervals 
+# -------------------------------------------------
 
-# Save the plot manually (must do this or will save at lower dpi) 
+model2 = glm(InsectRichness ~ TotalInflorescences_AB*Flower.Type + TempF+ Month, data = dmergeRichness, family = quasipoisson(link = "log"))
 
-ggsave(
-  filename = interaction_richness_filepath, 
-  plot = p_richness, 
-  dpi = 600, # 300 to 600 best 
-  width = 8, 
-  height = 6, 
-  units = "in" # Specify units (inches, cm, mm, or px)
+p_richness = interact_plot(
+  model2, 
+  pred = TotalInflorescences_AB, 
+  modx = Flower.Type, 
+  interval = FALSE,      # do not draw confidence interval 
+  int.width = 0.95,     # 95% confidence interval 
+  vary.lty = TRUE)   + # so the dots and dashes stay 
+  scale_y_continuous(limits = c(0, 15)) # Manually selecting the y limit 
+
+
+type_cols <- c(
+  "Mop"              = "#08306B",
+  "Lacy"             = "#08306B",
+  "Mop-like panicle" = "#8B0000",
+  "Lacy panicle"     = "#8B0000"
 )
+
+type_ltys <- c(
+  "Mop"              = "solid",
+  "Lacy"             = "dotted",
+  "Mop-like panicle" = "solid",
+  "Lacy panicle"     = "dotted"
+)
+
+p_richness = p_richness + 
+  
+  # adding labels to x and y axes 
+  labs(
+    x = "log(Number of Fertile Flowers + 1)", 
+    y = "Average # of Unique Taxa Per Plant Per Day", 
+    fill = "Total Inflorescences per Plant") + 
+  
+  # making text bigger 
+  theme(
+    axis.title = element_text(size = 16),
+    axis.text  = element_text(size = 13),
+    legend.title = element_text(size = 14),
+    legend.text  = element_text(size = 12),
+    plot.title   = element_text(size = 16, face = "bold"), 
+    panel.border = element_blank(), 
+    # removing the weird black box around the chart 
+    legend.position = "bottom"
+  ) + 
+  
+  # adding x and y black axis lines 
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.1) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 0.1) + 
+  
+  # applying line styling 
+  scale_color_manual(values = type_cols) +
+  scale_linetype_manual(values = type_ltys)
+
+p_richness
 
 
 ###############################################################################
