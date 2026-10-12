@@ -82,12 +82,13 @@ plot(jitter(dmerge$TotalInsects) ~ jitter(dmerge$TotalInflorescences_AB))
 ggplot(
   dmerge, 
   aes(y = TotalInsects, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
-  geom_point() + 
+  geom_point(size = 3) + 
   scale_shape_manual(values = c(1,16)) +  
   scale_color_manual(values = c('#08306B','#8B0000')) + 
   labs(x = "Inflorescences (fertile flower count) \n per 61 sq. cm of plant surface",
        y = "Total insects per plant per survey", 
-       shape = "Flower shape") 
+       shape = "Flower shape") + 
+  theme_classic()
 
 
 # Insect Abundance Modeled Plot / Confidence Intervals Graph 
@@ -225,13 +226,16 @@ plot(jitter(dmerge_richness$InsectRichness) ~ jitter(dmerge_richness$TotalInflor
 ggplot(
   dmergeRichness, 
   aes(y = InsectRichness, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
-  geom_point() + 
+  geom_point(size = 3) + 
   scale_shape_manual(values = c(1,16)) + 
   scale_color_manual(values = c('#08306B','#8B0000')) + 
   labs(x = "Fertile flower count \n per 61 sq. cm of plant surface",
        y = "Insect richness per plant per survey", 
        shape = "Flower shape") + 
-  scale_y_continuous(limits = c(0, 15)) # Manually selecting the y limit 
+  scale_y_continuous(limits = c(0, 15)) + 
+  theme_classic()
+
+# Manually selecting the y limit w/ scale y continuous 
 
 # Insect Richness Modeled Plot / Confidence Intervals Graph 
 #-------------------------------------------------------------

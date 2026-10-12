@@ -206,6 +206,70 @@ plot(nmds)
 # We don't really have distinct groups, everything's in one cluster. Which matches the percent graphs that indicated a lo tof overlap. 
 # The circles are our rows / plants and the + signs are the bug guilds 
 
+# Trying to plot prettier
+
+# Extract site scores
+nmds_df <- as.data.frame(scores(nmds, display = "sites"))
+
+# add the metadata to nmds scores 
+nmds_df$Flower.shape <- d_plant_nmds$Flower.shape
+nmds_df$Species <- d_plant_nmds$Species
+nmds_df$Cultivar = d_plant_nmds$Cultivar
+nmds_df$Flower.Type = d_plant_nmds$Flower.Type
+
+# plot with ggplot2 
+ggplot(nmds_df, aes(x = NMDS1, y = NMDS2)) +
+  geom_point(size = 3) +
+  theme_bw() +
+  theme(
+    axis.title = element_text(size = 16),
+    axis.text = element_text(size = 14)
+  )
+
+# Plot by species 
+ggplot(nmds_df,
+       aes(NMDS1, NMDS2, color = Species)) +
+  geom_point(size = 3) +
+  coord_equal() +
+  theme_bw()
+
+# Plot by Flower Shape 
+ggplot(nmds_df,
+       aes(NMDS1, NMDS2, color = Flower.shape)) +
+  geom_point(size = 3) +
+  coord_equal() +
+  theme_bw()
+
+# Plot by Flower Type 
+ggplot(nmds_df,
+       aes(NMDS1, NMDS2, color = Flower.Type)) +
+  geom_point(size = 3) +
+  coord_equal() +
+  theme_bw()
+
+# Plot by both 
+ggplot(nmds_df,
+       aes(NMDS1, NMDS2, 
+           shape = Flower.shape, 
+           color = Species)) +
+  geom_point(size = 3) +
+  scale_shape_manual(values = c(16, 3)) + 
+  scale_color_manual(values = c(
+    "Hydrangea arborescens" = "#08306B",
+    "Hydrangea paniculata" = "#8B0000")) + 
+  coord_equal() +
+  theme_bw() + 
+  theme(
+  axis.title = element_text(size = 18),
+  axis.text = element_text(size = 14),
+  legend.title = element_text(size = 16),
+  legend.text = element_text(size = 14)
+)
+
+
+
+
+
 # Trying again with higher trymax values 
 
 set.seed(42) 

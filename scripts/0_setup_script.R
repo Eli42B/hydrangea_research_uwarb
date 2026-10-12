@@ -43,6 +43,10 @@ library(corrplot)     # for plotting correlations
 
 library(vistime)      # for the stacked bargraph timeline 
 
+# 4 Confusion Matrix graph 
+
+library(caret)        # for the confusion matrix 
+
 # 9_ pca analysis_graph 
 
 #https://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/
@@ -121,6 +125,12 @@ dAgg4_filepath = file.path(input_filepath, "DAgg4.csv")
 
 dSA_filepath = file.path(input_filepath, "SA_cultivar.csv") 
 # surface area by cultivar 
+
+# Script 4 confusion matrix 
+# ------------------------------------------------------------------
+
+heatmap_morphospecies_path = file.path(input_filepath, "300_image_subset_morphospecies.csv") 
+heatmap_lowest_taxa_path = file.path(input_filepath, "300_image_subset_lowest_taxonomic.csv")
 
 # Script 5 supplementary graph of timeline 
 # ------------------------------------------------------------------
