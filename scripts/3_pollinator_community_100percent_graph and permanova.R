@@ -253,7 +253,7 @@ ggplot(nmds_df,
            shape = Flower.shape, 
            color = Species)) +
   geom_point(size = 3) +
-  scale_shape_manual(values = c(16, 3)) + 
+  scale_shape_manual(values = c(3, 16)) + 
   scale_color_manual(values = c(
     "Hydrangea arborescens" = "#08306B",
     "Hydrangea paniculata" = "#8B0000")) + 
