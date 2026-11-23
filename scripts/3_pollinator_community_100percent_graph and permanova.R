@@ -335,3 +335,19 @@ adonis2(bc ~ Species + Flower.shape,
 adonis2(bc ~ Cultivar,
         data = d_guilds2,
         by = "terms")
+
+########################################################################
+# Running PERMDISP analysis 
+########################################################################
+# https://uw.pressbooks.pub/appliedmultivariatestatistics/chapter/permdisp/ 
+
+# 2. Run PERMDISP on the same distance matrix and grouping factor
+disp <- betadisper(dist_mat, group = metadata$group, type = "centroid") # or "median"
+
+# 3. Test for significant differences in dispersion
+permutest(disp, permutations = 999)
+
+# 4. Pairwise comparisons & visual check (if >2 groups or significant result)
+TukeyHSD(disp)
+boxplot(disp)
+plot(disp)
