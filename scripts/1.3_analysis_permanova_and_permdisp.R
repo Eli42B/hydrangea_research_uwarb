@@ -159,20 +159,79 @@ adonis2(bc ~ Species + Flower.shape,
 adonis2(bc ~ Cultivar,
         data = d_guilds2,
         by = "terms")
+# we aren't really testing this, we don't have enough replicatoin in cultivars, but Iw as c urious so I tested it for fun 
+
 
 ########################################################################
 # Running PERMDISP analysis 
 ########################################################################
 # https://uw.pressbooks.pub/appliedmultivariatestatistics/chapter/permdisp/ 
 
+# For species 
+# -----------------------------------------------------------
+
 # 2. Run PERMDISP on the same distance matrix and grouping factor
-disp <- betadisper(dist_mat, group = metadata$group, type = "centroid") # or "median"
+disp <- betadisper(bc, group = d_guilds2$Species, type = "centroid") # or "median"
 
 # 3. Test for significant differences in dispersion
 permutest(disp, permutations = 999)
 
 # 4. Pairwise comparisons & visual check (if >2 groups or significant result)
-TukeyHSD(disp)
+TukeyHSD(disp) # not needed, it's not significant even slightly 
 boxplot(disp)
 plot(disp)
 
+
+# Saving as a png 
+
+# First open the png magic window 
+png(
+  filename = "PERMDISP_species.png",
+  width = 7,
+  height = 5,
+  units = "in",
+  res = 600
+)
+
+#then plot it 
+plot(disp)
+
+# then add the legend 
+legend(
+  "topright",
+  legend = c("Hydrangea arborescens", "Hydrangea paniculata"),
+  col = c(1, 2),
+  pch = 1,
+  bty = "n"
+)
+
+# then turn off hte magic png window 
+dev.off()
+
+# For flower shape 
+# ---------------------------------------------------------------------
+
+# 2. Run PERMDISP on the same distance matrix and grouping factor
+disp <- betadisper(bc, group = d_guilds2$Flower.shape, type = "centroid") # or "median"
+
+# 3. Test for significant differences in dispersion
+permutest(disp, permutations = 999)
+
+# 4. Pairwise comparisons & visual check (if >2 groups or significant result)
+TukeyHSD(disp) # not needed, it's not significant even slightly 
+boxplot(disp)
+plot(disp)
+
+# save as png 
+
+png(
+  filename = "PERMDISP_flower_shape.png",
+  width = 7,
+  height = 5,
+  units = "in",
+  res = 600
+)
+
+plot(disp)
+
+dev.off()
