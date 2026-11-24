@@ -79,7 +79,8 @@ plot(jitter(dmerge$TotalInsects) ~ jitter(dmerge$TotalInflorescences_AB))
 # total infloresences per 61 sq cm quadrat 
 # initial plot for visualization in base R 
 
-ggplot(
+print(
+  ggplot(
   dmerge, 
   aes(y = TotalInsects, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
   geom_point(size = 3) + 
@@ -89,7 +90,7 @@ ggplot(
        y = "Total insects per plant per survey", 
        shape = "Flower shape") + 
   theme_classic()
-
+) 
 
 # Insect Abundance Modeled Plot / Confidence Intervals Graph 
 #-------------------------------------------------------------
@@ -151,7 +152,7 @@ p_abundance = p_abundance +
   scale_fill_manual(values = c("#08306B", "#8B0000","#08306B", "#8B0000"), guide = "none") + 
   guides(fill = "none") 
   
-p_abundance
+print(p_abundance) 
 
 # Graphing it without the confidence intervals 
 # -------------------------------------------------
@@ -210,7 +211,7 @@ p_abundance = p_abundance +
   scale_color_manual(values = type_cols) +
   scale_linetype_manual(values = type_ltys) 
 
-p_abundance
+print(p_abundance) 
 
 ############################################################
 # Insect Richness Graphs 
@@ -219,11 +220,12 @@ p_abundance
 # Insect Richness Raw Graph 
 #-------------------------------------------------------------
 
-plot(jitter(dmerge_richness$InsectRichness) ~ jitter(dmerge_richness$TotalInflorescences_AB))
+plot(jitter(dmergeRichness$InsectRichness) ~ jitter(dmergeRichness$TotalInflorescences_AB))
 # total infloresences per 61 sq cm quadrat 
 # initial plot for visualization in base R 
 
-ggplot(
+print(
+  ggplot(
   dmergeRichness, 
   aes(y = InsectRichness, x = TotalInflorescences_AB, col = Species, shape = Flower.shape)) + 
   geom_point(size = 3) + 
@@ -234,6 +236,7 @@ ggplot(
        shape = "Flower shape") + 
   scale_y_continuous(limits = c(0, 15)) + 
   theme_classic()
+)
 
 # Manually selecting the y limit w/ scale y continuous 
 
@@ -298,7 +301,7 @@ p_richness = p_richness +
   scale_fill_manual(values = c("#08306B", "#8B0000","#08306B", "#8B0000"), guide = "none") + 
   guides(fill = "none") 
 
-p_richness
+print(p_richness)
 
 # Graphing it without the confidence intervals 
 # -------------------------------------------------
@@ -357,7 +360,7 @@ p_richness = p_richness +
   scale_color_manual(values = type_cols) +
   scale_linetype_manual(values = type_ltys)
 
-p_richness
+print(p_richness) 
 
 
 ###############################################################################

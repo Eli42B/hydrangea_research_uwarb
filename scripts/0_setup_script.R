@@ -5,6 +5,10 @@
 # Elizabeth Braatz 2025 
 ###############################################################################
 
+rm(list = ls())   # blank out your environment 
+if (!is.null(dev.list())) dev.off()       # Blank out your plots if they aren't already blanked out 
+
+
 #############################################
 # Libraries 
 #############################################
@@ -74,6 +78,38 @@ working_directory = here()
 input_filepath = here("input")
 output_filepath = here("output") 
 scripts_filepath = here("scripts") 
+
+#############################
+# Filepaths to scripts 
+# ###########################
+# ----------------------------------------------------------------
+
+# Scripts are approximately numbered to run in order, but all should be able to be run independently as well 
+
+# Script 1 always goes first, it's the setup script 
+
+script_0_filepath = file.path(scripts_filepath, "0_setup_script.R") 
+
+# Scripts with 1.# denotation are scripts used to run core analyses 
+
+script_1.1_filepath = file.path(scripts_filepath,"1.1_Analysis_Abundance_anova_glm_interactions.R") 
+script_1.2_filepath = file.path(scripts_filepath,"1.2_Analysis_richness_anova_glm_interactions.R") 
+script_1.3_filepath = file.path(scripts_filepath,"1.3_analysis_permanova_and_permdisp.R") 
+
+
+# Scripts with 2.# are scripts that generate graphs for the main text
+
+script_2.1_filepath = file.path(scripts_filepath,"2.1_rates_of_increase_graph.R") 
+script_2.2_filepath = file.path(scripts_filepath,"2.2_stacked_barchart_insect_abundances.R") 
+script_2.3_filepath = file.path(scripts_filepath,"2.3_stacked_best_cultivars.R") 
+script_2.4_filepath = file.path(scripts_filepath,"2.4_pollinator_community_100percent_graph.R") 
+script_2.5_filepath = file.path(scripts_filepath,"2.5_nmds_plots.R") 
+
+
+
+# Scripts that start with supplementary_ are scripts that generate graphs or run analyses for the supplementary text 
+
+
 
 # script 1_specaccum plots Analysis 
 # ----------------------------------------------------------------

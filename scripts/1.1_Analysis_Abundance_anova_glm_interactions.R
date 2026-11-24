@@ -118,11 +118,12 @@ plot(dmerge$Species, dmerge$TotalInflorescences_AB,
 mod_test_vif = lm(total_insects ~ flower_type + date + total_inflorescences_ab, data = clean_dmerge) 
 # vif doesn't care about the y value, only the predictors as long as they match, and it's cleaner to use a linear model, so we will do this for now though our final models will be negative binomial 
 
-vif(mod_test_vif)
+print(vif(mod_test_vif))
+
 # actually not that bad 
 
 mod_test_vif_nodate = lm(total_insects ~ flower_type + total_inflorescences_ab, data = clean_dmerge) 
-vif(mod_test_vif_nodate)
+print(vif(mod_test_vif_nodate))
 # alright, flower type is not particularly collinear to total inflorescences 
 # reducing hte terms to find the problem pairs. A correlation table will also do this but I find it more intuitive to just drop them manually. 
 
@@ -178,13 +179,13 @@ p = interact_plot(model,
                   legend.main = "Inflorescence Count Per Plant")
 
 
-p + 
+p = p + 
   labs(title = "Hydrangea paniculata outperformed \n Hydrangea arborescens",
        x = "Species", 
        y = "Average Insects Per Plant Per Day", 
        fill = "Total Inflorescences per Plant")
 # It's close, but species is not actually interacting with inflorescence count 
-
+print(p)
 
 #cat plot is for categorical variables. Since inflorescences is a continuous variable, use interact_plot. Cat plot gives error bars; this gives standard deviations. 
 
@@ -197,11 +198,13 @@ p = interact_plot(model,
                   modx = total_inflorescences_ab, 
                   legend.main = "Inflorescence Count Per Plant")
 
-p + 
+p = p + 
   labs(title = "lacy is better than mop, \n esp among high performing hydrangeas",
        x = "Species", 
        y = "Average Insects Per Plant Per Day", 
        fill = "Total Inflorescences per Plant")
+
+print(p)
 
 # flower type x  spp and interaction 
 # ---------------------------------------------------------
@@ -212,11 +215,14 @@ p = interact_plot(model,
                   modx = total_inflorescences_ab, 
                   legend.main = "Inflorescence Count Per Plant")
 
-p + 
+p = p + 
   labs(title = "high performing lacy hydrangeas were different",
        x = "Species", 
        y = "Average Insects Per Plant Per Day", 
        fill = "Total Inflorescences per Plant")
+
+print(p)
+
 rm(model) # cleaning our environment 
 
 
@@ -251,6 +257,7 @@ rm(model) # cleaning environment
 
 model = glm.nb(total_insects ~ total_inflorescences_ab + flower_type + wind + cloud + temp_f + month, data = clean_dmerge) 
 
+print("This is our final model")
 summary(model)
 
 # Preparing the final model for output in the paper 
@@ -292,6 +299,7 @@ ci_irr
 # However, we can still check for outliers, leverage, adn similar
 # in addition, we are reasonably certain we have accounted for multicollinearity with our VIF and interaction plots from earlier 
 
+print("Assumption checking our final model")
 plot(model)  
 # yep, these look acceptable 
 
@@ -299,6 +307,7 @@ plot(model)
 # Post hoc tests 
 #####################################################
 
+print("Post-hoc tests with emmeans") 
 # Can't do tukey post-hoc directly for  negative binomial 
 
 # 
@@ -323,9 +332,9 @@ pairs(emm, adjust = "tukey")
 
 # getting the exp(est) 
 pairs_resp <- pairs(emm, type = "response")
-pairs_resp 
+print(pairs_resp) 
 
 # getting the confidence intervals 
 ci_resp <- confint(pairs_resp)
-ci_resp
+print(ci_resp)
 

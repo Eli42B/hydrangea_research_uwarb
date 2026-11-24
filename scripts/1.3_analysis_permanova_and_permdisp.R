@@ -1,5 +1,5 @@
 #########################################################################
-# new pca analysis aggregated by WiBee categories + plant categories 
+# PERMANOVA and PERMDISP ANALYSES 
 #########################################################################
 
 library(ggplot2)
@@ -114,183 +114,6 @@ d_shape_long = d_plant_level %>%
     values_to = "abundance"
   ) 
 
-# graphing a 100% stacked barchart with ggplot2 
-# ------------------------------------------------------------------------------
-
-# colorblind palette 
-cb_palette <- c(
-  "#E69F00", # orange
-  "#56B4E9", # sky blue
-  "#009E73", # bluish green
-  "#F0E442", # yellow
-  "#0072B2", # blue
-  "#D55E00", # vermillion
-  "#CC79A7", # reddish purple
-  "#999999", # gray
-  "#332288", # dark indigo
-  "#88CCEE", # light cyan
-  "#000000" # black 
-) 
-
-# By cultivar 
-ggplot(d_shape_long, aes(fill=guild, y=abundance, x=Cultivar)) + 
-  geom_bar(position="fill", stat="identity") + 
-  scale_fill_manual(values = cb_palette) + 
-  theme_classic()
-
-# By plant species 
-ggplot(d_shape_long, aes(fill=guild, y=abundance, x=Species)) + 
-  geom_bar(position="fill", stat="identity") + 
-  scale_fill_manual(values = cb_palette) + 
-  theme_classic()
-
-# by shape 
-ggplot(d_shape_long, aes(fill=guild, y=abundance, x=Flower.shape)) + 
-  geom_bar(position="fill", stat="identity") + 
-  scale_fill_manual(values = cb_palette) + 
-  theme_classic()
-
-# by species + shape 
-ggplot(d_shape_long, aes(fill=guild, y=abundance, x=Flower.Type)) + 
-  geom_bar(position="fill", stat="identity") + 
-  scale_fill_manual(values = cb_palette) + 
-  theme_classic()
-
-# Graphing a NMDS 
-# ---------------------------------------------------------------------------
-# https://library.virginia.edu/data/articles/starting-non-metric-multidimensional-scaling-nmds 
-# NMDS requires replication so we need the original dataframe with the aggregated columns of bug types but separated dates 
-# we want things organized as a 'community matrix,' which our d_plant_level dataframe already is 
-
-nmds = metaMDS(d_plant_level[,6:16], 
-               distance = "bray", 
-               k = 2) 
-# get an error because some dates had zero insects 
-
-# data cleaning 
-
-d_community = d_plant_level[,6:16] 
-d_community = d_community %>% 
-  mutate(across(everything(), as.numeric))   # convert all to numeric 
-d_community[is.na(d_community)] = 0          # turn NA values into zeroes 
-
-#diagnostics  
-sum(rowSums(d_community) == 0)    # looking for rows where everything equals zero, if we have > 0, we have a problem row 
-sum(is.na(d_community))           # hunting NA values 
-
-# removing rows where everything equals zero 
-keep <- rowSums(d_community) > 0
-d_community <- d_community[keep, ]
-d_plant_nmds <- d_plant_level[keep, ]
-
-sum(rowSums(d_community) == 0)  # looks like it worked, 0 rows where everything equals zero now 
-colSums(d_community)            # Making sure column sums also don't have any zeroes 
-
-# re-running nmds 
-
-set.seed(42) 
-nmds = metaMDS(d_community, 
-               distance = "bray", 
-               k = 2, 
-               trymax = 100) 
-
-print(nmds)
-# stress < 0.2 is a fair fit, so ours is a fair fit but not great. Usable, but poor interpretation. 
-# But it didn't get a best fit more than once after 100 iterations, that's not great. 
-
-stressplot(nmds)  
-# OK, we want the little blue dots (pairwise comparisons, actual data) to follow the red line (ideal relationship between points) 
-# This is actually looking pretty good. 
-
-plot(nmds) 
-# We don't really have distinct groups, everything's in one cluster. Which matches the percent graphs that indicated a lo tof overlap. 
-# The circles are our rows / plants and the + signs are the bug guilds 
-
-# Trying to plot prettier
-
-# Extract site scores
-nmds_df <- as.data.frame(scores(nmds, display = "sites"))
-
-# add the metadata to nmds scores 
-nmds_df$Flower.shape <- d_plant_nmds$Flower.shape
-nmds_df$Species <- d_plant_nmds$Species
-nmds_df$Cultivar = d_plant_nmds$Cultivar
-nmds_df$Flower.Type = d_plant_nmds$Flower.Type
-
-# plot with ggplot2 
-ggplot(nmds_df, aes(x = NMDS1, y = NMDS2)) +
-  geom_point(size = 3) +
-  theme_bw() +
-  theme(
-    axis.title = element_text(size = 16),
-    axis.text = element_text(size = 14)
-  )
-
-# Plot by species 
-ggplot(nmds_df,
-       aes(NMDS1, NMDS2, color = Species)) +
-  geom_point(size = 3) +
-  coord_equal() +
-  theme_bw()
-
-# Plot by Flower Shape 
-ggplot(nmds_df,
-       aes(NMDS1, NMDS2, color = Flower.shape)) +
-  geom_point(size = 3) +
-  coord_equal() +
-  theme_bw()
-
-# Plot by Flower Type 
-ggplot(nmds_df,
-       aes(NMDS1, NMDS2, color = Flower.Type)) +
-  geom_point(size = 3) +
-  coord_equal() +
-  theme_bw()
-
-# Plot by both 
-ggplot(nmds_df,
-       aes(NMDS1, NMDS2, 
-           shape = Flower.shape, 
-           color = Species)) +
-  geom_point(size = 3) +
-  scale_shape_manual(values = c(3, 16)) + 
-  scale_color_manual(values = c(
-    "Hydrangea arborescens" = "#08306B",
-    "Hydrangea paniculata" = "#8B0000")) + 
-  coord_equal() +
-  theme_bw() + 
-  theme(
-  axis.title = element_text(size = 18),
-  axis.text = element_text(size = 14),
-  legend.title = element_text(size = 16),
-  legend.text = element_text(size = 14)
-)
-
-
-
-
-
-# Trying again with higher trymax values 
-
-set.seed(42) 
-nmds = metaMDS(d_community, 
-               distance = "bray", 
-               k = 2, 
-               trymax = 500) 
-print(nmds)
-# best solution was repeated one time, that is not good 
-
-# Trying with a third dimension 
-
-set.seed(42) 
-nmds = metaMDS(d_community, 
-               distance = "bray", 
-               k = 3, 
-               trymax = 500) 
-# best solution was repeated 1 time 
-print(nmds)
-# Stress was 0.124 which is better than 0.18 
-
 ########################################################################
 # Running PERNOVA analysis 
 ########################################################################
@@ -327,6 +150,7 @@ nmds = metaMDS(d_guilds2[,6:16],
                distance = "bray", 
                k = 2, 
                trymax = 100) 
+
 # PERMANOVA 
 adonis2(bc ~ Species + Flower.shape,
         data = d_guilds2,
@@ -351,3 +175,4 @@ permutest(disp, permutations = 999)
 TukeyHSD(disp)
 boxplot(disp)
 plot(disp)
+

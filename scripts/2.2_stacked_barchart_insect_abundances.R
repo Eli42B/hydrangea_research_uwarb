@@ -193,19 +193,19 @@ p <- ggplot(d, aes(x = order, y = photo_or_abundance, fill = family)) +
     # legend gone
   )
 
-p
+plot(p)
 
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = insect_piechart_but_not, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 6.5, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = insect_piechart_but_not, 
+#  plot = p, 
+#  dpi = 600, # 300 to 600 best 
+#  width = 6.5, 
+#  height = 6.5, 
+#  units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 ########################################################
@@ -255,18 +255,18 @@ p <- ggplot(d_hymenoptera, aes(x = order, y = photo_or_abundance, fill = family)
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = hymenoptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = hymenoptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 # Diptera 
@@ -313,18 +313,18 @@ p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = diptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = diptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 
@@ -372,18 +372,18 @@ p <- ggplot(d_diptera, aes(x = order, y = photo_or_abundance, fill = family)) +
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = diptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = diptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 # Coleoptera 
@@ -430,18 +430,18 @@ p <- ggplot(d_coleoptera, aes(x = order, y = photo_or_abundance, fill = family))
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = coleoptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = coleoptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 # Lepidoptera 
@@ -488,18 +488,18 @@ p <- ggplot(d_lepidoptera, aes(x = order, y = photo_or_abundance, fill = family)
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = lepidoptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#   filename = lepidoptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
 
 # Hemiptera 
@@ -546,20 +546,15 @@ p <- ggplot(d_hemiptera, aes(x = order, y = photo_or_abundance, fill = family)) 
     # legend at bottom, can also do 'right' or 'none'
   )
 
-p
+plot(p)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = hemiptera_chart, 
-  plot = p, 
-  dpi = 600, # 300 to 600 best 
-  width = 7, 
-  height = 6.5, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
-
-
-
-
-
+# ggsave(
+#   filename = hemiptera_chart, 
+#   plot = p, 
+#   dpi = 600, # 300 to 600 best 
+#   width = 7, 
+#   height = 6.5, 
+#   units = "in" # Specify units (inches, cm, mm, or px)
+# )

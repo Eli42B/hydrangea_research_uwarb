@@ -51,6 +51,8 @@ p_richness = p_richness +
   theme(
     axis.text.y = element_text(size = 9))
 
+plot(p_richness)
+
 #------------------------------- Abundance Plot 
 
 # Load data 
@@ -89,6 +91,8 @@ p_abundance = p_abundance +
   theme_minimal(base_size = 14) +
   theme(
     axis.text.y = element_text(size = 9))
+
+plot(p_abundance)
 
 # graph them side by side 
 
@@ -164,18 +168,18 @@ p_abundance <- ggplot(
   
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
 
-p_abundance
+plot(p_abundance)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = stacked_abundance_cultivars_filepath, 
-  plot = p_abundance, 
-  dpi = 600, # 300 to 600 best 
-  width = 6.5, 
-  height = 9, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#  filename = stacked_abundance_cultivars_filepath, 
+#  plot = p_abundance, 
+#  dpi = 600, # 300 to 600 best 
+#  width = 6.5, 
+#  height = 9, 
+#  units = "in" # Specify units (inches, cm, mm, or px)
+#  )
 
 
 # -------------------- Insect richness ------------------------------
@@ -260,16 +264,16 @@ p_richness <- ggplot(
   
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
 
-p_richness
+plot(p_richness)
 
 # Save the plot manually (must do this or will save at lower dpi) 
 
-ggsave(
-  filename = stacked_abundance_cultivars_filepath, 
-  plot = p_abundance, 
-  dpi = 600, # 300 to 600 best 
-  width = 6.5, 
-  height = 9, 
-  units = "in" # Specify units (inches, cm, mm, or px)
-)
+# ggsave(
+#  filename = stacked_abundance_cultivars_filepath, 
+#  plot = p_abundance, 
+#  dpi = 600, # 300 to 600 best 
+#  width = 6.5, 
+#  height = 9, 
+#  units = "in" # Specify units (inches, cm, mm, or px)
+# )
 
