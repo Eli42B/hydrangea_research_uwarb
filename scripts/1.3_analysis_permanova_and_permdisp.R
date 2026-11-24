@@ -181,12 +181,32 @@ TukeyHSD(disp) # not needed, it's not significant even slightly
 boxplot(disp)
 plot(disp)
 
+# TEST -- what if we just do boxplots? they aren't hte type of plot I wanted but they look prettier. 
+
+disp_df <- data.frame(
+  Species = disp$group,
+  Distance = disp$distances
+)
+
+ggplot(disp_df,
+       aes(x = Species,
+           y = Distance,
+           color = Species,
+           fill = Species)) +
+  geom_boxplot(alpha = 0.3) +
+  geom_jitter(width = 0.15, size = 2) +
+  scale_color_manual(values = c("#08306B", "#8B0000")) +
+  scale_fill_manual(values = c("#08306B", "#8B0000")) +
+  theme_classic(base_size = 14)
+
+
+
 
 # Saving as a png 
 
 # First open the png magic window 
 png(
-  filename = "PERMDISP_species.png",
+  filename = "output/PERMDISP_species.png",
   width = 7,
   height = 5,
   units = "in",
@@ -222,10 +242,30 @@ TukeyHSD(disp) # not needed, it's not significant even slightly
 boxplot(disp)
 plot(disp)
 
+# TEST -- what if we just do boxplots? they aren't hte type of plot I wanted but they look prettier. 
+
+disp_df <- data.frame(
+  Shape = disp$group,
+  Distance = disp$distances
+)
+
+ggplot(disp_df,
+       aes(x = Shape,
+           y = Distance,
+           color = Shape,
+           fill = Shape)) +
+  geom_boxplot(alpha = 0.3) +
+  geom_jitter(width = 0.15, size = 2) +
+  scale_color_manual(values = c("#08306B", "#8B0000")) +
+  scale_fill_manual(values = c("#08306B", "#8B0000")) +
+  theme_classic(base_size = 14)
+
+
+
 # save as png 
 
 png(
-  filename = "PERMDISP_flower_shape.png",
+  filename = "output/PERMDISP_flower_shape.png",
   width = 7,
   height = 5,
   units = "in",

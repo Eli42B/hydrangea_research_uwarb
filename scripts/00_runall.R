@@ -18,9 +18,9 @@ source(script_0_filepath) # run script0_setup script
 # Analyses for main text 
 #-----------------------------------------------------------------------
 
-source(script_1.1_filepath, print.eval = FALSE) # ANOVA GLM for insect abundance
-source(script_1.2_filepath, print.eval = TRUE)  # ANOVA GLM for insect richness 
-source(script_1.3_filepath)                     # PERMANOVA and PERMDISP analysis 
+source(script_1.1_filepath)    # ANOVA GLM for insect abundance
+source(script_1.2_filepath)    # ANOVA GLM for insect richness 
+source(script_1.3_filepath)    # PERMANOVA and PERMDISP analysis 
 
 # graphs for main text 
 #-----------------------------------------------------------------------
